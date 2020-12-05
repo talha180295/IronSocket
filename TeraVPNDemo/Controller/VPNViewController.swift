@@ -31,7 +31,7 @@ class VPNViewController: UIViewController {
     @IBOutlet weak var cityName:UILabel!
     @IBOutlet weak var timmer:UILabel!
     @IBOutlet weak var connectionBtn:GradientButton!
-    @IBOutlet weak var serverIP:UILabel!
+//    @IBOutlet weak var serverIP:UILabel!
     @IBOutlet weak var dataRecieved:UILabel!
     @IBOutlet weak var dataSent:UILabel!
     @IBOutlet weak var connectionStatus:UILabel!
@@ -97,13 +97,13 @@ class VPNViewController: UIViewController {
         
         self.title = "TeraVPN"
         
-        self.selectedIP = "\(serverList[0].serverIP ?? "0") \(serverList[0].serverPort ?? "0")"
-        self.serverIP.text = "\(serverList[0].serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
-        self.countryName.text = "\(serverList[0].country ?? "")"
-        self.cityName.text = "\(serverList[0].city ?? "")"
-        self.flag.image = UIImage.init(named: serverList[0].flag ?? "")
-        self.connectionStatus.text = "Disconnected"
-        self.connectionStatus.textColor = .red
+//        self.selectedIP = "\(serverList.first?.serverIP ?? "0") \(serverList.first?.serverPort ?? "0")"
+//        self.serverIP.text = "\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
+//        self.countryName.text = "\(serverList.first?.country ?? "")"
+//        self.cityName.text = "\(serverList.first?.city ?? "")"
+//        self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
+//        self.connectionStatus.text = "Disconnected"
+//        self.connectionStatus.textColor = .red
         self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
         
         
@@ -132,7 +132,7 @@ class VPNViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     
@@ -175,7 +175,7 @@ class VPNViewController: UIViewController {
     
     
     //For logout
-    @IBAction func settingsBtn(_ sender:UIBarButtonItem){
+    @IBAction func settingsBtn(_ sender:UIButton){
         
         self.openSettingsScreen()
        
@@ -474,7 +474,7 @@ extension VPNViewController:ServerListProtocol{
         }
         
         self.selectedIP = "\(server.serverIP ?? "0") \(server.serverPort ?? "0")"
-        self.serverIP.text = server.serverIP
+//        self.serverIP.text = server.serverIP
         self.countryName.text = "\(server.country ?? "")"
         self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
