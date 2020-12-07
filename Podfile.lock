@@ -22,6 +22,7 @@ PODS:
   - SDWebImage/Core (5.8.4)
   - SideMenu (6.4.8)
   - Toast-Swift (5.0.1)
+  - UICheckbox (0.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.2)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - SDWebImage
   - SideMenu
   - Toast-Swift
+  - UICheckbox
 
 SPEC REPOS:
   trunk:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - SDWebImage
     - SideMenu
     - Toast-Swift
+    - UICheckbox
 
 EXTERNAL SOURCES:
   OpenVPNAdapter:
@@ -65,7 +68,8 @@ SPEC CHECKSUMS:
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  UICheckbox: 54af9bc308c8c2b18404f4c360172115c0daea36
 
-PODFILE CHECKSUM: d57a9ce288c9485b3c435ac9be79cdb7f1aad9aa
+PODFILE CHECKSUM: 2da8d4be428adee8711b1ed38afd809806c5a834
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

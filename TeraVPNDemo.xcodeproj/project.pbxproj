@@ -49,6 +49,9 @@
 		BC4B4870251177CB00E7CC2F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486F251177CB00E7CC2F /* APIRouter.swift */; };
 		BC62748C2523C9F400C3E43D /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6274782523C8CA00C3E43D /* UserCredentials.swift */; };
 		BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */; };
+		BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A107257E2D960008ECCD /* AccountViewController.swift */; };
+		BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */; };
+		BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */; };
 		BCCBB99A2513B5A6002FBD6E /* VPNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCBB9992513B5A6002FBD6E /* VPNViewController.swift */; };
 		BCE2C5872516AF0400CD81FE /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B485625116B9E00E7CC2F /* PacketTunnelProvider.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +131,9 @@
 		BC4B486F251177CB00E7CC2F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		BC6274782523C8CA00C3E43D /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BCC4A107257E2D960008ECCD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		BCCBB9992513B5A6002FBD6E /* VPNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +211,7 @@
 				BC37362B2512C0C3007A1D13 /* Colors.swift */,
 				BC37362C2512C0C3007A1D13 /* RoundedButton.swift */,
 				BC37362D2512C0C3007A1D13 /* UISwitchCustom.swift */,
+				BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -318,6 +325,8 @@
 				BCCBB9992513B5A6002FBD6E /* VPNViewController.swift */,
 				BC2DCDB5251AB99700956916 /* SplashViewController.swift */,
 				BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */,
+				BCC4A107257E2D960008ECCD /* AccountViewController.swift */,
+				BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -502,7 +511,10 @@
 				BC3736382512C0C3007A1D13 /* AppConstants.swift in Sources */,
 				BC4B486C2511737800E7CC2F /* LoginResponse.swift in Sources */,
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
+				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
+				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
+				BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */,
 				BC3736342512C0C3007A1D13 /* KeychainItem.swift in Sources */,
 				BC3736152512B051007A1D13 /* HomeViewController.swift in Sources */,
 				BC4B4870251177CB00E7CC2F /* APIRouter.swift in Sources */,

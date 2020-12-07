@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTF:UITextField!
     @IBOutlet weak var passwordTF:UITextField!
     @IBOutlet weak var loginBtn:UIButton!
+    @IBOutlet weak var checkbox:CheckboxButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class LoginViewController: UIViewController {
 //
 //
         
-        usernameTF.text  = "uzair@cyberdude.com"
-        passwordTF.text  = "abc123"
+//        usernameTF.text  = "uzair@cyberdude.com"
+//        passwordTF.text  = "abc123"
         
         
 //        loginBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
@@ -42,6 +43,10 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginBtn(_ sender:UIButton){
+        
+        if checkbox.on {
+          print("Remember pass Checkbox is checked")
+        }
         
         var vc = VPNViewController()
         if #available(iOSApplicationExtension 13.0, *) {

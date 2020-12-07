@@ -15,6 +15,7 @@ target 'TeraVPNDemo' do
   pod 'SideMenu'
   pod 'EzPopup'
   pod 'LMGaugeViewSwift'
+  pod 'UICheckbox'
 #  pod 'Google-Mobile-Ads-SDK'
   
 end

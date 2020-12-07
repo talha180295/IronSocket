@@ -42,4 +42,18 @@ class SettingsViewController: UIViewController {
     }
     
     
+    @IBAction func accountOnclick(_ sender:UIButton){
+        openAccountScreen()
+    }
+    
+    func openAccountScreen(){
+        var vc = AccountViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AccountViewController") as! AccountViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
