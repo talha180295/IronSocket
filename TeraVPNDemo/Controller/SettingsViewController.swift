@@ -46,6 +46,11 @@ class SettingsViewController: UIViewController {
         openAccountScreen()
     }
     
+    
+    @IBAction func helpOnclick(_ sender:UIButton){
+        openHelpScreen()
+    }
+    
     func openAccountScreen(){
         var vc = AccountViewController()
         if #available(iOSApplicationExtension 13.0, *) {
@@ -56,4 +61,16 @@ class SettingsViewController: UIViewController {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func openHelpScreen(){
+        var vc = HelpViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HelpViewController") as! HelpViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "HelpViewController") as! HelpViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
