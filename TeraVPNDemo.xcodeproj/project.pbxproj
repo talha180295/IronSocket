@@ -48,6 +48,13 @@
 		BC4B486E2511747600E7CC2F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486D2511747600E7CC2F /* LoginRequest.swift */; };
 		BC4B4870251177CB00E7CC2F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486F251177CB00E7CC2F /* APIRouter.swift */; };
 		BC62748C2523C9F400C3E43D /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6274782523C8CA00C3E43D /* UserCredentials.swift */; };
+		BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */; };
+		BC97C535257FC6DE00647BA7 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C534257FC6DE00647BA7 /* TermsViewController.swift */; };
+		BC97C539257FC73700647BA7 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C538257FC73700647BA7 /* FAQViewController.swift */; };
+		BC97C53D257FCADC00647BA7 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C53C257FCADC00647BA7 /* AppSettingsViewController.swift */; };
+		BC97C541257FD4C000647BA7 /* VPNSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */; };
+		BC97C545257FD76D00647BA7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C544257FD76D00647BA7 /* AboutViewController.swift */; };
+		BC97C54925802D0000647BA7 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C54825802D0000647BA7 /* ProtocolViewController.swift */; };
 		BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */; };
 		BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A107257E2D960008ECCD /* AccountViewController.swift */; };
 		BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */; };
@@ -132,6 +139,13 @@
 		BC4B486D2511747600E7CC2F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		BC4B486F251177CB00E7CC2F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		BC6274782523C8CA00C3E43D /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesViewController.swift; sourceTree = "<group>"; };
+		BC97C534257FC6DE00647BA7 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		BC97C538257FC73700647BA7 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		BC97C53C257FCADC00647BA7 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
+		BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSettingViewController.swift; sourceTree = "<group>"; };
+		BC97C544257FD76D00647BA7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		BC97C54825802D0000647BA7 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BCC4A107257E2D960008ECCD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +347,13 @@
 				BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */,
 				BCC4A107257E2D960008ECCD /* AccountViewController.swift */,
 				BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */,
+				BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */,
+				BC97C534257FC6DE00647BA7 /* TermsViewController.swift */,
+				BC97C538257FC73700647BA7 /* FAQViewController.swift */,
+				BC97C53C257FCADC00647BA7 /* AppSettingsViewController.swift */,
+				BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */,
+				BC97C544257FD76D00647BA7 /* AboutViewController.swift */,
+				BC97C54825802D0000647BA7 /* ProtocolViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -519,7 +540,9 @@
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
 				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
 				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
+				BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */,
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
+				BC97C539257FC73700647BA7 /* FAQViewController.swift in Sources */,
 				BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */,
 				BCC4A1F3257ED88B0008ECCD /* HelpViewController.swift in Sources */,
 				BC3736342512C0C3007A1D13 /* KeychainItem.swift in Sources */,
@@ -534,15 +557,20 @@
 				BCCBB99A2513B5A6002FBD6E /* VPNViewController.swift in Sources */,
 				BC3736362512C0C3007A1D13 /* RoundedImageView.swift in Sources */,
 				BC37363A2512C0C3007A1D13 /* RoundedButton.swift in Sources */,
+				BC97C541257FD4C000647BA7 /* VPNSettingViewController.swift in Sources */,
 				BC3736332512C0C3007A1D13 /* CardView.swift in Sources */,
+				BC97C54925802D0000647BA7 /* ProtocolViewController.swift in Sources */,
 				BC2DCDB6251AB99700956916 /* SplashViewController.swift in Sources */,
 				BC3736492512C0D9007A1D13 /* UIView+Extension.swift in Sources */,
 				BC37363B2512C0C3007A1D13 /* UISwitchCustom.swift in Sources */,
 				BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */,
 				BC4B483F2511686A00E7CC2F /* SceneDelegate.swift in Sources */,
 				BC2DCDB4251AB36F00956916 /* UsageResponse.swift in Sources */,
+				BC97C545257FD76D00647BA7 /* AboutViewController.swift in Sources */,
 				BC37364B2512C0D9007A1D13 /* TopBarView.swift in Sources */,
+				BC97C53D257FCADC00647BA7 /* AppSettingsViewController.swift in Sources */,
 				BC3736472512C0D9007A1D13 /* UIColor+Extension.swift in Sources */,
+				BC97C535257FC6DE00647BA7 /* TermsViewController.swift in Sources */,
 				BC3736372512C0C3007A1D13 /* HelperFunc.swift in Sources */,
 				BC3736352512C0C3007A1D13 /* UIButtonBadge.swift in Sources */,
 			);

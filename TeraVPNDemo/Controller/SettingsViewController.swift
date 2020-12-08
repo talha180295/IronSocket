@@ -41,11 +41,21 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
+    @IBAction func AppSettingOnclick(_ sender:UIButton){
+        openAppSettingScreen()
+    }
+    
+    @IBAction func VPNSettingOnclick(_ sender:UIButton){
+        openVPNSettingScreen()
+    }
     
     @IBAction func accountOnclick(_ sender:UIButton){
         openAccountScreen()
     }
     
+    @IBAction func aboutOnclick(_ sender:UIButton){
+        openAboutScreen()
+    }
     
     @IBAction func helpOnclick(_ sender:UIButton){
         openHelpScreen()
@@ -72,5 +82,41 @@ class SettingsViewController: UIViewController {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func openAppSettingScreen(){
+        var vc = AppSettingsViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AppSettingsViewController") as! AppSettingsViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "AppSettingsViewController") as! AppSettingsViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    func openVPNSettingScreen(){
+        var vc = VPNSettingViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNSettingViewController") as! VPNSettingViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNSettingViewController") as! VPNSettingViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    func openAboutScreen(){
+        var vc = AboutViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AboutViewController") as! AboutViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
 }
