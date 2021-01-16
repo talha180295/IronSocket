@@ -22,7 +22,7 @@ class SideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         HelperFunc().registerTableCell(tableView: serverNameTbl, nibName: "MenuCell", identifier: "MenuCell")
         serverNameTbl.delegate = self
@@ -66,8 +66,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource{
         catch{
             
         }
-        dismiss(animated: true, completion: nil)
-        
+//        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

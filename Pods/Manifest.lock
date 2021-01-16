@@ -4,6 +4,9 @@ PODS:
   - iProgressHUD (1.1.1)
   - IQKeyboardManagerSwift (6.3.0)
   - LMGaugeViewSwift (1.0.0)
+  - MMWormhole (2.0.0):
+    - MMWormhole/Core (= 2.0.0)
+  - MMWormhole/Core (2.0.0)
   - OpenVPNAdapter (0.7.0):
     - OpenVPNAdapter/ASIO (= 0.7.0)
     - OpenVPNAdapter/LZ4 (= 0.7.0)
@@ -17,10 +20,13 @@ PODS:
   - OpenVPNAdapter/OpenVPN3 (0.7.0)
   - OpenVPNAdapter/OpenVPNAdapter (0.7.0)
   - OpenVPNAdapter/OpenVPNClient (0.7.0)
+  - RadioGroup (1.3.3):
+    - SweeterSwift
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
   - SideMenu (6.4.8)
+  - SweeterSwift (1.1.4)
   - Toast-Swift (5.0.1)
   - UICheckbox (0.0.2)
 
@@ -30,7 +36,9 @@ DEPENDENCIES:
   - iProgressHUD
   - IQKeyboardManagerSwift (= 6.3.0)
   - LMGaugeViewSwift
+  - MMWormhole (~> 2.0.0)
   - OpenVPNAdapter (from `https://github.com/ss-abramchuk/OpenVPNAdapter.git`, tag `0.7.0`)
+  - RadioGroup
   - SDWebImage
   - SideMenu
   - Toast-Swift
@@ -43,8 +51,11 @@ SPEC REPOS:
     - iProgressHUD
     - IQKeyboardManagerSwift
     - LMGaugeViewSwift
+    - MMWormhole
+    - RadioGroup
     - SDWebImage
     - SideMenu
+    - SweeterSwift
     - Toast-Swift
     - UICheckbox
 
@@ -64,12 +75,15 @@ SPEC CHECKSUMS:
   iProgressHUD: caa742128253c97f2c2e1ec59e2bbe6cf689df6a
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   LMGaugeViewSwift: 049e8550417b3b00c67f396103c52fb3730550bf
+  MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
   OpenVPNAdapter: 173fcc4c11a3a8a83ae8d250c079cdc5b9fb8ff1
+  RadioGroup: b84d3ef8a255f63bc7a601f487b3d32355f9f365
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
+  SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UICheckbox: 54af9bc308c8c2b18404f4c360172115c0daea36
 
-PODFILE CHECKSUM: 2da8d4be428adee8711b1ed38afd809806c5a834
+PODFILE CHECKSUM: f22c8d5d0af51cd8918a38b4c4b22ee19495b66d
 
 COCOAPODS: 1.10.0

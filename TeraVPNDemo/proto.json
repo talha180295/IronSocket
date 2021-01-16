@@ -1,0 +1,39 @@
+{
+  "tcp": {
+    "none": [
+      "rport 441",
+      "proto tcp",
+      "cipher none"
+    ],
+    "low": [
+      "rport 442",
+      "proto tcp",
+      "cipher BF-CBC"
+    ],
+    "strong": [
+      "rport 443",
+      "proto tcp",
+      "cipher AES-128-GCM"
+    ]
+  },
+  "udp": {
+    "none": [
+      "rport 441",
+      "proto udp",
+      "cipher none",
+      "explicit-exit-notify"
+    ],
+    "low": [
+      "rport 442",
+      "proto udp",
+      "cipher BF-CBC",
+      "explicit-exit-notify"
+    ],
+    "strong": [
+      "rport 443",
+      "proto udp",
+      "cipher AES-128-GCM",
+      "explicit-exit-notify"
+    ]
+  }
+}

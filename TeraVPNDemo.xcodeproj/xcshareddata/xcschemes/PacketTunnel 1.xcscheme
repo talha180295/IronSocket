@@ -57,8 +57,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "abc.org.TeraVPNDemo1"
+         RemotePath = "/var/containers/Bundle/Application/120AC9EC-BBD8-44B4-A503-BF87F4EA9FB6/TeraVPNDemo.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BC4B48382511686A00E7CC2F"
@@ -66,7 +70,7 @@
             BlueprintName = "TeraVPNDemo"
             ReferencedContainer = "container:TeraVPNDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

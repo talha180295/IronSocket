@@ -1,40 +1,32 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  LoginResponse.swift
-//  TeraVPNDemo
-//
-//  Created by Talha Ahmed on 16/09/2020.
-//  Copyright © 2020 abc. All rights reserved.
-//
+//   let loginResponse = try? newJSONDecoder().decode(LoginResponse.self, from: jsonData)
 
 import Foundation
 
 // MARK: - LoginResponse
 struct LoginResponse: Codable {
-    var success , message , name, username, password: String?
+    var success, name, username, password: String?
     var nextdue, curloc, query, package: String?
     var server: [Server]?
-    var usage: Usage?
-    var adblocker:String?
+    var adblocker, email: String?
+    var planID: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case success, name, username, password, nextdue, curloc, query, package, server, adblocker, email
+        case planID = "plan_id"
+    }
 }
 
 // MARK: - Server
 struct Server: Codable {
-    var serverIP, serverPort: String?
-    var country: String?
-    var city, type, flag: String?
+    var serverIP, serverPort, country, city: String?
+    var flag, type: String?
 
     enum CodingKeys: String, CodingKey {
         case serverIP = "server_ip"
         case serverPort = "server_port"
-        case country = "Country"
-        case city = "City"
-        case type
-        case flag = "Flag"
+        case country, city, flag, type
     }
-}
-
-// MARK: - Usage
-struct Usage: Codable {
-    var usagelimit, usagetotal, limitrange: String?
-//    var remaining: Int?
 }

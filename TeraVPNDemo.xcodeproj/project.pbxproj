@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50AE9477B26E0193A81C18C2 /* Pods_PacketTunnel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8F0E426031E0BFCDFC3B2A /* Pods_PacketTunnel.framework */; };
 		8B08384FE5363CFD8715A322 /* Pods_TeraVPNDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C74BFF98BD909D653711658 /* Pods_TeraVPNDemo.framework */; };
+		BC01350225A769EA001B5865 /* vpn-01.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC0134FF25A7684B001B5865 /* vpn-01.ovpn */; };
 		BC2DCDB4251AB36F00956916 /* UsageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DCDB3251AB36E00956916 /* UsageResponse.swift */; };
 		BC2DCDB6251AB99700956916 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DCDB5251AB99700956916 /* SplashViewController.swift */; };
 		BC3736152512B051007A1D13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3736142512B051007A1D13 /* HomeViewController.swift */; };
@@ -31,7 +32,7 @@
 		BC37364B2512C0D9007A1D13 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3736432512C0D9007A1D13 /* TopBarView.swift */; };
 		BC37364C2512C0D9007A1D13 /* BottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3736452512C0D9007A1D13 /* BottomBarView.xib */; };
 		BC37364D2512C0D9007A1D13 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3736462512C0D9007A1D13 /* BottomBarView.swift */; };
-		BC3736512512D075007A1D13 /* vpn-01.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3736502512D074007A1D13 /* vpn-01.ovpn */; };
+		BC3736512512D075007A1D13 /* vpn-02.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3736502512D074007A1D13 /* vpn-02.ovpn */; };
 		BC3BB089253857C200EFB904 /* test.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3BB0792538538D00EFB904 /* test.ovpn */; };
 		BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483C2511686A00E7CC2F /* AppDelegate.swift */; };
 		BC4B483F2511686A00E7CC2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483E2511686A00E7CC2F /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 		BC97C541257FD4C000647BA7 /* VPNSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */; };
 		BC97C545257FD76D00647BA7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C544257FD76D00647BA7 /* AboutViewController.swift */; };
 		BC97C54925802D0000647BA7 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C54825802D0000647BA7 /* ProtocolViewController.swift */; };
+		BCB95BC825AFBA9000FCDAD8 /* android-version3.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */; };
 		BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */; };
 		BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A107257E2D960008ECCD /* AccountViewController.swift */; };
 		BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */; };
@@ -62,6 +64,10 @@
 		BCC4A1F3257ED88B0008ECCD /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */; };
 		BCC4A1F7257ED99E0008ECCD /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1F6257ED99E0008ECCD /* PrivacyViewController.swift */; };
 		BCCBB99A2513B5A6002FBD6E /* VPNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCBB9992513B5A6002FBD6E /* VPNViewController.swift */; };
+		BCCBC1AE25A8905B00A5841B /* android-version.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCCBC1AD25A8905B00A5841B /* android-version.ovpn */; };
+		BCCBC1B425A8F33300A5841B /* android-version2.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCCBC1B325A8F33300A5841B /* android-version2.ovpn */; };
+		BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9AE0C25AF8CA700E41A03 /* Proto.swift */; };
+		BCD9AE1125AFA15A00E41A03 /* proto.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD9AE1025AFA15A00E41A03 /* proto.json */; };
 		BCE2C5872516AF0400CD81FE /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B485625116B9E00E7CC2F /* PacketTunnelProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +102,7 @@
 		5FAC8CE7270B843D85C81018 /* Pods-TeraVPNDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeraVPNDemo.release.xcconfig"; path = "Target Support Files/Pods-TeraVPNDemo/Pods-TeraVPNDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C74BFF98BD909D653711658 /* Pods_TeraVPNDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeraVPNDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BACDFF84660D1B9D6E769A /* Pods-PacketTunnel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PacketTunnel.release.xcconfig"; path = "Target Support Files/Pods-PacketTunnel/Pods-PacketTunnel.release.xcconfig"; sourceTree = "<group>"; };
+		BC0134FF25A7684B001B5865 /* vpn-01.ovpn */ = {isa = PBXFileReference; lastKnownFileType = text; name = "vpn-01.ovpn"; path = "Response/vpn-01.ovpn"; sourceTree = "<group>"; };
 		BC2DCDB3251AB36E00956916 /* UsageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageResponse.swift; sourceTree = "<group>"; };
 		BC2DCDB5251AB99700956916 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BC3736142512B051007A1D13 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +125,7 @@
 		BC3736432512C0D9007A1D13 /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		BC3736452512C0D9007A1D13 /* BottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomBarView.xib; sourceTree = "<group>"; };
 		BC3736462512C0D9007A1D13 /* BottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
-		BC3736502512D074007A1D13 /* vpn-01.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpn-01.ovpn"; sourceTree = "<group>"; };
+		BC3736502512D074007A1D13 /* vpn-02.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpn-02.ovpn"; sourceTree = "<group>"; };
 		BC3BB0792538538D00EFB904 /* test.ovpn */ = {isa = PBXFileReference; lastKnownFileType = text; name = test.ovpn; path = Response/test.ovpn; sourceTree = "<group>"; };
 		BC4B48392511686A00E7CC2F /* TeraVPNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeraVPNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4B483C2511686A00E7CC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +153,7 @@
 		BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSettingViewController.swift; sourceTree = "<group>"; };
 		BC97C544257FD76D00647BA7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BC97C54825802D0000647BA7 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
+		BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version3.ovpn"; sourceTree = "<group>"; };
 		BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BCC4A107257E2D960008ECCD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 		BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		BCC4A1F6257ED99E0008ECCD /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		BCCBB9992513B5A6002FBD6E /* VPNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNViewController.swift; sourceTree = "<group>"; };
+		BCCBC1AD25A8905B00A5841B /* android-version.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version.ovpn"; sourceTree = "<group>"; };
+		BCCBC1B325A8F33300A5841B /* android-version2.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version2.ovpn"; sourceTree = "<group>"; };
+		BCD9AE0C25AF8CA700E41A03 /* Proto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proto.swift; sourceTree = "<group>"; };
+		BCD9AE1025AFA15A00E41A03 /* proto.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = proto.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +215,7 @@
 			children = (
 				BC4B486B2511737800E7CC2F /* LoginResponse.swift */,
 				BC2DCDB3251AB36E00956916 /* UsageResponse.swift */,
+				BCD9AE0C25AF8CA700E41A03 /* Proto.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -304,7 +317,11 @@
 			children = (
 				BC5A4D79257591010034A4CE /* Controller */,
 				BC2DCDB2251AB35600956916 /* Response */,
-				BC3736502512D074007A1D13 /* vpn-01.ovpn */,
+				BC3736502512D074007A1D13 /* vpn-02.ovpn */,
+				BC0134FF25A7684B001B5865 /* vpn-01.ovpn */,
+				BCCBC1AD25A8905B00A5841B /* android-version.ovpn */,
+				BCCBC1B325A8F33300A5841B /* android-version2.ovpn */,
+				BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */,
 				BC3BB0792538538D00EFB904 /* test.ovpn */,
 				BC37363C2512C0D9007A1D13 /* Extension */,
 				BC37361E2512C0C3007A1D13 /* Helper */,
@@ -320,6 +337,7 @@
 				BC4B486D2511747600E7CC2F /* LoginRequest.swift */,
 				BC6274782523C8CA00C3E43D /* UserCredentials.swift */,
 				BC4B486F251177CB00E7CC2F /* APIRouter.swift */,
+				BCD9AE1025AFA15A00E41A03 /* proto.json */,
 			);
 			path = TeraVPNDemo;
 			sourceTree = "<group>";
@@ -442,14 +460,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCBC1B425A8F33300A5841B /* android-version2.ovpn in Resources */,
 				BC37364A2512C0D9007A1D13 /* TopBarView.xib in Resources */,
+				BCD9AE1125AFA15A00E41A03 /* proto.json in Resources */,
 				BC4B48492511686F00E7CC2F /* LaunchScreen.storyboard in Resources */,
+				BCB95BC825AFBA9000FCDAD8 /* android-version3.ovpn in Resources */,
 				BC3BB089253857C200EFB904 /* test.ovpn in Resources */,
-				BC3736512512D075007A1D13 /* vpn-01.ovpn in Resources */,
+				BC3736512512D075007A1D13 /* vpn-02.ovpn in Resources */,
 				BC4B48462511686F00E7CC2F /* Assets.xcassets in Resources */,
 				BC37361D2512BE85007A1D13 /* MenuCell.xib in Resources */,
 				BC4B48442511686A00E7CC2F /* Main.storyboard in Resources */,
+				BCCBC1AE25A8905B00A5841B /* android-version.ovpn in Resources */,
 				BC37364C2512C0D9007A1D13 /* BottomBarView.xib in Resources */,
+				BC01350225A769EA001B5865 /* vpn-01.ovpn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +563,7 @@
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
 				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
 				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
+				BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */,
 				BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */,
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
 				BC97C539257FC73700647BA7 /* FAQViewController.swift in Sources */,
@@ -736,17 +760,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = 573VF9FKGC;
 				INFOPLIST_FILE = TeraVPNDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.org.TeraVPNDemo1;
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.org.IronSocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -762,17 +786,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = 573VF9FKGC;
 				INFOPLIST_FILE = TeraVPNDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.org.TeraVPNDemo1;
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.org.IronSocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -787,6 +811,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,7 +819,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = abc.org.TeraVPNDemo1.PacketTunnel;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.org.IronSocket.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -810,6 +836,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -817,7 +844,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = abc.org.TeraVPNDemo1.PacketTunnel;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.org.IronSocket.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;

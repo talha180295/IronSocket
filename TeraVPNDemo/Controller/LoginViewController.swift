@@ -27,6 +27,9 @@ class LoginViewController: UIViewController {
 //        usernameTF.text  = "uzair@cyberdude.com"
 //        passwordTF.text  = "abc123"
         
+
+        usernameTF.text  = "vpn_izy70k8b"
+        passwordTF.text  = "abc"
         
 //        loginBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
     }
@@ -48,59 +51,59 @@ class LoginViewController: UIViewController {
           print("Remember pass Checkbox is checked")
         }
         
-        var vc = VPNViewController()
-        if #available(iOSApplicationExtension 13.0, *) {
-            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
-            
-        } else {
-            vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
-        }
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-//        let params = ["username":usernameTF.text!,"password":passwordTF.text!]
+//        var vc = VPNViewController()
+//        if #available(iOSApplicationExtension 13.0, *) {
+//            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
 //
-//        let request = APIRouter.login(params)
-//        NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
-//
-//            if loginResponse != nil{
-//                print("**********loginResponse**********")
-//                print(loginResponse!)
-//                print("**********loginResponse**********")
-//            }
-//            else if error != nil{
-//                print("**********loginResponse**********")
-//                print(error!)
-//                print("**********loginResponse**********")
-//            }
-//
-//            if loginResponse?.success == "true"{
-//
-//                var vc = VPNViewController()
-//                if #available(iOSApplicationExtension 13.0, *) {
-//                    vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
-//
-//                } else {
-//                    vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
-//                }
-//
-//                vc.serverList = loginResponse?.server ?? [Server]()
-//                vc.username = loginResponse?.username
-//                vc.password = loginResponse?.password
-////                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
-////                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
-//
-//                let userCredentials = UserCredentials.init(username: self.usernameTF.text!, password: self.passwordTF.text!)
-//                HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
-//                HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
-//
-//                HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
-//                HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
-//                self.navigationController?.pushViewController(vc, animated: true)
-//
-//            }
-//
+//        } else {
+//            vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
 //        }
+        
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let params = ["username":usernameTF.text!,"password":passwordTF.text!]
+
+        let request = APIRouter.login(params)
+        NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
+
+            if loginResponse != nil{
+                print("**********loginResponse**********")
+                print(loginResponse!)
+                print("**********loginResponse**********")
+            }
+            else if error != nil{
+                print("**********loginResponse**********")
+                print(error!)
+                print("**********loginResponse**********")
+            }
+
+            if loginResponse?.success == "true"{
+
+                var vc = VPNViewController()
+                if #available(iOSApplicationExtension 13.0, *) {
+                    vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
+
+                } else {
+                    vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
+                }
+
+                vc.serverList = loginResponse?.server ?? [Server]()
+                vc.username = loginResponse?.username
+                vc.password = loginResponse?.password
+//                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
+//                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
+
+                let userCredentials = UserCredentials.init(username: self.usernameTF.text!, password: self.passwordTF.text!)
+                HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
+                HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
+
+                HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
+                HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
+                self.navigationController?.pushViewController(vc, animated: true)
+
+            }
+
+        }
         
     }
     

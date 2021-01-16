@@ -554,11 +554,11 @@ class HomeViewController: UIViewController {
                 let addrFamily = interface?.ifa_addr.pointee.sa_family
                 if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
                     
-                    if let name: String = String(cString: (interface?.ifa_name)!), name == "en0" {  // String.fromCString() is deprecated in Swift 3. So use the following code inorder to get the exact IP Address.
-                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                        getnameinfo(interface?.ifa_addr, socklen_t((interface?.ifa_addr.pointee.sa_len)!), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
-                        address = String(cString: hostname)
-                    }
+//                    if let name: String = String(cString: (interface?.ifa_name)!), name == "en0" {  // String.fromCString() is deprecated in Swift 3. So use the following code inorder to get the exact IP Address.
+//                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+//                        getnameinfo(interface?.ifa_addr, socklen_t((interface?.ifa_addr.pointee.sa_len)!), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
+//                        address = String(cString: hostname)
+//                    }
                     
                 }
             }

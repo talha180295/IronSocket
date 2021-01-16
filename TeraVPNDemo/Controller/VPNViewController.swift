@@ -12,26 +12,76 @@ import CoreLocation
 import NetworkExtension
 import SDWebImage
 import LMGaugeViewSwift
+import MMWormhole
+
 
 class VPNViewController: UIViewController {
     
     var userData: LoginResponse!
     
     var timer : Timer?
+    var timer2 : Timer?
+    
+    var hours: Int = 0
+    var minutes: Int = 0
+    var seconds: Int = 0
+    
     //    var usage:UsageResponse!
     // = 30210912720
     
     var usagelimitInMbs:Double = 0.0// =      32210912720
     var usageRemainingInMbs: Double = 0.0// = 30210912720
+    let wormhole = MMWormhole(applicationGroupIdentifier: "group.abc.org.IronSocket", optionalDirectory: "wormhole")
     
+    let protoJson = """
+                        {
+                          "tcp": {
+                            "none": [
+                              "rport 441",
+                              "proto tcp",
+                              "cipher none"
+                            ],
+                            "low": [
+                              "rport 442",
+                              "proto tcp",
+                              "cipher BF-CBC"
+                            ],
+                            "strong": [
+                              "rport 443",
+                              "proto tcp",
+                              "cipher AES-128-GCM"
+                            ]
+                          },
+                          "udp": {
+                            "none": [
+                              "rport 441",
+                              "proto udp",
+                              "cipher none",
+                              "explicit-exit-notify"
+                            ],
+                            "low": [
+                              "rport 442",
+                              "proto udp",
+                              "cipher BF-CBC",
+                              "explicit-exit-notify"
+                            ],
+                            "strong": [
+                              "rport 443",
+                              "proto udp",
+                              "cipher AES-128-GCM",
+                              "explicit-exit-notify"
+                            ]
+                          }
+                        }
+                      """
     
     @IBOutlet weak var gaugeView: GaugeView!
     @IBOutlet weak var flag:UIImageView!
     @IBOutlet weak var countryName:UILabel!
-    @IBOutlet weak var cityName:UILabel!
+    @IBOutlet weak var protocolNameLabel:UIButton!
     @IBOutlet weak var timmer:UILabel!
-    @IBOutlet weak var connectionBtn:GradientButton!
-//    @IBOutlet weak var serverIP:UILabel!
+//    @IBOutlet weak var connectionBtn:UIButton!
+    @IBOutlet weak var serverIP:UILabel!
     @IBOutlet weak var dataRecieved:UILabel!
     @IBOutlet weak var dataSent:UILabel!
     @IBOutlet weak var connectionStatus:UILabel!
@@ -56,6 +106,9 @@ class VPNViewController: UIViewController {
     var isVPNConnected : Bool = false
    
     
+    
+    var count = 0
+    
     func startTimer () {
         guard timer == nil else { return }
         
@@ -74,8 +127,26 @@ class VPNViewController: UIViewController {
     }
     
     
+    func startTimerLabel () {
+        guard timer2 == nil else { return }
+        
+        timer2 =  Timer.scheduledTimer(
+            timeInterval: TimeInterval(1),
+            target      : self,
+            selector    : #selector(VPNViewController.update),
+            userInfo    : nil,
+            repeats     : true)
+    }
+    func stopTimer2() {
+        timer2?.invalidate()
+        timer2 = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        self.connectionBtn.setTitle("Start Connection", for: .normal)
         
         self.userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
@@ -97,14 +168,15 @@ class VPNViewController: UIViewController {
         
         self.title = "TeraVPN"
         
-//        self.selectedIP = "\(serverList.first?.serverIP ?? "0") \(serverList.first?.serverPort ?? "0")"
-//        self.serverIP.text = "\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
-//        self.countryName.text = "\(serverList.first?.country ?? "")"
+        self.selectedIP = "\(serverList.first?.serverIP ?? "0")"//" \(serverList.first?.serverPort ?? "0")"
+        self.serverIP.text = "\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
+        self.countryName.text = "\(serverList.first?.country ?? "")"
 //        self.cityName.text = "\(serverList.first?.city ?? "")"
-//        self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
-//        self.connectionStatus.text = "Disconnected"
-//        self.connectionStatus.textColor = .red
-        self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
+        self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
+        
+        self.connectionStatus.text = "Disconnected"
+        self.connectionStatus.textColor = .red
+//        self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
         
         
         self.dataSent.text = "\(self.dataSentInMbs) MBs"
@@ -124,8 +196,39 @@ class VPNViewController: UIViewController {
         }
         
         
+       
+        
+//        wormhole.listenForMessage(withIdentifier: "messageIdentifier", listener: { (messageObject) -> Void in
+//            if let message = messageObject {
+//                // Do something
+//                print(message)
+//            }
+//        })
         
         //        self.connectionBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
+        
+    }
+    
+    @objc func update() {
+//        if(count > 0) {
+//            timmer.text = "\(count+=1)"
+//        }
+//        while count >= 0 {
+//            timmer.text = "\(count+=1)"
+//        }
+        if self.seconds == 59 {
+            self.seconds = 0
+            if self.minutes == 59 {
+                self.minutes = 0
+                self.hours = self.hours + 1
+            } else {
+                self.minutes = self.minutes + 1
+            }
+        } else {
+            self.seconds = self.seconds + 1
+        }
+      
+        self.timmer.text = "\(self.hours):\(self.minutes):\(self.seconds)"
         
     }
     
@@ -133,18 +236,32 @@ class VPNViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        setupProtocolLabel()
+    }
+    
+    
+    func setupProtocolLabel(){
+        guard let selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String else {
+            
+            self.protocolNameLabel.setTitle("PROTOCOL: OpenVPN - TCP", for: .normal)
+            return
+        }
+        
+        self.protocolNameLabel.setTitle("PROTOCOL: OpenVPN - \(selectedProto.uppercased())", for: .normal)
     }
     
     
     
     @IBAction func connectBtn(_ sender:UIButton){
         
-        if isVPNConnected == true {
-            self.connectVpn()
-        }
-        else{
-            self.checkUsage()
-        }
+        self.connectVpn()
+//        if isVPNConnected == true {
+//            self.connectVpn()
+//        }
+//        else{
+//            self.checkUsage()
+//        }
 //
        
         
@@ -162,15 +279,16 @@ class VPNViewController: UIViewController {
         vc.serverList = self.serverList
         vc.delegate = self
         // Define the menu
-        let leftMenuNavigationController = SideMenuNavigationController(rootViewController: vc)
-        SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
-        
-        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        
-        leftMenuNavigationController.statusBarEndAlpha = 0
-        leftMenuNavigationController.menuWidth = 280
-        present(leftMenuNavigationController, animated: true, completion: nil)
+//        let leftMenuNavigationController = SideMenuNavigationController(rootViewController: vc)
+//        SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
+//
+//        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+//        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+//
+//        leftMenuNavigationController.statusBarEndAlpha = 0
+//        leftMenuNavigationController.menuWidth = 280
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(leftMenuNavigationController, animated: true, completion: nil)
     }
     
     
@@ -260,7 +378,7 @@ extension VPNViewController{
         }
         else{
             
-            let otherAlert = UIAlertController(title: "Tera VPN", message: "Are you sure access VPN Connection", preferredStyle: UIAlertController.Style.alert)
+            let otherAlert = UIAlertController(title: "IronSocket VPN", message: "Are you sure access VPN Connection", preferredStyle: UIAlertController.Style.alert)
             
             let connectAction = UIAlertAction(title: "YES", style: UIAlertAction.Style.default) { _ in
                 
@@ -300,7 +418,7 @@ extension VPNViewController{
     func configureVPN(serverAddress: String, username: String, password: String) {
         
         
-        guard let configurationFileContent = self.getFileData(path: "vpn-01") else { return }
+        guard let configurationFileContent = self.getFileData(path: "android-version3") else { return }
         
         self.providerManager.loadFromPreferences { error in
             if error == nil {
@@ -342,25 +460,126 @@ extension VPNViewController{
         
         constr = content
         
-        constr = constr.replacingOccurrences(of: "remote ip", with: "remote \(self.selectedIP ?? "")")
-        
+//        constr = constr.replacingOccurrences(of: "remote ip", with: "remote \(self.selectedIP ?? "")")
+        constr = setProto(str: constr)
         print("selectedIP=\(self.selectedIP ?? "")")
 //        constr = constr.replacingOccurrences(of: "remote ip", with: "remote \(self.selectedIP ?? "") 443"
         constr = constr.replacingOccurrences(of: "\r\n", with: "\n")
         
-        if let adBlocker = UserDefaults.standard.value(forKey: User_Defaults.adBlocker) as? Bool{
-            
-            if adBlocker{
-                constr = constr.replacingOccurrences(of: "dhcp-option DNS 8.8.8.8", with: "dhcp-option DNS 8.8.8.8 \(self.userData.adblocker ?? "")")
-            }
-            
-        }
+//        if let adBlocker = UserDefaults.standard.value(forKey: User_Defaults.adBlocker) as? Bool{
+//
+//            if adBlocker{
+//                constr = constr.replacingOccurrences(of: "dhcp-option DNS 8.8.8.8", with: "dhcp-option DNS 8.8.8.8 \(self.userData.adblocker ?? "")")
+//            }
+//
+//        }
         
         
-        print("constr=\(constr as String)")
+        print("constr=\n\(constr as String)")
         return (constr as String).data(using: String.Encoding.utf8)! as Data
         
         
+    }
+    
+    func setProto(str:String) -> String{
+        
+        var newStr = str
+//        let protoModel = try! JSONDecoder().decode(Proto.self, from: protoJson.data(using: .utf8)!)
+
+
+        let selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String
+        let selectedEncryption = UserDefaults.standard.value(forKey: User_Defaults.encryption) as? String
+        
+        let data = Data(protoJson.utf8)
+        
+        do {
+            // make sure this JSON is in the format we expect
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                // try to read out a string array
+                if let jsonArr = json[selectedProto ?? "tcp"] as? [String:Any] {
+                    
+                    if let value = jsonArr[selectedEncryption ?? "strong"] as? [String]{
+                        let port  = (value[0]).split(separator: " ")
+                             
+                        print("==\(port)\n")
+                        print("==\(port[1])")
+                        newStr = newStr.replacingOccurrences(of: "remote ip", with: "remote \(self.selectedIP ?? "") \(port[1])")
+                        newStr = newStr.replacingOccurrences(of: "rport", with: "\(value[0])")
+                        newStr = newStr.replacingOccurrences(of: "proto", with: "\(value[1])")
+                        if selectedProto == "udp"{
+                            newStr = newStr.replacingOccurrences(of: "encryption", with: "\(value[2])\n\(value[3])")
+                        }
+                        else{
+                            newStr = newStr.replacingOccurrences(of: "encryption", with: "\(value[2])")
+                        }
+                    }
+                    
+                    
+                }
+            }
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+        }
+        
+//        switch selectedProto {
+//        //For Auto
+//        //case 0:
+//
+//        //for TCP
+//        case 1:
+//            switch selectedEncryption {
+//            //For Non
+//            case 0:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.none?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.none?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.none?[2] ?? "")")
+//            //For Low
+//            case 1:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.low?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.low?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.low?[2] ?? "")")
+//            //For High
+//            case 2:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
+//            default:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
+//            }
+//        //For UDP
+//        case 2:
+//            switch selectedEncryption {
+//            //For Non
+//            case 0:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.none?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.none?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.none?[2] ?? "")\n\(protoModel.udp?.none?[3] ?? "")")
+//            //For Low
+//            case 1:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.low?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.low?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.low?[2] ?? "")\n\(protoModel.udp?.low?[3] ?? "")")
+//            //For High
+//            case 2:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.strong?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.strong?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.strong?[2] ?? "")\n\(protoModel.udp?.strong?[3] ?? "")")
+//            default:
+//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.strong?[0] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.strong?[1] ?? "")")
+//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.strong?[2] ?? "")\n\(protoModel.udp?.strong?[3] ?? "")")
+//            }
+//        default:
+//            newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
+//            newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
+//            newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
+//        }
+        
+        
+        
+        return newStr
     }
     
     func readFile(path: String) -> String? {
@@ -421,16 +640,18 @@ extension VPNViewController{
             print("Connecting...")
             self.connectionStatus.text = "Connecting..."
             self.stopTimer()
+            self.stopTimer2()
             break
         case .connected:
             isVPNConnected = true
             print("Connected...")
             self.connectionStatus.text = "Connected"
             self.connectionStatus.textColor = .green
-            self.connectionBtn.setTitle("Stop Connection", for: .normal)
-            self.connectionBtn.backgroundColor = .red
+//            self.connectionBtn.setTitle("Stop Connection", for: .normal)
+//            self.connectionBtn.backgroundColor = .red
             
             self.startTimer()
+            self.startTimerLabel()
             // Create a timer to getTrafficStats
 //            Timer.scheduledTimer(timeInterval: 2,
 //                                 target: self,
@@ -448,9 +669,10 @@ extension VPNViewController{
             print("Disconnected...")
             self.connectionStatus.text = "Disconnected"
             self.connectionStatus.textColor = .red
-            self.connectionBtn.setTitle("Start Connection", for: .normal)
-            self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
+//            self.connectionBtn.setTitle("Start Connection", for: .normal)
+//            self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
             self.stopTimer()
+            self.stopTimer2()
             break
         case .invalid:
             print("Invliad")
@@ -473,10 +695,10 @@ extension VPNViewController:ServerListProtocol{
             self.providerManager.connection.stopVPNTunnel()
         }
         
-        self.selectedIP = "\(server.serverIP ?? "0") \(server.serverPort ?? "0")"
-//        self.serverIP.text = server.serverIP
+        self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
+        self.serverIP.text = server.serverIP
         self.countryName.text = "\(server.country ?? "")"
-        self.cityName.text = "\(server.city ?? "")"
+//        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
         
     }

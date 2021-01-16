@@ -18,7 +18,11 @@ class VPNSettingViewController: UIViewController {
     
 
     @IBAction func protocolOnclick(){
-        openProtoScreen()
+        openProtoScreen(type:"p")
+    }
+    
+    @IBAction func encryptionOnclick(){
+        openProtoScreen(type:"e")
     }
 
     func setUpNavBar(){
@@ -30,7 +34,7 @@ class VPNSettingViewController: UIViewController {
     }
     
     
-    func openProtoScreen(){
+    func openProtoScreen(type:String){
         
         var vc = ProtocolViewController()
         if #available(iOSApplicationExtension 13.0, *) {
@@ -39,6 +43,7 @@ class VPNSettingViewController: UIViewController {
         } else {
             vc = self.storyboard?.instantiateViewController(withIdentifier: "ProtocolViewController") as! ProtocolViewController
         }
+        vc.type = type
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

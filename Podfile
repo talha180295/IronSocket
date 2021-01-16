@@ -16,6 +16,8 @@ target 'TeraVPNDemo' do
   pod 'EzPopup'
   pod 'LMGaugeViewSwift'
   pod 'UICheckbox'
+  pod 'RadioGroup'
+  pod 'MMWormhole', '~> 2.0.0'
 #  pod 'Google-Mobile-Ads-SDK'
   
 end
@@ -27,6 +29,6 @@ target 'PacketTunnel' do
   # Pods for PacketTunnel
   #pod 'OpenVPNAdapter', :git => 'https://github.com/ss-abramchuk/OpenVPNAdapter.git', :tag => '0.6.0'
   pod 'OpenVPNAdapter', :git => 'https://github.com/ss-abramchuk/OpenVPNAdapter.git', :tag => '0.7.0'
-  
+  pod 'MMWormhole', '~> 2.0.0'
   
 end

@@ -1,7 +1,10 @@
 import NetworkExtension
 import OpenVPNAdapter
-
+import MMWormhole
 class PacketTunnelProvider: NEPacketTunnelProvider {
+    
+    
+//    let wormhole2 = MMWormhole(applicationGroupIdentifier: "group.abc.org.IronSocket.PacketTunnel", optionalDirectory: "wormhole2")
     
     lazy var vpnAdapter: OpenVPNAdapter = {
         let adapter = OpenVPNAdapter()
@@ -130,6 +133,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
 extension PacketTunnelProvider: OpenVPNAdapterDelegate {
 
+    
+    
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, configureTunnelWithNetworkSettings networkSettings: NEPacketTunnelNetworkSettings?, completionHandler: @escaping (Error?) -> Void) {
         // In order to direct all DNS queries first to the VPN DNS servers before the primary DNS servers
         // send empty string to NEDNSSettings.matchDomains
@@ -206,8 +211,15 @@ extension PacketTunnelProvider: OpenVPNAdapterDelegate {
     // Use this method to process any log message returned by OpenVPN library.
     func openVPNAdapter(_ openVPNAdapter: OpenVPNAdapter, handleLogMessage logMessage: String) {
         // Handle log messages
+        print(logMessage)
+        NSLog("logMessage = %@", logMessage)
+//        wormhole2.passMessageObject(logMessage, identifier: "messageIdentifier")
         
-       NSLog("logMessage = %@", logMessage)
+//        var wormhole = MMWormhole(applicationGroupIdentifier: "group", optionalDirectory: nil)
+//        wormhole2.notifyListenerForMessage(withIdentifier: "messageIdentifier", message: <#T##NSCoding?#>)
+//        wormhole.passMessageObject("logMessage", identifier: "identifier1")
+           
+//        self.wormhole.passMessageObject("logMessage", identifier: "messageIdentifier")
 //    os_log("logMessage = %@", log: log, url.absoluteString)
     }
     
