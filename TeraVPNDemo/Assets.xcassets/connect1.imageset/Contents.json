@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "ConnectBtn.png",
+      "filename" : "Untitled-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ConnectBtn@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ConnectBtn@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -80,7 +80,10 @@ class VPNViewController: UIViewController {
     @IBOutlet weak var countryName:UILabel!
     @IBOutlet weak var protocolNameLabel:UIButton!
     @IBOutlet weak var timmer:UILabel!
-//    @IBOutlet weak var connectionBtn:UIButton!
+    @IBOutlet weak var circularView: CircularProgressView!
+    @IBOutlet weak var signal1: UIButton!
+    @IBOutlet weak var signal2: UIButton!
+    @IBOutlet weak var signal3: UIButton!
     @IBOutlet weak var serverIP:UILabel!
     @IBOutlet weak var dataRecieved:UILabel!
     @IBOutlet weak var dataSent:UILabel!
@@ -104,7 +107,10 @@ class VPNViewController: UIViewController {
     var providerManager = NETunnelProviderManager()
     var selectedIP : String!
     var isVPNConnected : Bool = false
-   
+    var duration: TimeInterval!
+    var timer3:Timer!
+    var timer4:Timer!
+    var selectedSignal = 0
     
     
     var count = 0
@@ -148,6 +154,8 @@ class VPNViewController: UIViewController {
         
 //        self.connectionBtn.setTitle("Start Connection", for: .normal)
         
+//        self.signalBtn.setImageTintColor(.red)
+        self.circularView.alpha = 0.2
         self.userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
         let screenMinSize = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
@@ -255,14 +263,17 @@ class VPNViewController: UIViewController {
     
     @IBAction func connectBtn(_ sender:UIButton){
         
-        self.connectVpn()
-//        if isVPNConnected == true {
-//            self.connectVpn()
-//        }
-//        else{
-//            self.checkUsage()
-//        }
-//
+        if timer3 == nil{
+            startTimer3()
+            startTimer4()
+        }
+        else{
+            stopTimer3()
+            stopTimer4()
+        }
+        
+//        self.connectVpn()
+
        
         
     }
@@ -295,7 +306,15 @@ class VPNViewController: UIViewController {
     //For logout
     @IBAction func settingsBtn(_ sender:UIButton){
         
-        self.openSettingsScreen()
+        var vc = DemoViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DemoViewController") as! DemoViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.openSettingsScreen()
        
     }
     
@@ -671,6 +690,7 @@ extension VPNViewController{
             self.connectionStatus.textColor = .red
 //            self.connectionBtn.setTitle("Start Connection", for: .normal)
 //            self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
+//            self.signalBtn.setImageTintColor(.red)
             self.stopTimer()
             self.stopTimer2()
             break
@@ -791,4 +811,88 @@ extension VPNViewController{
         }
         return nil
     }
+}
+
+
+extension UIButton{
+
+    func setImageTintColor(_ color: UIColor) {
+        let tintedImage = self.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        self.setImage(tintedImage, for: .normal)
+        self.tintColor = color
+    }
+
+}
+
+//Loader Animation
+extension VPNViewController{
+    
+    
+    func startTimer3() {
+//        guard timer == nil else { return }
+        circularView.progressLayer.isHidden = false
+        circularProgrress()
+        timer3 =  Timer.scheduledTimer(
+            timeInterval: TimeInterval(3),
+            target      : self,
+            selector    : #selector(DemoViewController.circularProgrress),
+            userInfo    : nil,
+            repeats     : true)
+    }
+    func stopTimer3() {
+        timer3?.invalidate()
+        timer3 = nil
+        circularView.progressLayer.isHidden = true
+    }
+    
+    @objc func circularProgrress() {
+        duration = 3    //Play with whatever value you want :]
+        circularView.progressAnimation(duration: duration)
+        
+    }
+    
+    
+    func startTimer4() {
+        timer4 =  Timer.scheduledTimer(
+            timeInterval: TimeInterval(1),
+            target      : self,
+            selector    : #selector(DemoViewController.signalProgrress),
+            userInfo    : nil,
+            repeats     : true)
+    }
+    
+    func stopTimer4() {
+        timer4?.invalidate()
+        timer4 = nil
+        signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+        signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+        signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+        selectedSignal = 0
+    }
+    
+    
+    @objc func signalProgrress() {
+       
+        switch selectedSignal {
+        case 0:
+            signal1.setImageTintColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
+            signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            selectedSignal = 1
+        case 1:
+            signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal2.setImageTintColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
+            signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            selectedSignal = 2
+        case 2:
+            signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal3.setImageTintColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+            selectedSignal = 0
+        default:
+            break
+        }
+        
+    }
+    
 }
