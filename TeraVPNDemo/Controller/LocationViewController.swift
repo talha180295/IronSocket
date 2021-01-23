@@ -12,7 +12,7 @@ protocol ServerListProtocol {
     func selectServer(server:Server)
 }
 
-class SideMenuViewController: UIViewController {
+class LocationViewController: UIViewController {
     
     @IBOutlet weak var serverNameTbl:UITableView!
     
@@ -31,7 +31,7 @@ class SideMenuViewController: UIViewController {
     
 }
 
-extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource{
+extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return serverList.count
     }

@@ -12,7 +12,7 @@ import UIKit
 
 class CircularProgressView: UIView {
     // First create two layer properties
-    private var circleLayer = CAShapeLayer()
+    var circleLayer = CAShapeLayer()
     var progressLayer = CAShapeLayer()
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +34,7 @@ class CircularProgressView: UIView {
         progressLayer.lineCap = .round
         progressLayer.lineWidth = 15.0
         progressLayer.strokeEnd = 0
-        progressLayer.strokeColor = UIColor.green.cgColor
+        progressLayer.strokeColor = UIColor.ButtonConnecting.cgColor
         layer.addSublayer(circleLayer)
         layer.addSublayer(progressLayer)
     }

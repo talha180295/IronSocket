@@ -10,10 +10,19 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var username:UILabel!
+    @IBOutlet weak var plan:UILabel!
+    @IBOutlet weak var renewDate:UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNavBar()
+        
+        let userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
+        username.text = userData?.username ?? ""
+        plan.text = userData?.package ?? ""
+        renewDate.text = userData?.nextdue ?? ""
     }
     
 

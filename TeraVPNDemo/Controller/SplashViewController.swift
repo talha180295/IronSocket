@@ -15,8 +15,11 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.themeBlue
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        versionStr.text = "Version \(appVersion ?? "")"
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        
+        versionStr.text = "Version \(appVersion ?? "") (\(buildVersion ?? ""))"
         
 //        let loginResponse = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
        

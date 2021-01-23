@@ -78,11 +78,11 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
-        var vc = SideMenuViewController()
+        var vc = LocationViewController()
         if #available(iOSApplicationExtension 13.0, *) {
-            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "SideMenuViewController") as! SideMenuViewController
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LocationViewController") as! LocationViewController
         } else {
-            vc = storyboard?.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+            vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
         }
         vc.serverList = self.serverList
         vc.delegate = self

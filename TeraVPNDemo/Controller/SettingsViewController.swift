@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol SettingServerListProtocol {
+    func settingSelectServer(server:Server)
+}
+
 class SettingsViewController: UIViewController {
 
+    var serverList = [Server]()
+    var selectedServer = Server()
+    var delegate:SettingServerListProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +52,21 @@ class SettingsViewController: UIViewController {
         openAppSettingScreen()
     }
     
+    @IBAction func LocationOnclick(_ sender:UIButton){
+        var vc = LocationViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LocationViewController") as! LocationViewController
+        } else {
+            vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        }
+        vc.serverList = self.serverList
+        vc.delegate = self
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+
+    
     @IBAction func VPNSettingOnclick(_ sender:UIButton){
         openVPNSettingScreen()
     }
@@ -59,6 +81,46 @@ class SettingsViewController: UIViewController {
     
     @IBAction func helpOnclick(_ sender:UIButton){
         openHelpScreen()
+    }
+    
+    //For logout
+    @IBAction func logoutBtn(_ sender:UIButton){
+        
+        let alert = UIAlertController(title: "LOGOUT", message: "Are you sure to logout?", preferredStyle: UIAlertController.Style.alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { _ in
+            self.logout()
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+        
+        // relate actions to controllers
+        alert.addAction(yesAction)
+        
+        alert.addAction(noAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func logout(){
+        
+        HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
+        HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
+        HelperFunc().deleteUserDefaultData(title: User_Defaults.adBlocker)
+        
+        openLoginScreen()
+    }
+    
+    
+    func openLoginScreen(){
+        var vc = LoginViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func openAccountScreen(){
@@ -116,6 +178,28 @@ class SettingsViewController: UIViewController {
             vc = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
         }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+}
+
+
+extension SettingsViewController:ServerListProtocol{
+    
+    func selectServer(server: Server) {
+//        self.selectedServer = server
+        self.delegate.settingSelectServer(server: server)
+        self.navigationController?.popViewController(animated: true)
+//        if isVPNConnected{
+//            self.providerManager.connection.stopVPNTunnel()
+//        }
+//
+//        self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
+//        self.serverIP.text = server.serverIP
+//        self.countryName.text = "\(server.country ?? "")"
+////        self.cityName.text = "\(server.city ?? "")"
+//        self.flag.image = UIImage.init(named: server.flag ?? "")
+        
     }
     
     

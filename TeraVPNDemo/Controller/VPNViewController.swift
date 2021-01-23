@@ -88,6 +88,9 @@ class VPNViewController: UIViewController {
     @IBOutlet weak var dataRecieved:UILabel!
     @IBOutlet weak var dataSent:UILabel!
     @IBOutlet weak var connectionStatus:UILabel!
+    @IBOutlet weak var connectBtn:UIButton!
+    @IBOutlet weak var grayView1:UIView!
+//    @IBOutlet weak var grayView2:UIView!
     
     //Intent Variables
     var serverList = [Server]()
@@ -151,11 +154,12 @@ class VPNViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//        self.grayView1.backgroundColor = UIColor.themeGray
+//        self.grayView2.backgroundColor = UIColor.themeGray
 //        self.connectionBtn.setTitle("Start Connection", for: .normal)
         
 //        self.signalBtn.setImageTintColor(.red)
-        self.circularView.alpha = 0.2
+        self.circularView.alpha = 0.4
         self.userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
         let screenMinSize = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
@@ -167,7 +171,7 @@ class VPNViewController: UIViewController {
         gaugeView.valueFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(16 * ratio))!
         gaugeView.unitOfMeasurementFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(11 * ratio))!
         gaugeView.minMaxValueFont = UIFont(name: GaugeView.defaultMinMaxValueFont, size: CGFloat(9 * ratio))!
-        gaugeView.unitOfMeasurement = "Remaining MB/S"
+        gaugeView.unitOfMeasurement = "Remaining MB"
         gaugeView.showMinMaxValue = false
         self.setupGaugeValue(maxValue: 100, value: 100)
         
@@ -183,12 +187,12 @@ class VPNViewController: UIViewController {
         self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
         
         self.connectionStatus.text = "Disconnected"
-        self.connectionStatus.textColor = .red
+//        self.connectionStatus.textColor = .red
 //        self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
         
         
-        self.dataSent.text = "\(self.dataSentInMbs) MBs"
-        self.dataRecieved.text = "\(self.dataRecievedInMbs) MBs"
+        self.dataSent.text = "\(self.dataSentInMbs) MB"
+        self.dataRecieved.text = "\(self.dataRecievedInMbs) MB"
         
         
         if let _ = self.usagelimit{
@@ -245,6 +249,9 @@ class VPNViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        signal1.setImageTintColor(UIColor.connectionRed)
+        signal2.setImageTintColor(UIColor.connectionRed)
+        signal3.setImageTintColor(UIColor.connectionRed)
         setupProtocolLabel()
     }
     
@@ -263,16 +270,16 @@ class VPNViewController: UIViewController {
     
     @IBAction func connectBtn(_ sender:UIButton){
         
-        if timer3 == nil{
-            startTimer3()
-            startTimer4()
-        }
-        else{
-            stopTimer3()
-            stopTimer4()
-        }
+//        if timer3 == nil{
+//            startTimer3()
+//            startTimer4()
+//        }
+//        else{
+//            stopTimer3()
+//            stopTimer4()
+//        }
         
-//        self.connectVpn()
+        self.connectVpn()
 
        
         
@@ -281,11 +288,11 @@ class VPNViewController: UIViewController {
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
         
-        var vc = SideMenuViewController()
+        var vc = LocationViewController()
         if #available(iOSApplicationExtension 13.0, *) {
-            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "SideMenuViewController") as! SideMenuViewController
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LocationViewController") as! LocationViewController
         } else {
-            vc = storyboard?.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+            vc = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
         }
         vc.serverList = self.serverList
         vc.delegate = self
@@ -306,15 +313,15 @@ class VPNViewController: UIViewController {
     //For logout
     @IBAction func settingsBtn(_ sender:UIButton){
         
-        var vc = DemoViewController()
-        if #available(iOSApplicationExtension 13.0, *) {
-            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DemoViewController") as! DemoViewController
-
-        } else {
-            vc = self.storyboard?.instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-//        self.openSettingsScreen()
+//        var vc = DemoViewController()
+//        if #available(iOSApplicationExtension 13.0, *) {
+//            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DemoViewController") as! DemoViewController
+//
+//        } else {
+//            vc = self.storyboard?.instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.openSettingsScreen()
        
     }
     
@@ -326,6 +333,8 @@ class VPNViewController: UIViewController {
         } else {
             vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         }
+        vc.serverList = self.serverList
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -377,6 +386,8 @@ extension VPNViewController{
     
     func connectVpn(){
         
+//        self.stopTimer3()
+//        self.stopTimer4()
         if isVPNConnected == true {
             
             let alert = UIAlertController(title: "Cancel Confirmation", message: "Disconnect the connected VPN cancel the connection attempt?", preferredStyle: UIAlertController.Style.alert)
@@ -400,6 +411,9 @@ extension VPNViewController{
             let otherAlert = UIAlertController(title: "IronSocket VPN", message: "Are you sure access VPN Connection", preferredStyle: UIAlertController.Style.alert)
             
             let connectAction = UIAlertAction(title: "YES", style: UIAlertAction.Style.default) { _ in
+                
+                self.startTimer3()
+                self.startTimer4()
                 
                 let password = self.userData?.password ?? ""
                 let username = self.userData?.username ?? ""
@@ -657,15 +671,29 @@ extension VPNViewController{
         case .connecting:
             isVPNConnected = true
             print("Connecting...")
-            self.connectionStatus.text = "Connecting..."
+            self.connectionStatus.text = "Connecting...".uppercased()
+            self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
+            
+           
+            
             self.stopTimer()
             self.stopTimer2()
+            
             break
         case .connected:
             isVPNConnected = true
             print("Connected...")
-            self.connectionStatus.text = "Connected"
-            self.connectionStatus.textColor = .green
+            self.connectionStatus.text = "Connected".uppercased()
+            self.connectBtn.setImageTintColor(UIColor.ButtonConnected)
+//            self.connectionStatus.textColor = .green
+            self.circularView.progressLayer.strokeColor = UIColor.connectionGreen.cgColor
+            self.stopTimer3()
+            self.stopTimer4()
+            
+            signal1.setImageTintColor(UIColor.AntennaConnected)
+            signal2.setImageTintColor(UIColor.AntennaConnected)
+            signal3.setImageTintColor(UIColor.AntennaConnected)
+            
 //            self.connectionBtn.setTitle("Stop Connection", for: .normal)
 //            self.connectionBtn.backgroundColor = .red
             
@@ -681,16 +709,21 @@ extension VPNViewController{
             break
         case .disconnecting:
             print("Disconnecting...")
-            self.connectionStatus.text = "Disconnecting..."
+            self.connectionStatus.text = "Disconnecting...".uppercased()
             break
         case .disconnected:
             isVPNConnected = false
             print("Disconnected...")
-            self.connectionStatus.text = "Disconnected"
-            self.connectionStatus.textColor = .red
+            self.connectionStatus.text = "Disconnected".uppercased()
+            self.connectBtn.setImageTintColor(UIColor.ButtonDisconnected)
+            
+//            self.connectionStatus.textColor = .red
 //            self.connectionBtn.setTitle("Start Connection", for: .normal)
 //            self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
 //            self.signalBtn.setImageTintColor(.red)
+            signal1.setImageTintColor(UIColor.AntennaDisconnected)
+            signal2.setImageTintColor(UIColor.AntennaDisconnected)
+            signal3.setImageTintColor(UIColor.AntennaDisconnected)
             self.stopTimer()
             self.stopTimer2()
             break
@@ -711,6 +744,24 @@ extension VPNViewController{
 extension VPNViewController:ServerListProtocol{
     
     func selectServer(server: Server) {
+        if isVPNConnected{
+            self.providerManager.connection.stopVPNTunnel()
+        }
+        
+        self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
+        self.serverIP.text = server.serverIP
+        self.countryName.text = "\(server.country ?? "")"
+//        self.cityName.text = "\(server.city ?? "")"
+        self.flag.image = UIImage.init(named: server.flag ?? "")
+        
+    }
+    
+    
+}
+
+extension VPNViewController:SettingServerListProtocol{
+    
+    func settingSelectServer(server: Server) {
         if isVPNConnected{
             self.providerManager.connection.stopVPNTunnel()
         }
@@ -782,8 +833,8 @@ extension VPNViewController{
                             let bytesIn = dict?["bytesIn"] as! String
                             let bytesOut = dict?["bytesOut"] as! String
                             
-                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB/S"
-                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB/S"
+                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB"
+                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB"
                             //                            print("\(Int(bytesIn)!/1000000) MBs")
                             self.usageRemainingInMbs -= Double(bytesOut)!/1000000.00  + Double(bytesIn)!/1000000.00
                             self.updateGaugeTimer()
@@ -835,7 +886,7 @@ extension VPNViewController{
         timer3 =  Timer.scheduledTimer(
             timeInterval: TimeInterval(3),
             target      : self,
-            selector    : #selector(DemoViewController.circularProgrress),
+            selector    : #selector(VPNViewController.circularProgrress),
             userInfo    : nil,
             repeats     : true)
     }
@@ -854,9 +905,9 @@ extension VPNViewController{
     
     func startTimer4() {
         timer4 =  Timer.scheduledTimer(
-            timeInterval: TimeInterval(1),
+            timeInterval: TimeInterval(0.5),
             target      : self,
-            selector    : #selector(DemoViewController.signalProgrress),
+            selector    : #selector(VPNViewController.signalProgrress),
             userInfo    : nil,
             repeats     : true)
     }
@@ -864,9 +915,9 @@ extension VPNViewController{
     func stopTimer4() {
         timer4?.invalidate()
         timer4 = nil
-        signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-        signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-        signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+//        signal1.setImageTintColor(UIColor.connectionGreen)
+//        signal2.setImageTintColor(UIColor.connectionGreen)
+//        signal3.setImageTintColor(UIColor.connectionGreen)
         selectedSignal = 0
     }
     
@@ -875,19 +926,19 @@ extension VPNViewController{
        
         switch selectedSignal {
         case 0:
-            signal1.setImageTintColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
-            signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-            signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal1.setImageTintColor(UIColor.AntennaConnecting)
+            signal2.setImageTintColor(UIColor.black)
+            signal3.setImageTintColor(UIColor.black)
             selectedSignal = 1
         case 1:
-            signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-            signal2.setImageTintColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))
-            signal3.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
+            signal1.setImageTintColor(UIColor.black)
+            signal2.setImageTintColor(UIColor.AntennaConnecting)
+            signal3.setImageTintColor(UIColor.black)
             selectedSignal = 2
         case 2:
-            signal1.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-            signal2.setImageTintColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
-            signal3.setImageTintColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+            signal1.setImageTintColor(UIColor.black)
+            signal2.setImageTintColor(UIColor.black)
+            signal3.setImageTintColor(UIColor.AntennaConnecting)
             selectedSignal = 0
         default:
             break
