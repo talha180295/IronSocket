@@ -26,6 +26,7 @@ class VPNViewController: UIViewController {
     var minutes: Int = 0
     var seconds: Int = 0
     
+    var state = 0
     //    var usage:UsageResponse!
     // = 30210912720
     
@@ -75,7 +76,6 @@ class VPNViewController: UIViewController {
                         }
                       """
     
-    @IBOutlet weak var gaugeView: GaugeView!
     @IBOutlet weak var flag:UIImageView!
     @IBOutlet weak var countryName:UILabel!
     @IBOutlet weak var protocolNameLabel:UIButton!
@@ -90,14 +90,13 @@ class VPNViewController: UIViewController {
     @IBOutlet weak var connectionStatus:UILabel!
     @IBOutlet weak var connectBtn:UIButton!
     @IBOutlet weak var grayView1:UIView!
-//    @IBOutlet weak var grayView2:UIView!
+
     
     //Intent Variables
     var serverList = [Server]()
     var username:String!
     var password:String!
-    var usagelimit:Double!// =      32210912720
-    var usageRemaining: Double!
+
     
     
     //VPN Data Variables
@@ -106,36 +105,17 @@ class VPNViewController: UIViewController {
     
     //VPN Var
     let tunnelBundleId = "\(Bundle.main.bundleIdentifier!).PacketTunnel"
-    // "abc.org.TeraVPNDemo3.PacketTunnel"
     var providerManager = NETunnelProviderManager()
     var selectedIP : String!
     var isVPNConnected : Bool = false
     var duration: TimeInterval!
-    var timer3:Timer!
-    var timer4:Timer!
+    var circularProgressTimer:Timer!
+    var signalTimer:Timer!
     var selectedSignal = 0
     
     
     var count = 0
-    
-    func startTimer () {
-        guard timer == nil else { return }
-        
-        timer =  Timer.scheduledTimer(
-            timeInterval: TimeInterval(0.3),
-            target      : self,
-            selector    : #selector(getTrafficStats),
-            userInfo    : nil,
-            repeats     : true)
-    }
-    
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    
+
     func startTimerLabel () {
         guard timer2 == nil else { return }
         
@@ -146,7 +126,7 @@ class VPNViewController: UIViewController {
             userInfo    : nil,
             repeats     : true)
     }
-    func stopTimer2() {
+    func stopTimerLabel() {
         timer2?.invalidate()
         timer2 = nil
     }
@@ -154,26 +134,10 @@ class VPNViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.grayView1.backgroundColor = UIColor.themeGray
-//        self.grayView2.backgroundColor = UIColor.themeGray
-//        self.connectionBtn.setTitle("Start Connection", for: .normal)
-        
-//        self.signalBtn.setImageTintColor(.red)
+        disconnected()
+
         self.circularView.alpha = 0.4
         self.userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
-        
-        let screenMinSize = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
-        let ratio = Double(screenMinSize)/320
-        gaugeView.divisionsRadius = 1.25 * ratio
-        gaugeView.divisionsPadding = 8
-        gaugeView.subDivisionsRadius = (1.25 - 0.5) * ratio
-        gaugeView.ringThickness = 10 * ratio
-        gaugeView.valueFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(16 * ratio))!
-        gaugeView.unitOfMeasurementFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(11 * ratio))!
-        gaugeView.minMaxValueFont = UIFont(name: GaugeView.defaultMinMaxValueFont, size: CGFloat(9 * ratio))!
-        gaugeView.unitOfMeasurement = "Remaining MB"
-        gaugeView.showMinMaxValue = false
-        self.setupGaugeValue(maxValue: 100, value: 100)
         
         NotificationCenter.default.addObserver(self, selector: #selector(VPNViewController.VPNStatusDidChange(_:)), name: NSNotification.Name.NEVPNStatusDidChange, object: nil)
         
@@ -193,41 +157,12 @@ class VPNViewController: UIViewController {
         
         self.dataSent.text = "\(self.dataSentInMbs) MB"
         self.dataRecieved.text = "\(self.dataRecievedInMbs) MB"
-        
-        
-        if let _ = self.usagelimit{
-            self.usagelimitInMbs = self.usagelimit / 1000000.00 // Convert bytes into Mbs
-            self.usageRemainingInMbs =  self.usageRemaining / 1000000.00 // Convert bytes into Mbs
-           
-            gaugeView.isHidden = false
-            
-        }
-        else{
-            gaugeView.isHidden = true
 
-        }
         
-        
-       
-        
-//        wormhole.listenForMessage(withIdentifier: "messageIdentifier", listener: { (messageObject) -> Void in
-//            if let message = messageObject {
-//                // Do something
-//                print(message)
-//            }
-//        })
-        
-        //        self.connectionBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
-        
+
     }
     
     @objc func update() {
-//        if(count > 0) {
-//            timmer.text = "\(count+=1)"
-//        }
-//        while count >= 0 {
-//            timmer.text = "\(count+=1)"
-//        }
         if self.seconds == 59 {
             self.seconds = 0
             if self.minutes == 59 {
@@ -248,10 +183,6 @@ class VPNViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        signal1.setImageTintColor(UIColor.connectionRed)
-        signal2.setImageTintColor(UIColor.connectionRed)
-        signal3.setImageTintColor(UIColor.connectionRed)
         setupProtocolLabel()
     }
     
@@ -269,16 +200,23 @@ class VPNViewController: UIViewController {
     
     
     @IBAction func connectBtn(_ sender:UIButton){
+
         
-//        if timer3 == nil{
-//            startTimer3()
-//            startTimer4()
+//        if state == 0{
+//
+//            self.connecting()
+//            self.state = 1
 //        }
-//        else{
-//            stopTimer3()
-//            stopTimer4()
+//        else if state == 1{
+//
+//            self.connected()
+//            self.state = 2
 //        }
-        
+//        else if state == 2{
+//
+//            self.disconnected()
+//            self.state = 0
+//        }
         self.connectVpn()
 
        
@@ -296,17 +234,8 @@ class VPNViewController: UIViewController {
         }
         vc.serverList = self.serverList
         vc.delegate = self
-        // Define the menu
-//        let leftMenuNavigationController = SideMenuNavigationController(rootViewController: vc)
-//        SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
-//
-//        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-//        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-//
-//        leftMenuNavigationController.statusBarEndAlpha = 0
-//        leftMenuNavigationController.menuWidth = 280
+
         self.navigationController?.pushViewController(vc, animated: true)
-//        present(leftMenuNavigationController, animated: true, completion: nil)
     }
     
     
@@ -344,45 +273,6 @@ class VPNViewController: UIViewController {
 //VPN
 extension VPNViewController{
     
-    func checkUsage(){
-        
-        
-        let params = ["user":"\(userData?.username ?? "")"]
-        
-        let request = APIRouter.usage(params)
-        NetworkService.serverRequest(url: request, dec: UsageResponse.self, view: self.view) { (usageResponse, error) in
-     
-            if usageResponse != nil{
-                print("**********usageResponse**********")
-                print(usageResponse!)
-                print("**********usageResponse**********")
-            }
-            else if error != nil{
-                print("**********usageResponse**********")
-                print(error!)
-                print("**********usageResponse**********")
-            }
-            
-            if usageResponse?.success == "true"{
-                
-                self.usagelimit = Double(usageResponse?.usagelimit ?? "0")
-                self.usageRemaining =  Double(usageResponse?.remaining ?? "0")
-                
-                self.usagelimitInMbs = self.usagelimit / 1000000.00 // Convert bytes into Mbs
-                self.usageRemainingInMbs =  self.usageRemaining / 1000000.00 // Convert bytes into Mbs
-                
-                self.setupGaugeValue(maxValue: self.usagelimitInMbs, value: self.usageRemainingInMbs)
-                self.gaugeView.maxValue = self.usagelimitInMbs
-
-                
-                
-                self.gaugeView.isHidden = false
-                self.connectVpn()
-                
-            }
-            
-        }
-    }
     
     func connectVpn(){
         
@@ -394,7 +284,6 @@ extension VPNViewController{
             
             let disconnectAction = UIAlertAction(title: "DISCONNECT", style: UIAlertAction.Style.destructive) { _ in
                 self.providerManager.connection.stopVPNTunnel()
-                
             }
             
             let dismiss = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
@@ -412,8 +301,7 @@ extension VPNViewController{
             
             let connectAction = UIAlertAction(title: "YES", style: UIAlertAction.Style.default) { _ in
                 
-                self.startTimer3()
-                self.startTimer4()
+                
                 
                 let password = self.userData?.password ?? ""
                 let username = self.userData?.username ?? ""
@@ -554,64 +442,6 @@ extension VPNViewController{
             print("Failed to load: \(error.localizedDescription)")
         }
         
-//        switch selectedProto {
-//        //For Auto
-//        //case 0:
-//
-//        //for TCP
-//        case 1:
-//            switch selectedEncryption {
-//            //For Non
-//            case 0:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.none?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.none?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.none?[2] ?? "")")
-//            //For Low
-//            case 1:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.low?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.low?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.low?[2] ?? "")")
-//            //For High
-//            case 2:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
-//            default:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
-//            }
-//        //For UDP
-//        case 2:
-//            switch selectedEncryption {
-//            //For Non
-//            case 0:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.none?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.none?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.none?[2] ?? "")\n\(protoModel.udp?.none?[3] ?? "")")
-//            //For Low
-//            case 1:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.low?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.low?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.low?[2] ?? "")\n\(protoModel.udp?.low?[3] ?? "")")
-//            //For High
-//            case 2:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.strong?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.strong?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.strong?[2] ?? "")\n\(protoModel.udp?.strong?[3] ?? "")")
-//            default:
-//                newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.udp?.strong?[0] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.udp?.strong?[1] ?? "")")
-//                newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.udp?.strong?[2] ?? "")\n\(protoModel.udp?.strong?[3] ?? "")")
-//            }
-//        default:
-//            newStr = newStr.replacingOccurrences(of: "rport", with: "\(protoModel.tcp?.strong?[0] ?? "")")
-//            newStr = newStr.replacingOccurrences(of: "proto", with: "\(protoModel.tcp?.strong?[1] ?? "")")
-//            newStr = newStr.replacingOccurrences(of: "encryption", with: "\(protoModel.tcp?.strong?[2] ?? "")")
-//        }
-        
-        
-        
         return newStr
     }
     
@@ -633,35 +463,10 @@ extension VPNViewController{
             
         }
         
-        
         return nil
     }
     
-    func isPortOpen(port: in_port_t) -> Bool {
 
-        let socketFileDescriptor = socket(AF_INET, SOCK_STREAM, 0)
-        if socketFileDescriptor == -1 {
-            return false
-        }
-
-        var addr = sockaddr_in()
-        let sizeOfSockkAddr = MemoryLayout<sockaddr_in>.size
-        addr.sin_len = __uint8_t(sizeOfSockkAddr)
-        addr.sin_family = sa_family_t(AF_INET)
-        addr.sin_port = Int(OSHostByteOrder()) == OSLittleEndian ? _OSSwapInt16(port) : port
-        addr.sin_addr = in_addr(s_addr: inet_addr("0.0.0.0"))
-        addr.sin_zero = (0, 0, 0, 0, 0, 0, 0, 0)
-        var bind_addr = sockaddr()
-        memcpy(&bind_addr, &addr, Int(sizeOfSockkAddr))
-
-        if Darwin.bind(socketFileDescriptor, &bind_addr, socklen_t(sizeOfSockkAddr)) == -1 {
-            return false
-        }
-        if listen(socketFileDescriptor, SOMAXCONN ) == -1 {
-            return false
-        }
-        return true
-    }
     
     @objc func VPNStatusDidChange(_ notification: Notification?) {
         print("VPN Status changed:")
@@ -672,39 +477,19 @@ extension VPNViewController{
             isVPNConnected = true
             print("Connecting...")
             self.connectionStatus.text = "Connecting...".uppercased()
-            self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
-            
-           
-            
-            self.stopTimer()
-            self.stopTimer2()
+
+            self.connecting()
             
             break
         case .connected:
             isVPNConnected = true
             print("Connected...")
             self.connectionStatus.text = "Connected".uppercased()
-            self.connectBtn.setImageTintColor(UIColor.ButtonConnected)
-//            self.connectionStatus.textColor = .green
-            self.circularView.progressLayer.strokeColor = UIColor.connectionGreen.cgColor
-            self.stopTimer3()
-            self.stopTimer4()
+
+            self.connected()
+
             
-            signal1.setImageTintColor(UIColor.AntennaConnected)
-            signal2.setImageTintColor(UIColor.AntennaConnected)
-            signal3.setImageTintColor(UIColor.AntennaConnected)
-            
-//            self.connectionBtn.setTitle("Stop Connection", for: .normal)
-//            self.connectionBtn.backgroundColor = .red
-            
-            self.startTimer()
-            self.startTimerLabel()
-            // Create a timer to getTrafficStats
-//            Timer.scheduledTimer(timeInterval: 2,
-//                                 target: self,
-//                                 selector: #selector(getTrafficStats),
-//                                 userInfo: nil,
-//                                 repeats: true)
+
             
             break
         case .disconnecting:
@@ -715,17 +500,9 @@ extension VPNViewController{
             isVPNConnected = false
             print("Disconnected...")
             self.connectionStatus.text = "Disconnected".uppercased()
-            self.connectBtn.setImageTintColor(UIColor.ButtonDisconnected)
+
+            self.disconnected()
             
-//            self.connectionStatus.textColor = .red
-//            self.connectionBtn.setTitle("Start Connection", for: .normal)
-//            self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
-//            self.signalBtn.setImageTintColor(.red)
-            signal1.setImageTintColor(UIColor.AntennaDisconnected)
-            signal2.setImageTintColor(UIColor.AntennaDisconnected)
-            signal3.setImageTintColor(UIColor.AntennaDisconnected)
-            self.stopTimer()
-            self.stopTimer2()
             break
         case .invalid:
             print("Invliad")
@@ -778,92 +555,6 @@ extension VPNViewController:SettingServerListProtocol{
 }
 
 
-//Gauge View
-extension VPNViewController{
-    
-    func setupGaugeValue(maxValue:Double,value:Double){
-    
-        gaugeView.minValue = 0
-        gaugeView.maxValue = maxValue
-        gaugeView.value = value
-        
-        // Create a timer to update value for gauge view
-        //        Timer.scheduledTimer(timeInterval: 2,
-        //                             target: self,
-        //                             selector: #selector(updateGaugeTimer),
-        //                             userInfo: nil,
-        //                             repeats: true)
-    }
-    // MARK: GAUGE VIEW DELEGATE
-    
-    func ringStokeColor(gaugeView: GaugeView, value: Double) -> UIColor {
-        
-        //        if nightModeSwitch.isOn {
-        //            return UIColor(red: 76.0/255, green: 217.0/255, blue: 100.0/255, alpha: 1)
-        //        }
-        return UIColor(red: 11.0/255, green: 150.0/255, blue: 246.0/255, alpha: 1)
-    }
-    
-    // MARK: EVENTS
-    
-    @objc func updateGaugeTimer() {
-        
-//        usageRemainingInMbs -= 1
-        print(usageRemainingInMbs)
-        // Set value for gauge view
-        gaugeView.value = usageRemainingInMbs
-    }
-    
-    @objc func getTrafficStats() {
-        if let session = self.providerManager.connection as? NETunnelProviderSession {
-            do {
-                try session.sendProviderMessage("SOME_STATIC_KEY".data(using: .utf8)!) { (data) in
-                    // here you can unarchieve your data and get traffic stats as dict
-                    
-                    if let _ = data{
-                        //                        let decodedString = String(data: data!, encoding: .utf8)!
-                        //
-                        //                        print("jsonString=\(decodedString)")
-                        
-                        if let bytesData = String(data: data!, encoding: . utf8){
-                            //                            print("bytesData=\(bytesData)")
-                            
-                            let dict = self.convertToDictionary(text: bytesData)
-                            
-                            let bytesIn = dict?["bytesIn"] as! String
-                            let bytesOut = dict?["bytesOut"] as! String
-                            
-                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB"
-                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB"
-                            //                            print("\(Int(bytesIn)!/1000000) MBs")
-                            self.usageRemainingInMbs -= Double(bytesOut)!/1000000.00  + Double(bytesIn)!/1000000.00
-                            self.updateGaugeTimer()
-                            
-                        }
-                    }
-                    
-                    
-                    
-                                        
-                }
-            } catch {
-                // some error
-            }
-        }
-    }
-    
-    func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-}
-
 
 extension UIButton{
 
@@ -879,49 +570,32 @@ extension UIButton{
 extension VPNViewController{
     
     
-    func startTimer3() {
-//        guard timer == nil else { return }
-        circularView.progressLayer.isHidden = false
-        circularProgrress()
-        timer3 =  Timer.scheduledTimer(
+    func startCircularTimer() {
+        circularProgressTimer =  Timer.scheduledTimer(
             timeInterval: TimeInterval(3),
             target      : self,
             selector    : #selector(VPNViewController.circularProgrress),
             userInfo    : nil,
             repeats     : true)
     }
-    func stopTimer3() {
-        timer3?.invalidate()
-        timer3 = nil
-        circularView.progressLayer.isHidden = true
-    }
-    
     @objc func circularProgrress() {
         duration = 3    //Play with whatever value you want :]
         circularView.progressAnimation(duration: duration)
         
     }
+    func stopCircularTimer() {
+        circularProgressTimer?.invalidate()
+        circularProgressTimer = nil
+    }
     
-    
-    func startTimer4() {
-        timer4 =  Timer.scheduledTimer(
+    func startSignalTimer() {
+        signalTimer =  Timer.scheduledTimer(
             timeInterval: TimeInterval(0.5),
             target      : self,
             selector    : #selector(VPNViewController.signalProgrress),
             userInfo    : nil,
             repeats     : true)
     }
-    
-    func stopTimer4() {
-        timer4?.invalidate()
-        timer4 = nil
-//        signal1.setImageTintColor(UIColor.connectionGreen)
-//        signal2.setImageTintColor(UIColor.connectionGreen)
-//        signal3.setImageTintColor(UIColor.connectionGreen)
-        selectedSignal = 0
-    }
-    
-    
     @objc func signalProgrress() {
        
         switch selectedSignal {
@@ -943,7 +617,51 @@ extension VPNViewController{
         default:
             break
         }
-        
+    }
+    func stopSignalTimer() {
+        signalTimer?.invalidate()
+        signalTimer = nil
+        selectedSignal = 0
     }
     
+}
+
+extension VPNViewController{
+    
+
+    
+    func connecting(){
+        circularView.progressLayer.isHidden = false
+        circularView.progressLayer.strokeColor = UIColor.ButtonConnecting.cgColor
+        self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
+        circularProgrress()
+        startCircularTimer()
+        startCircularTimer()
+        stopTimerLabel()
+        
+    }
+    func connected(){
+        duration = 0
+        circularView.progressAnimation(duration: duration)
+        circularView.progressLayer.isHidden = false
+        circularView.progressLayer.strokeColor = UIColor.ButtonConnected.cgColor
+        connectBtn.setImageTintColor(UIColor.ButtonConnected)
+        signal1.setImageTintColor(UIColor.AntennaConnected)
+        signal2.setImageTintColor(UIColor.AntennaConnected)
+        signal3.setImageTintColor(UIColor.AntennaConnected)
+        stopCircularTimer()
+        stopSignalTimer()
+        startTimerLabel()
+    }
+    func disconnected(){
+        duration = 0
+        circularView.progressAnimation(duration: duration)
+        circularView.progressLayer.isHidden = false
+        circularView.progressLayer.strokeColor = UIColor.ButtonDisconnected.cgColor
+        signal1.setImageTintColor(UIColor.AntennaDisconnected)
+        signal2.setImageTintColor(UIColor.AntennaDisconnected)
+        signal3.setImageTintColor(UIColor.AntennaDisconnected)
+        connectBtn.setImageTintColor(UIColor.ButtonDisconnected)
+        stopTimerLabel()
+    }
 }
