@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location View Controller-->
+        <!--Locations-->
         <scene sceneID="bYA-FH-ddM">
             <objects>
                 <viewController storyboardIdentifier="LocationViewController" id="JA9-Jb-JV5" customClass="LocationViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-vi-ymp">
-                                <rect key="frame" x="16" y="35" width="343" height="612"/>
+                                <rect key="frame" x="16" y="79" width="343" height="568"/>
                                 <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
@@ -31,7 +31,7 @@
                             <constraint firstItem="SMD-vi-ymp" firstAttribute="top" secondItem="O6M-7Q-4an" secondAttribute="top" constant="35" id="lYt-RK-AEL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GmL-dv-ZVr"/>
+                    <navigationItem key="navigationItem" title="Locations" id="GmL-dv-ZVr"/>
                     <connections>
                         <outlet property="serverNameTbl" destination="SMD-vi-ymp" id="8ad-45-kSc"/>
                     </connections>
@@ -43,9 +43,9 @@
         <!--Navigation Controller-->
         <scene sceneID="tYR-qK-hRZ">
             <objects>
-                <navigationController navigationBarHidden="YES" id="oBh-Aw-bl7" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="oBh-Aw-bl7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jbQ-Je-3K8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -3522,7 +3522,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79r-d6-0g2" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79r-d6-0g2" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="15" y="269" width="345" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Beta updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCd-fr-0UQ">
@@ -3562,7 +3562,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOE-5X-py3" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOE-5X-py3" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="15" y="349" width="345" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HsS-xl-SSs">
