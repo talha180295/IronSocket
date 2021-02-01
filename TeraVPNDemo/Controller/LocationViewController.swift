@@ -27,6 +27,23 @@ class LocationViewController: UIViewController {
         HelperFunc().registerTableCell(tableView: serverNameTbl, nibName: "MenuCell", identifier: "MenuCell")
         serverNameTbl.delegate = self
         serverNameTbl.dataSource = self
+        setUpNavBar()
+        
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        setSelectedLocation()
+//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setSelectedLocation()
+    }
+    func setUpNavBar(){
+
+        //For back button in navigation bar
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
 }
@@ -43,6 +60,16 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
         cell.countryName.text = serverList[indexPath.item].country
         cell.cityName.text = serverList[indexPath.item].city
         cell.time.text = ""
+        
+        if indexPath.item == 0{
+            cell.roundedCorners(corners: [.topLeft,.topRight], radius: 10)
+            cell.layer.masksToBounds = false
+        }
+        if indexPath.item == serverList.count-1{
+            cell.roundedCorners(corners: [.bottomLeft,.bottomRight], radius: 10)
+            cell.layer.masksToBounds = false
+        }
+        
         return cell
     }
     
@@ -56,6 +83,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
             
             
             UserDefaults.standard.set(varr, forKey: "selectvalue")
+            UserDefaults.standard.set(indexPath.row, forKey: "selectIndex")
             UserDefaults.standard.synchronize()
             
             print(UserDefaults.standard.value(forKey: "selectvalue") as Any)
@@ -70,6 +98,13 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.popViewController(animated: true)
     }
     
+    func setSelectedLocation(){
+        let index =  UserDefaults.standard.integer(forKey: "selectIndex")
+        let indexPath = IndexPath(row: index, section: 0)
+        let cell = serverNameTbl.cellForRow(at: indexPath) as! MenuCell
+        cell.backgroundColor = UIColor.lightGray
+    }
+    
 }
 
 extension Encodable {
@@ -81,3 +116,4 @@ extension Encodable {
         return dictionary
     }
 }
+

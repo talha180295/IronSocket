@@ -94,5 +94,21 @@ extension UIView{
         maskLayer1.path = maskPath1.cgPath
         layer.mask = maskLayer1
     }
+    
+    func roundedCorners(corners: UIRectCorner, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = radius
+            layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
+        } else {
+            DispatchQueue.main.async {
+                let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+                let mask = CAShapeLayer()
+                mask.path = path.cgPath
+                self.layer.mask = mask
+            }
+        }
+    }
+
 }
 
