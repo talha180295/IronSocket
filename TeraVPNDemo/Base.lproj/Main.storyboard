@@ -1009,7 +1009,6 @@
                         <outlet property="dataRecieved" destination="WOd-TT-A1T" id="vF3-JY-vjp"/>
                         <outlet property="dataSent" destination="zQP-gN-6hb" id="ZHH-Cn-5bU"/>
                         <outlet property="flag" destination="48K-TQ-oqZ" id="cMf-xu-cBO"/>
-                        <outlet property="gaugeView" destination="4hd-fP-vpD" id="yMW-6X-Yue"/>
                         <outlet property="grayView1" destination="KgY-cr-wPc" id="PVW-yw-Qwo"/>
                         <outlet property="protocolNameLabel" destination="Bdg-9G-GzN" id="44f-ws-AlV"/>
                         <outlet property="serverIP" destination="bbS-wm-QLI" id="6WX-ff-fRz"/>
@@ -2000,7 +1999,7 @@
                                             <constraint firstAttribute="width" constant="80" id="a0g-Vr-xvf"/>
                                         </constraints>
                                     </view>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxQ-qY-p4k">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxQ-qY-p4k" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                         <rect key="frame" x="7" y="68" width="100" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -4157,13 +4156,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="69" width="345" height="113.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
                                         <rect key="frame" x="8" y="10" width="329" height="93.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="93.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4261,11 +4260,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             <point key="canvasLocation" x="2943.1999999999998" y="-723.68815592203907"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="AUc-G4-ZFc">
-            <size key="intrinsicContentSize" width="153.5" height="93.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Account" width="26" height="27"/>
         <image name="Shield" width="64" height="67.5"/>
