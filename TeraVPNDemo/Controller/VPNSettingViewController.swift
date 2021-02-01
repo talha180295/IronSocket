@@ -57,6 +57,10 @@ class VPNSettingViewController: UIViewController {
     @IBAction func encryptionOnclick(){
         openProtoScreen(type:"e")
     }
+    
+    @IBAction func logingOnclick(){
+        openProtoScreen(type:"l")
+    }
 
     func setUpNavBar(){
 

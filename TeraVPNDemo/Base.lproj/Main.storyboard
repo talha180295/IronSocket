@@ -3819,6 +3819,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0r-Nx-LbA">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
+                                                        <connections>
+                                                            <action selector="logingOnclick" destination="OCk-ad-ruw" eventType="touchUpInside" id="7cm-EO-d1f"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDc-vD-jTc" userLabel="line">
                                                         <rect key="frame" x="10" y="79" width="320" height="1"/>
@@ -3956,7 +3959,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfC-Nv-nPT">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfC-Nv-nPT">
                                         <rect key="frame" x="72.5" y="385" width="200" height="33"/>
                                         <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -4003,7 +4006,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7em-VK-KKt" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="14" y="507" width="345" height="95"/>
+                                <rect key="frame" x="14" y="487" width="345" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-VE-ua2">
                                         <rect key="frame" x="8" y="10" width="329" height="75"/>
@@ -4088,7 +4091,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-9H-ONR">
-                                <rect key="frame" x="87.5" y="622" width="200" height="33"/>
+                                <rect key="frame" x="87.5" y="602" width="200" height="33"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Jay-Wt-pXO"/>
@@ -4116,7 +4119,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                             <constraint firstItem="7em-VK-KKt" firstAttribute="leading" secondItem="WKU-Lh-Fo9" secondAttribute="leading" constant="14" id="bEB-l7-DGE"/>
                             <constraint firstItem="WKU-Lh-Fo9" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3kE-9H-ONR" secondAttribute="bottom" constant="12" id="bOr-Hh-gYE"/>
                             <constraint firstItem="3kE-9H-ONR" firstAttribute="top" secondItem="7em-VK-KKt" secondAttribute="bottom" constant="20" id="cKg-8I-khC"/>
-                            <constraint firstItem="7em-VK-KKt" firstAttribute="top" secondItem="3oP-1l-yM9" secondAttribute="bottom" constant="20" id="chf-MU-xXe"/>
+                            <constraint firstItem="7em-VK-KKt" firstAttribute="top" secondItem="3oP-1l-yM9" secondAttribute="bottom" id="chf-MU-xXe"/>
                             <constraint firstItem="WKU-Lh-Fo9" firstAttribute="trailing" secondItem="7em-VK-KKt" secondAttribute="trailing" constant="16" id="u6m-Nm-LD7"/>
                         </constraints>
                     </view>

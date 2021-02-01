@@ -26,8 +26,11 @@ class ProtocolViewController: UIViewController {
         if type == "p"{
             setupProtoRadioGroup()
         }
-        else {
+        else if type == "e"{
             setupEncryptionRadioGroup()
+        }
+        else if type == "l"{
+            setupLogingRadioGroup()
         }
     }
     
@@ -56,6 +59,21 @@ class ProtocolViewController: UIViewController {
     func setupEncryptionRadioGroup(){
         radioGroup.titles = ["Automatic", "Strong", "Low", "None"]
         radioGroup.addTarget(self, action: #selector(didSelectEncryptionOption(radioGroup:)), for: .valueChanged)
+        switch selectedEncryption {
+        case Encryption_type.strong.rawValue:
+            radioGroup.selectedIndex = 1
+        case Encryption_type.low.rawValue:
+            radioGroup.selectedIndex = 2
+        case Encryption_type.none.rawValue:
+            radioGroup.selectedIndex = 3
+        default:
+            radioGroup.selectedIndex = 0
+        }
+    }
+    
+    func setupLogingRadioGroup(){
+        radioGroup.titles = ["None", "Normal", "High"]
+//        radioGroup.addTarget(self, action: nil, for: .valueChanged)
         switch selectedEncryption {
         case Encryption_type.strong.rawValue:
             radioGroup.selectedIndex = 1
