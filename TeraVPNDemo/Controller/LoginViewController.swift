@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
 //        passwordTF.text  = "abc123"
         
 
-//        usernameTF.text  = "vpn_izy70k8b"
-//        passwordTF.text  = "abc"
+        usernameTF.text  = "vpn_izy70k8b"
+        passwordTF.text  = "abc"
         
 //        loginBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
     }
@@ -48,7 +48,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtn(_ sender:UIButton){
         
         if checkbox.on {
-          print("Remember pass Checkbox is checked")
+            print("Remember pass Checkbox is checked")
+//            UserDefaults.standard.set(checkbox.on, forKey: User_Defaults.remmemberUser)
         }
         
 //        var vc = VPNViewController()

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location View Controller-->
+        <!--Locations-->
         <scene sceneID="bYA-FH-ddM">
             <objects>
                 <viewController storyboardIdentifier="LocationViewController" id="JA9-Jb-JV5" customClass="LocationViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-vi-ymp">
-                                <rect key="frame" x="16" y="35" width="343" height="612"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-vi-ymp">
+                                <rect key="frame" x="16" y="79" width="343" height="568"/>
                                 <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
@@ -31,7 +31,7 @@
                             <constraint firstItem="SMD-vi-ymp" firstAttribute="top" secondItem="O6M-7Q-4an" secondAttribute="top" constant="35" id="lYt-RK-AEL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GmL-dv-ZVr"/>
+                    <navigationItem key="navigationItem" title="Locations" id="GmL-dv-ZVr"/>
                     <connections>
                         <outlet property="serverNameTbl" destination="SMD-vi-ymp" id="8ad-45-kSc"/>
                     </connections>
@@ -43,9 +43,9 @@
         <!--Navigation Controller-->
         <scene sceneID="tYR-qK-hRZ">
             <objects>
-                <navigationController navigationBarHidden="YES" id="oBh-Aw-bl7" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="oBh-Aw-bl7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jbQ-Je-3K8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -609,7 +609,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGP-NI-aqk">
-                                                <rect key="frame" x="128.5" y="102" width="118.5" height="25"/>
+                                                <rect key="frame" x="128.5" y="101" width="118.5" height="25"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pk_flag" translatesAutoresizingMaskIntoConstraints="NO" id="48K-TQ-oqZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="25"/>
@@ -634,10 +634,11 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vRJ-5v-QcF">
-                                                <rect key="frame" x="133" y="70" width="109" height="22"/>
+                                                <rect key="frame" x="134.5" y="70" width="106" height="21"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-gv-gNP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="106" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <state key="normal" title="LOCATION  " image="edit">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -648,7 +649,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0HL-qp-ehW">
-                                                <rect key="frame" x="123" y="142" width="129" height="51"/>
+                                                <rect key="frame" x="123" y="141" width="129" height="51"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your IP address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rm-NX-VJd">
                                                         <rect key="frame" x="0.0" y="0.0" width="129" height="20.5"/>
@@ -1009,7 +1010,6 @@
                         <outlet property="dataRecieved" destination="WOd-TT-A1T" id="vF3-JY-vjp"/>
                         <outlet property="dataSent" destination="zQP-gN-6hb" id="ZHH-Cn-5bU"/>
                         <outlet property="flag" destination="48K-TQ-oqZ" id="cMf-xu-cBO"/>
-                        <outlet property="gaugeView" destination="4hd-fP-vpD" id="yMW-6X-Yue"/>
                         <outlet property="grayView1" destination="KgY-cr-wPc" id="PVW-yw-Qwo"/>
                         <outlet property="protocolNameLabel" destination="Bdg-9G-GzN" id="44f-ws-AlV"/>
                         <outlet property="serverIP" destination="bbS-wm-QLI" id="6WX-ff-fRz"/>
@@ -1989,7 +1989,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-BE-vJD">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-BE-vJD">
                                 <rect key="frame" x="130.5" y="249.5" width="114" height="168"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZ8-92-51s" customClass="CircularProgressView" customModule="TeraVPNDemo" customModuleProvider="target">
@@ -2016,12 +2016,19 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH7-Ha-EsR">
                                         <rect key="frame" x="7" y="68" width="100" height="100"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="NZ1-iJ-Vd4"/>
                                             <constraint firstAttribute="width" constant="100" id="Vyg-g9-AgK"/>
+                                            <constraint firstAttribute="height" constant="100" id="u67-FW-wY5"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                         <state key="normal" image="Shield"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btnclickWith_sender:" destination="tzG-fK-dfd" eventType="touchUpInside" id="WFa-6u-Mh4"/>
                                         </connections>
@@ -2035,15 +2042,17 @@
                                                     <constraint firstAttribute="height" constant="21" id="Rz1-T8-2Cu"/>
                                                     <constraint firstAttribute="width" constant="54" id="lCz-iS-3aF"/>
                                                 </constraints>
-                                                <state key="normal" image="signal1"/>
+                                                <inset key="contentEdgeInsets" minX="-25" minY="0.0" maxX="-25" maxY="0.0"/>
+                                                <state key="normal" image="s1"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSc-nJ-Sbb">
-                                                <rect key="frame" x="17.5" y="21" width="79" height="29"/>
+                                                <rect key="frame" x="12" y="21" width="90" height="29"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="79" id="iSs-jD-xlB"/>
+                                                    <constraint firstAttribute="width" constant="90" id="iSs-jD-xlB"/>
                                                     <constraint firstAttribute="height" constant="29" id="wG7-vg-ovw"/>
                                                 </constraints>
-                                                <state key="normal" image="signal2"/>
+                                                <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="0.0"/>
+                                                <state key="normal" image="s2"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vro-GA-JSA">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="37"/>
@@ -2051,7 +2060,7 @@
                                                     <constraint firstAttribute="height" constant="37" id="0gh-7N-BmZ"/>
                                                     <constraint firstAttribute="width" constant="114" id="fv7-if-Ex7"/>
                                                 </constraints>
-                                                <state key="normal" image="signal3"/>
+                                                <state key="normal" image="s3"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2071,26 +2080,42 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="trT-bV-BIb" firstAttribute="centerX" secondItem="BA7-BE-vJD" secondAttribute="centerX" id="84N-P6-Mts"/>
+                                    <constraint firstAttribute="bottom" secondItem="VZ8-92-51s" secondAttribute="bottom" constant="10" id="9OI-jW-Vdd"/>
                                     <constraint firstItem="sH7-Ha-EsR" firstAttribute="centerX" secondItem="BA7-BE-vJD" secondAttribute="centerX" id="BkD-3u-F7a"/>
-                                    <constraint firstAttribute="bottom" secondItem="sH7-Ha-EsR" secondAttribute="bottom" id="DFE-ao-YaF"/>
                                     <constraint firstAttribute="height" constant="168" id="FYA-iN-XZq"/>
-                                    <constraint firstAttribute="bottom" secondItem="VZ8-92-51s" secondAttribute="bottom" constant="10" id="Q5x-ZX-EQf"/>
                                     <constraint firstItem="VZ8-92-51s" firstAttribute="centerX" secondItem="BA7-BE-vJD" secondAttribute="centerX" id="QPq-ZN-si7"/>
                                     <constraint firstAttribute="bottom" secondItem="jxQ-qY-p4k" secondAttribute="bottom" id="e6i-aW-GLf"/>
                                     <constraint firstAttribute="width" constant="114" id="fFo-OQ-FRt"/>
                                     <constraint firstItem="jxQ-qY-p4k" firstAttribute="top" secondItem="trT-bV-BIb" secondAttribute="bottom" id="mLo-Jh-K8q"/>
+                                    <constraint firstAttribute="bottom" secondItem="sH7-Ha-EsR" secondAttribute="bottom" id="mvZ-Ja-ohP"/>
                                     <constraint firstItem="sH7-Ha-EsR" firstAttribute="top" secondItem="trT-bV-BIb" secondAttribute="bottom" id="qPt-bm-Png"/>
                                     <constraint firstItem="jxQ-qY-p4k" firstAttribute="centerX" secondItem="BA7-BE-vJD" secondAttribute="centerX" id="x54-d3-cKh"/>
                                     <constraint firstItem="VZ8-92-51s" firstAttribute="top" secondItem="trT-bV-BIb" secondAttribute="bottom" constant="10" id="xqm-w0-m2z"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="VZ8-92-51s"/>
+                                        <exclude reference="jxQ-qY-p4k"/>
+                                    </mask>
+                                </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZE-rG-W53" customClass="GradientButton" customModule="TeraVPNDemo" customModuleProvider="target">
+                                <rect key="frame" x="125" y="75" width="119" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="signals"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mRQ-ic-9Ti"/>
                         <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BA7-BE-vJD" firstAttribute="centerY" secondItem="li2-2V-Ggh" secondAttribute="centerY" id="Mpe-Iz-IBY"/>
+                            <constraint firstItem="BA7-BE-vJD" firstAttribute="centerX" secondItem="li2-2V-Ggh" secondAttribute="centerX" id="UMl-Ny-dT8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e1v-ft-mOq"/>
                     <connections>
                         <outlet property="circularView" destination="VZ8-92-51s" id="FfX-TX-9so"/>
+                        <outlet property="gbtn" destination="fZE-rG-W53" id="a8H-hf-kCY"/>
                         <outlet property="signal1" destination="Rxu-sE-Ruf" id="SMy-Uo-U9y"/>
                         <outlet property="signal2" destination="mSc-nJ-Sbb" id="B15-Av-nDx"/>
                         <outlet property="signal3" destination="Vro-GA-JSA" id="47e-HJ-xep"/>
@@ -4261,11 +4286,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             <point key="canvasLocation" x="2943.1999999999998" y="-723.68815592203907"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="AUc-G4-ZFc">
-            <size key="intrinsicContentSize" width="153.5" height="93.5"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Account" width="26" height="27"/>
         <image name="Shield" width="64" height="67.5"/>
@@ -4280,6 +4300,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="menu1" width="16" height="16"/>
         <image name="password" width="26.5" height="26"/>
         <image name="pk_flag" width="64" height="64"/>
+        <image name="s1" width="810" height="143"/>
+        <image name="s2" width="810" height="191"/>
+        <image name="s3" width="810" height="237"/>
         <image name="settings" width="29.5" height="29"/>
         <image name="settings1" width="16" height="16"/>
         <image name="signal1" width="107" height="46.5"/>

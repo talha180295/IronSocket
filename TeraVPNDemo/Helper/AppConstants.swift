@@ -16,6 +16,7 @@ struct User_Defaults {
     static let adBlocker = "adBlocker"
     static let proto = "proto"
     static let encryption = "encryption"
+    static let remmemberUser = "remmemberUser"
 }
 
 class AppConstants {

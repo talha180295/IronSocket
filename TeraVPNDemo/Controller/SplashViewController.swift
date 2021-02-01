@@ -27,7 +27,18 @@ class SplashViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            
+//            if isRememberUser{
+//                if userCredentials != nil {
+//    //                self.openHomeScreen(loginResponse: loginResponse!)
+//                    self.login(username: userCredentials?.username ?? "", password:  userCredentials?.password ?? "")
+//                }
+//                else{
+//                    self.openLoginScreen()
+//                }
+//            }
+//            else{
+//                self.openLoginScreen()
+//            }
             if userCredentials != nil {
 //                self.openHomeScreen(loginResponse: loginResponse!)
                 self.login(username: userCredentials?.username ?? "", password:  userCredentials?.password ?? "")

@@ -146,7 +146,7 @@ class VPNViewController: UIViewController {
         
         self.selectedIP = "\(serverList.first?.serverIP ?? "0")"//" \(serverList.first?.serverPort ?? "0")"
         self.serverIP.text = "\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
-        self.countryName.text = "\(serverList.first?.country ?? "")"
+        self.countryName.text = "\(serverList.first?.country ?? "") , \(serverList.first?.city ?? "")"
 //        self.cityName.text = "\(serverList.first?.city ?? "")"
         self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
         
@@ -175,7 +175,20 @@ class VPNViewController: UIViewController {
             self.seconds = self.seconds + 1
         }
       
-        self.timmer.text = "\(self.hours):\(self.minutes):\(self.seconds)"
+        var h = ""
+        var m = ""
+        var s = ""
+        
+        if self.hours < 10{
+            h = "0"
+        }
+        if self.minutes < 10{
+            m = "0"
+        }
+        if self.seconds < 10{
+            s = "0"
+        }
+        self.timmer.text = "\(h)\(self.hours):\(m)\(self.minutes):\(s)\(self.seconds)"
         
     }
     
@@ -202,22 +215,22 @@ class VPNViewController: UIViewController {
     @IBAction func connectBtn(_ sender:UIButton){
 
         
-//        if state == 0{
-//
-//            self.connecting()
-//            self.state = 1
-//        }
-//        else if state == 1{
-//
-//            self.connected()
-//            self.state = 2
-//        }
-//        else if state == 2{
-//
-//            self.disconnected()
-//            self.state = 0
-//        }
-        self.connectVpn()
+        if state == 0{
+
+            self.connecting()
+            self.state = 1
+        }
+        else if state == 1{
+
+            self.connected()
+            self.state = 2
+        }
+        else if state == 2{
+
+            self.disconnected()
+            self.state = 0
+        }
+//        self.connectVpn()
 
        
         
@@ -242,15 +255,15 @@ class VPNViewController: UIViewController {
     //For logout
     @IBAction func settingsBtn(_ sender:UIButton){
         
-//        var vc = DemoViewController()
-//        if #available(iOSApplicationExtension 13.0, *) {
-//            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DemoViewController") as! DemoViewController
-//
-//        } else {
-//            vc = self.storyboard?.instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
-//        }
-//        self.navigationController?.pushViewController(vc, animated: true)
-        self.openSettingsScreen()
+        var vc = DemoViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "DemoViewController") as! DemoViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.openSettingsScreen()
        
     }
     
@@ -284,6 +297,7 @@ extension VPNViewController{
             
             let disconnectAction = UIAlertAction(title: "DISCONNECT", style: UIAlertAction.Style.destructive) { _ in
                 self.providerManager.connection.stopVPNTunnel()
+                self.disconnected()
             }
             
             let dismiss = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
@@ -308,6 +322,7 @@ extension VPNViewController{
                 self.loadProviderManager {
 //                    self.configureVPN(serverAddress: self.selectedIP, username: self.username, password: "dcd76cbc5ad008a")dfe334f1a50535f
                     self.configureVPN(serverAddress: "", username: username, password:password)
+                    self.connecting()
                     
                 }
                 
@@ -478,7 +493,7 @@ extension VPNViewController{
             print("Connecting...")
             self.connectionStatus.text = "Connecting...".uppercased()
 
-            self.connecting()
+            
             
             break
         case .connected:
@@ -501,7 +516,7 @@ extension VPNViewController{
             print("Disconnected...")
             self.connectionStatus.text = "Disconnected".uppercased()
 
-            self.disconnected()
+            
             
             break
         case .invalid:
@@ -527,7 +542,7 @@ extension VPNViewController:ServerListProtocol{
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
         self.serverIP.text = server.serverIP
-        self.countryName.text = "\(server.country ?? "")"
+        self.countryName.text = "\(server.country ?? "") , \(server.city ?? "")"
 //        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
         
@@ -545,7 +560,7 @@ extension VPNViewController:SettingServerListProtocol{
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
         self.serverIP.text = server.serverIP
-        self.countryName.text = "\(server.country ?? "")"
+        self.countryName.text = "\(server.country ?? "") , \(server.city ?? "")"
 //        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
         
@@ -636,7 +651,7 @@ extension VPNViewController{
         self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
         circularProgrress()
         startCircularTimer()
-        startCircularTimer()
+        startSignalTimer()
         stopTimerLabel()
         
     }
@@ -649,6 +664,10 @@ extension VPNViewController{
         signal1.setImageTintColor(UIColor.AntennaConnected)
         signal2.setImageTintColor(UIColor.AntennaConnected)
         signal3.setImageTintColor(UIColor.AntennaConnected)
+        
+//        startCircularTimer()
+//        startSignalTimer()
+//        stopTimerLabel()
         stopCircularTimer()
         stopSignalTimer()
         startTimerLabel()
@@ -662,6 +681,13 @@ extension VPNViewController{
         signal2.setImageTintColor(UIColor.AntennaDisconnected)
         signal3.setImageTintColor(UIColor.AntennaDisconnected)
         connectBtn.setImageTintColor(UIColor.ButtonDisconnected)
+        
+//        startCircularTimer()
+//        startSignalTimer()
+        
+        stopCircularTimer()
+        stopSignalTimer()
+        
         stopTimerLabel()
     }
 }

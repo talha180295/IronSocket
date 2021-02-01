@@ -16,6 +16,7 @@ class DemoViewController: UIViewController {
     @IBOutlet weak var signal1: UIButton!
     @IBOutlet weak var signal2: UIButton!
     @IBOutlet weak var signal3: UIButton!
+    @IBOutlet weak var gbtn: GradientButton!
     
     var duration: TimeInterval!
     var timer3:Timer!
@@ -24,6 +25,7 @@ class DemoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gbtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
 //        circularView.center = view.center
 //        circularView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
 //        view.addSubview(circularView)
