@@ -2246,19 +2246,19 @@
         <!--Change Password-->
         <scene sceneID="YLG-Et-VFz">
             <objects>
-                <viewController storyboardIdentifier="PasswordViewController" id="ISO-a9-ajU" customClass="PasswordViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePasswordViewController" id="ISO-a9-ajU" customClass="ChangePasswordViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lhQ-GB-nmU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmd-9y-lBw" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="15" y="69" width="345" height="200"/>
+                                <rect key="frame" x="15" y="69" width="345" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Syg-Sn-xZh">
-                                        <rect key="frame" x="5" y="10" width="335" height="180"/>
+                                        <rect key="frame" x="5" y="10" width="335" height="120"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwX-zf-9sb">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwX-zf-9sb">
+                                                <rect key="frame" x="0.0" y="-60" width="335" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-oV-olg" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="320" height="1"/>
@@ -2267,7 +2267,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="zrS-QD-Qdp"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abU-Re-37g">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abU-Re-37g">
                                                         <rect key="frame" x="15" y="13" width="310" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -2286,7 +2286,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH5-zy-H16">
-                                                <rect key="frame" x="0.0" y="60" width="335" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbO-Rd-QrU" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="320" height="1"/>
@@ -2295,7 +2295,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="vpY-ia-6Uf"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbu-oh-uMp">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbu-oh-uMp">
                                                         <rect key="frame" x="15" y="13" width="310" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -2314,7 +2314,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-g8-zko">
-                                                <rect key="frame" x="0.0" y="120" width="335" height="60"/>
+                                                <rect key="frame" x="0.0" y="60" width="335" height="60"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgk-Qp-PEz" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="320" height="1"/>
@@ -2367,7 +2367,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID4-ae-zS6">
-                                <rect key="frame" x="87.5" y="299" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="239" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="sAY-Ho-bsa"/>
@@ -2383,6 +2383,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnClick:" destination="ISO-a9-ajU" eventType="touchUpInside" id="xZA-mv-9Tv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mis-E8-bPo"/>
@@ -2396,6 +2399,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="kj2-ri-Nev"/>
+                    <connections>
+                        <outlet property="confNewPassTF" destination="brm-LE-dqr" id="CQM-cH-vkk"/>
+                        <outlet property="newPassTF" destination="Rbu-oh-uMp" id="AJv-VW-W9o"/>
+                        <outlet property="oldPassTF" destination="abU-Re-37g" id="OWT-Pm-ir6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkl-sk-EjC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4160,13 +4168,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="69" width="345" height="113.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
                                         <rect key="frame" x="8" y="10" width="329" height="93.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="93.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4264,6 +4272,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             <point key="canvasLocation" x="2943.1999999999998" y="-723.68815592203907"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="AUc-G4-ZFc">
+            <size key="intrinsicContentSize" width="153.5" height="93.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Account" width="26" height="27"/>
         <image name="Shield" width="64" height="67.5"/>

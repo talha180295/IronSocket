@@ -22,6 +22,7 @@ enum APIRouter: URLRequestConvertible {
     
     
     case login([String:Any])
+    case changePass([String:Any])
     case usage([String:Any])
     case signup([String:Any])
     case getShopList
@@ -53,7 +54,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         
             
-        case .login ,.signup ,.getCategoryProduct, .suggestion, .order, .firebasetoken, .updateprofile, .uploadprofileimg, .loginwithSocialMedia, .produtReview, .changepassword, .usage:
+        case .login, .changePass, .signup ,.getCategoryProduct, .suggestion, .order, .firebasetoken, .updateprofile, .uploadprofileimg, .loginwithSocialMedia, .produtReview, .changepassword, .usage:
             return .post
         case .getShopList, .getshopadvertise, .Getappleveladvertisement, .getMyNotification, .GetCharity, .orderhistory, .Forgetpassword:
             return .get
@@ -68,6 +69,8 @@ enum APIRouter: URLRequestConvertible {
         case .login:
 //            return "https://cloud.teravpn.com/api/app/login.php"
             return "https://dev-be.ironsocket.com/api/app/login.php"
+        case .changePass:
+            return "https://dev-be.ironsocket.com/api/changepass.php"
         case .usage:
             return "https://cloud.teravpn.com/api/usage.php"
         case .signup:
@@ -127,6 +130,8 @@ enum APIRouter: URLRequestConvertible {
        
         case .login(let params):
             return (params)
+        case .changePass(let params):
+            return (params)
         case .usage(let params):
             return (params)
         case .signup(let params):
@@ -171,7 +176,7 @@ enum APIRouter: URLRequestConvertible {
     private var urlEncoding: URLEncoding {
         switch self {
         
-        case .login ,.usage, .signup, .getCategoryProduct, .suggestion, .order,.firebasetoken, .updateprofile,.uploadprofileimg, .loginwithSocialMedia, .produtReview, .changepassword:
+        case .login, .changePass, .usage, .signup, .getCategoryProduct, .suggestion, .order,.firebasetoken, .updateprofile,.uploadprofileimg, .loginwithSocialMedia, .produtReview, .changepassword:
             return .httpBody
         case .getShopList, .getshopadvertise ,.Getappleveladvertisement, .getMyNotification, .GetCharity, .orderhistory, .Forgetpassword:
             return .default

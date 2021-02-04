@@ -39,12 +39,16 @@ class AccountViewController: UIViewController {
     }
     
     func openPasswordScreen(){
-        var vc = PasswordViewController()
+        var vc = ChangePasswordViewController()
         if #available(iOSApplicationExtension 13.0, *) {
-            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "PasswordViewController") as! PasswordViewController
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "ChangePasswordViewController") as! ChangePasswordViewController
 
         } else {
-            vc = self.storyboard?.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
+        }
+        vc.passChangeedSuccsesfull = { [weak self] (value,msg) in
+           
+            HelperFunc().showToast(message: msg, controller: self!)
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }

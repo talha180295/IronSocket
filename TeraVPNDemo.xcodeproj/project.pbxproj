@@ -36,6 +36,7 @@
 		BC37364D2512C0D9007A1D13 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3736462512C0D9007A1D13 /* BottomBarView.swift */; };
 		BC3736512512D075007A1D13 /* vpn-02.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3736502512D074007A1D13 /* vpn-02.ovpn */; };
 		BC3BB089253857C200EFB904 /* test.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3BB0792538538D00EFB904 /* test.ovpn */; };
+		BC3CBAD925CC2700001B2C4B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CBAD825CC26FF001B2C4B /* ChangePasswordViewController.swift */; };
 		BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483C2511686A00E7CC2F /* AppDelegate.swift */; };
 		BC4B483F2511686A00E7CC2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483E2511686A00E7CC2F /* SceneDelegate.swift */; };
 		BC4B48442511686A00E7CC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4B48422511686A00E7CC2F /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		BC4B486C2511737800E7CC2F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486B2511737800E7CC2F /* LoginResponse.swift */; };
 		BC4B486E2511747600E7CC2F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486D2511747600E7CC2F /* LoginRequest.swift */; };
 		BC4B4870251177CB00E7CC2F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B486F251177CB00E7CC2F /* APIRouter.swift */; };
+		BC56E03E25CC169D00958D9C /* ChangePassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC56E03D25CC169D00958D9C /* ChangePassResponse.swift */; };
 		BC62748C2523C9F400C3E43D /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6274782523C8CA00C3E43D /* UserCredentials.swift */; };
 		BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */; };
 		BC97C535257FC6DE00647BA7 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C534257FC6DE00647BA7 /* TermsViewController.swift */; };
@@ -61,7 +63,6 @@
 		BCB95BC825AFBA9000FCDAD8 /* android-version3.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */; };
 		BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */; };
 		BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A107257E2D960008ECCD /* AccountViewController.swift */; };
-		BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */; };
 		BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */; };
 		BCC4A1F3257ED88B0008ECCD /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */; };
 		BCC4A1F7257ED99E0008ECCD /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1F6257ED99E0008ECCD /* PrivacyViewController.swift */; };
@@ -132,6 +133,7 @@
 		BC3736462512C0D9007A1D13 /* BottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		BC3736502512D074007A1D13 /* vpn-02.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpn-02.ovpn"; sourceTree = "<group>"; };
 		BC3BB0792538538D00EFB904 /* test.ovpn */ = {isa = PBXFileReference; lastKnownFileType = text; name = test.ovpn; path = Response/test.ovpn; sourceTree = "<group>"; };
+		BC3CBAD825CC26FF001B2C4B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BC4B48392511686A00E7CC2F /* TeraVPNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeraVPNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4B483C2511686A00E7CC2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC4B483E2511686A00E7CC2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		BC4B486B2511737800E7CC2F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		BC4B486D2511747600E7CC2F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		BC4B486F251177CB00E7CC2F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		BC56E03D25CC169D00958D9C /* ChangePassResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassResponse.swift; sourceTree = "<group>"; };
 		BC6274782523C8CA00C3E43D /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidelinesViewController.swift; sourceTree = "<group>"; };
 		BC97C534257FC6DE00647BA7 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +164,6 @@
 		BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version3.ovpn"; sourceTree = "<group>"; };
 		BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BCC4A107257E2D960008ECCD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		BCC4A1F6257ED99E0008ECCD /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		BC2DCDB2251AB35600956916 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				BC56E03D25CC169D00958D9C /* ChangePassResponse.swift */,
 				BC4B486B2511737800E7CC2F /* LoginResponse.swift */,
 				BC2DCDB3251AB36E00956916 /* UsageResponse.swift */,
 				BCD9AE0C25AF8CA700E41A03 /* Proto.swift */,
@@ -363,6 +366,7 @@
 		BC5A4D79257591010034A4CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BC3CBAD825CC26FF001B2C4B /* ChangePasswordViewController.swift */,
 				BC4B48652511712200E7CC2F /* LoginViewController.swift */,
 				BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */,
 				BCC4A1F6257ED99E0008ECCD /* PrivacyViewController.swift */,
@@ -372,7 +376,6 @@
 				BC2DCDB5251AB99700956916 /* SplashViewController.swift */,
 				BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */,
 				BCC4A107257E2D960008ECCD /* AccountViewController.swift */,
-				BCC4A1B3257E81940008ECCD /* PasswordViewController.swift */,
 				BC97C530257FC69D00647BA7 /* GuidelinesViewController.swift */,
 				BC97C534257FC6DE00647BA7 /* TermsViewController.swift */,
 				BC97C538257FC73700647BA7 /* FAQViewController.swift */,
@@ -569,6 +572,7 @@
 				BC4B48662511712200E7CC2F /* LoginViewController.swift in Sources */,
 				BC37364D2512C0D9007A1D13 /* BottomBarView.swift in Sources */,
 				BC3736382512C0C3007A1D13 /* AppConstants.swift in Sources */,
+				BC56E03E25CC169D00958D9C /* ChangePassResponse.swift in Sources */,
 				BC4B486C2511737800E7CC2F /* LoginResponse.swift in Sources */,
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
 				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
@@ -578,7 +582,6 @@
 				BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */,
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
 				BC97C539257FC73700647BA7 /* FAQViewController.swift in Sources */,
-				BCC4A1B4257E81940008ECCD /* PasswordViewController.swift in Sources */,
 				BCC4A1F3257ED88B0008ECCD /* HelpViewController.swift in Sources */,
 				BC3736342512C0C3007A1D13 /* KeychainItem.swift in Sources */,
 				BC3736152512B051007A1D13 /* HomeViewController.swift in Sources */,
@@ -605,6 +608,7 @@
 				BC37364B2512C0D9007A1D13 /* TopBarView.swift in Sources */,
 				BC0782CA25B5BFF600DF27D6 /* DemoViewController.swift in Sources */,
 				BC97C53D257FCADC00647BA7 /* AppSettingsViewController.swift in Sources */,
+				BC3CBAD925CC2700001B2C4B /* ChangePasswordViewController.swift in Sources */,
 				BC3736472512C0D9007A1D13 /* UIColor+Extension.swift in Sources */,
 				BC97C535257FC6DE00647BA7 /* TermsViewController.swift in Sources */,
 				BC3736372512C0C3007A1D13 /* HelperFunc.swift in Sources */,
