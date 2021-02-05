@@ -16,6 +16,8 @@ struct User_Defaults {
     static let adBlocker = "adBlocker"
     static let proto = "proto"
     static let encryption = "encryption"
+    static let selectIp = "selectIp"
+    static let selectServer = "selectServer"
 }
 
 class AppConstants {

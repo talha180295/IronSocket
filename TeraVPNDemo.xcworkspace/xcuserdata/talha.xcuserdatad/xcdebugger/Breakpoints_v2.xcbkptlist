@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF3903C7-1F4D-42C5-82B0-6F5380CDB635"
-            shouldBeEnabled = "No"
+            uuid = "B5F0AEFD-8119-4F3A-ACAE-02B9C62528E7"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TeraVPNDemo/Controller/VPNViewController.swift"
+            filePath = "TeraVPNDemo/Controller/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "connectBtn(_:)"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "setSelectedLocation()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5F0AEFD-8119-4F3A-ACAE-02B9C62528E7 - 6e4c8919c67e857"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TeraVPNDemo.LocationViewController.setSelectedLocation() -&gt; ()"
+                  moduleName = "TeraVPNDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/talha/Documents/vpn%20pro/IronSocket/TeraVPNDemo/Controller/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1410">
+               </Location>
+               <Location
+                  uuid = "B5F0AEFD-8119-4F3A-ACAE-02B9C62528E7 - ec5282fec92568a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (TeraVPNDemo.Server) -&gt; Swift.Bool in TeraVPNDemo.LocationViewController.setSelectedLocation() -&gt; ()"
+                  moduleName = "TeraVPNDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/talha/Documents/vpn%20pro/IronSocket/TeraVPNDemo/Controller/LocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

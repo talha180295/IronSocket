@@ -202,22 +202,22 @@ class VPNViewController: UIViewController {
     @IBAction func connectBtn(_ sender:UIButton){
 
         
-//        if state == 0{
-//
-//            self.connecting()
-//            self.state = 1
-//        }
-//        else if state == 1{
-//
-//            self.connected()
-//            self.state = 2
-//        }
-//        else if state == 2{
-//
-//            self.disconnected()
-//            self.state = 0
-//        }
-        self.connectVpn()
+        if state == 0{
+
+            self.connecting()
+            self.state = 1
+        }
+        else if state == 1{
+
+            self.connected()
+            self.state = 2
+        }
+        else if state == 2{
+
+            self.disconnected()
+            self.state = 0
+        }
+//        self.connectVpn()
 
        
         

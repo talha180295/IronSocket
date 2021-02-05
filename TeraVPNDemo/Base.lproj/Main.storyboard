@@ -906,7 +906,8 @@
                                                     <constraint firstAttribute="height" constant="21" id="cdH-LG-c5Z"/>
                                                     <constraint firstAttribute="width" constant="54" id="f80-Jt-7lt"/>
                                                 </constraints>
-                                                <state key="normal" image="signal1"/>
+                                                <inset key="contentEdgeInsets" minX="-15" minY="0.0" maxX="-15" maxY="0.0"/>
+                                                <state key="normal" image="s1blue"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHH-NS-0Wk">
                                                 <rect key="frame" x="17.5" y="21" width="79" height="29"/>
@@ -914,7 +915,8 @@
                                                     <constraint firstAttribute="width" constant="79" id="ZJa-s1-wng"/>
                                                     <constraint firstAttribute="height" constant="29" id="mv9-WU-aC7"/>
                                                 </constraints>
-                                                <state key="normal" image="signal2"/>
+                                                <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="0.0"/>
+                                                <state key="normal" image="s2blue"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUK-tc-59F">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="37"/>
@@ -922,7 +924,7 @@
                                                     <constraint firstAttribute="height" constant="37" id="3iG-cZ-giR"/>
                                                     <constraint firstAttribute="width" constant="114" id="x3n-zc-fDw"/>
                                                 </constraints>
-                                                <state key="normal" image="signal3"/>
+                                                <state key="normal" image="s3blue"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4291,6 +4293,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="menu1" width="16" height="16"/>
         <image name="password" width="26.5" height="26"/>
         <image name="pk_flag" width="64" height="64"/>
+        <image name="s1blue" width="810" height="143"/>
+        <image name="s2blue" width="810" height="191"/>
+        <image name="s3blue" width="810" height="237"/>
         <image name="settings" width="29.5" height="29"/>
         <image name="settings1" width="16" height="16"/>
         <image name="signal1" width="107" height="46.5"/>

@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         
+        UserDefaults.standard.removeObject(forKey: User_Defaults.selectIp)
 //        let navigationBarAppearace = UINavigationBar.appearance()
 
 //        navigationBarAppearace.tintColor = UIColor(hexString: "#0ffffff")

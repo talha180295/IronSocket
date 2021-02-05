@@ -23,7 +23,7 @@ struct LoginResponse: Codable {
 struct Server: Codable {
     var serverIP, serverPort, country, city: String?
     var flag, type: String?
-
+    var ping: Int?
     enum CodingKeys: String, CodingKey {
         case serverIP = "server_ip"
         case serverPort = "server_port"

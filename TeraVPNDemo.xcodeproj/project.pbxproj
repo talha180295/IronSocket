@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		BC3736512512D075007A1D13 /* vpn-02.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3736502512D074007A1D13 /* vpn-02.ovpn */; };
 		BC3BB089253857C200EFB904 /* test.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC3BB0792538538D00EFB904 /* test.ovpn */; };
 		BC3CBAD925CC2700001B2C4B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3CBAD825CC26FF001B2C4B /* ChangePasswordViewController.swift */; };
+		BC3CBB1125CD5A7B001B2C4B /* SwiftyPing in Frameworks */ = {isa = PBXBuildFile; productRef = BC3CBB1025CD5A7B001B2C4B /* SwiftyPing */; };
 		BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483C2511686A00E7CC2F /* AppDelegate.swift */; };
 		BC4B483F2511686A00E7CC2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B483E2511686A00E7CC2F /* SceneDelegate.swift */; };
 		BC4B48442511686A00E7CC2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4B48422511686A00E7CC2F /* Main.storyboard */; };
@@ -182,6 +183,7 @@
 			files = (
 				8B08384FE5363CFD8715A322 /* Pods_TeraVPNDemo.framework in Frameworks */,
 				BC4B486325116C8200E7CC2F /* NetworkExtension.framework in Frameworks */,
+				BC3CBB1125CD5A7B001B2C4B /* SwiftyPing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +410,9 @@
 				BC4B485B25116B9E00E7CC2F /* PBXTargetDependency */,
 			);
 			name = TeraVPNDemo;
+			packageProductDependencies = (
+				BC3CBB1025CD5A7B001B2C4B /* SwiftyPing */,
+			);
 			productName = TeraVPNDemo;
 			productReference = BC4B48392511686A00E7CC2F /* TeraVPNDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -457,6 +462,9 @@
 				Base,
 			);
 			mainGroup = BC4B48302511686A00E7CC2F;
+			packageReferences = (
+				BC3CBB0F25CD5A7B001B2C4B /* XCRemoteSwiftPackageReference "SwiftyPing" */,
+			);
 			productRefGroup = BC4B483A2511686A00E7CC2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -901,6 +909,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC3CBB0F25CD5A7B001B2C4B /* XCRemoteSwiftPackageReference "SwiftyPing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/samiyr/SwiftyPing.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC3CBB1025CD5A7B001B2C4B /* SwiftyPing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC3CBB0F25CD5A7B001B2C4B /* XCRemoteSwiftPackageReference "SwiftyPing" */;
+			productName = SwiftyPing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BC4B48312511686A00E7CC2F /* Project object */;
 }
