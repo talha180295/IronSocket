@@ -3701,7 +3701,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-1l-yM9" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="15" y="59" width="345" height="428"/>
+                                <rect key="frame" x="15" y="64" width="345" height="385"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qh6-4K-Pb7">
                                         <rect key="frame" x="5" y="5" width="335" height="240"/>
@@ -3994,6 +3994,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     <constraint firstItem="DfC-Nv-nPT" firstAttribute="top" secondItem="zRU-Vq-vUe" secondAttribute="bottom" constant="10" id="RTr-u1-Uir"/>
                                     <constraint firstItem="DfC-Nv-nPT" firstAttribute="centerX" secondItem="3oP-1l-yM9" secondAttribute="centerX" id="Sxp-ad-LIX"/>
                                     <constraint firstAttribute="trailing" secondItem="qh6-4K-Pb7" secondAttribute="trailing" constant="5" id="Uaw-gP-7fG"/>
+                                    <constraint firstAttribute="bottom" secondItem="zRU-Vq-vUe" secondAttribute="bottom" constant="10" id="UtL-z6-kRa"/>
                                     <constraint firstItem="zRU-Vq-vUe" firstAttribute="leading" secondItem="3oP-1l-yM9" secondAttribute="leading" constant="8" id="WbP-1T-dKI"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -4010,9 +4011,14 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                         <real key="value" value="0.29999999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="DfC-Nv-nPT"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7em-VK-KKt" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="14" y="487" width="345" height="95"/>
+                                <rect key="frame" x="14" y="467" width="345" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-VE-ua2">
                                         <rect key="frame" x="8" y="10" width="329" height="75"/>
@@ -4097,7 +4103,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-9H-ONR">
-                                <rect key="frame" x="87.5" y="602" width="200" height="33"/>
+                                <rect key="frame" x="87.5" y="589" width="200" height="33"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Jay-Wt-pXO"/>
@@ -4121,11 +4127,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                             <constraint firstItem="3oP-1l-yM9" firstAttribute="leading" secondItem="WKU-Lh-Fo9" secondAttribute="leading" constant="15" id="9k7-Nr-X3d"/>
                             <constraint firstItem="3kE-9H-ONR" firstAttribute="centerX" secondItem="gf7-MI-Pit" secondAttribute="centerX" id="JKG-WV-ZG2"/>
                             <constraint firstItem="WKU-Lh-Fo9" firstAttribute="trailing" secondItem="3oP-1l-yM9" secondAttribute="trailing" constant="15" id="UsB-95-HOO"/>
-                            <constraint firstItem="3oP-1l-yM9" firstAttribute="top" secondItem="WKU-Lh-Fo9" secondAttribute="top" constant="15" id="VTQ-Rw-Mvo"/>
+                            <constraint firstItem="3oP-1l-yM9" firstAttribute="top" secondItem="WKU-Lh-Fo9" secondAttribute="top" constant="20" id="VTQ-Rw-Mvo"/>
                             <constraint firstItem="7em-VK-KKt" firstAttribute="leading" secondItem="WKU-Lh-Fo9" secondAttribute="leading" constant="14" id="bEB-l7-DGE"/>
                             <constraint firstItem="WKU-Lh-Fo9" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3kE-9H-ONR" secondAttribute="bottom" constant="12" id="bOr-Hh-gYE"/>
-                            <constraint firstItem="3kE-9H-ONR" firstAttribute="top" secondItem="7em-VK-KKt" secondAttribute="bottom" constant="20" id="cKg-8I-khC"/>
-                            <constraint firstItem="7em-VK-KKt" firstAttribute="top" secondItem="3oP-1l-yM9" secondAttribute="bottom" id="chf-MU-xXe"/>
+                            <constraint firstItem="3kE-9H-ONR" firstAttribute="top" secondItem="7em-VK-KKt" secondAttribute="bottom" constant="27" id="cKg-8I-khC"/>
+                            <constraint firstItem="7em-VK-KKt" firstAttribute="top" secondItem="3oP-1l-yM9" secondAttribute="bottom" constant="18" id="chf-MU-xXe"/>
                             <constraint firstItem="WKU-Lh-Fo9" firstAttribute="trailing" secondItem="7em-VK-KKt" secondAttribute="trailing" constant="16" id="u6m-Nm-LD7"/>
                         </constraints>
                     </view>

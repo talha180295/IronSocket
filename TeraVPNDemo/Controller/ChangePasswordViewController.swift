@@ -24,6 +24,11 @@ class ChangePasswordViewController: UIViewController {
         userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)        
         self.oldPassTF.text = userData?.password!
         self.oldPassTF.isHidden = true
+        
+        oldPassTF.isSecureTextEntry = true
+        newPassTF.isSecureTextEntry = true
+        confNewPassTF.isSecureTextEntry = true
+        
         setUpNavBar()
     }
     
