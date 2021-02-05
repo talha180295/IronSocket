@@ -129,6 +129,11 @@ class VPNViewController: UIViewController {
     func stopTimerLabel() {
         timer2?.invalidate()
         timer2 = nil
+        self.hours = 0
+        self.minutes = 0
+        self.seconds = 0
+        
+        self.timmer.text = "00:00:00"
     }
     
     override func viewDidLoad() {
@@ -219,22 +224,22 @@ class VPNViewController: UIViewController {
     @IBAction func connectBtn(_ sender:UIButton){
 
         
-        if state == 0{
-
-            self.connecting()
-            self.state = 1
-        }
-        else if state == 1{
-
-            self.connected()
-            self.state = 2
-        }
-        else if state == 2{
-
-            self.disconnected()
-            self.state = 0
-        }
-//        self.connectVpn()
+//        if state == 0{
+//
+//            self.connecting()
+//            self.state = 1
+//        }
+//        else if state == 1{
+//
+//            self.connected()
+//            self.state = 2
+//        }
+//        else if state == 2{
+//
+//            self.disconnected()
+//            self.state = 0
+//        }
+        self.connectVpn()
 
        
         
@@ -297,21 +302,24 @@ extension VPNViewController{
 //        self.stopTimer4()
         if isVPNConnected == true {
             
-            let alert = UIAlertController(title: "Cancel Confirmation", message: "Disconnect the connected VPN cancel the connection attempt?", preferredStyle: UIAlertController.Style.alert)
+            self.providerManager.connection.stopVPNTunnel()
+            self.disconnected()
             
-            let disconnectAction = UIAlertAction(title: "DISCONNECT", style: UIAlertAction.Style.destructive) { _ in
-                self.providerManager.connection.stopVPNTunnel()
-                self.disconnected()
-            }
-            
-            let dismiss = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-            
-            // relate actions to controllers
-            alert.addAction(disconnectAction)
-            
-            alert.addAction(dismiss)
-            
-            present(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: "Cancel Confirmation", message: "Disconnect the connected VPN cancel the connection attempt?", preferredStyle: UIAlertController.Style.alert)
+//
+//            let disconnectAction = UIAlertAction(title: "DISCONNECT", style: UIAlertAction.Style.destructive) { _ in
+//                self.providerManager.connection.stopVPNTunnel()
+//                self.disconnected()
+//            }
+//
+//            let dismiss = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+//
+//            // relate actions to controllers
+//            alert.addAction(disconnectAction)
+//
+//            alert.addAction(dismiss)
+//
+//            present(alert, animated: true, completion: nil)
         }
         else{
             
@@ -324,7 +332,7 @@ extension VPNViewController{
                 let password = self.userData?.password ?? ""
                 let username = self.userData?.username ?? ""
                 self.loadProviderManager {
-//                    self.configureVPN(serverAddress: self.selectedIP, username: self.username, password: "dcd76cbc5ad008a")dfe334f1a50535f
+
                     self.configureVPN(serverAddress: "", username: username, password:password)
                     self.connecting()
                     
