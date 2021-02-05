@@ -48,14 +48,29 @@
                             <constraint firstAttribute="height" constant="75" id="nqk-g5-SZu"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OP-FH-pBZ">
+                        <rect key="frame" x="268" y="29" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="IEp-Fp-y6b"/>
+                            <constraint firstAttribute="width" constant="32" id="uee-te-zQY"/>
+                        </constraints>
+                        <state key="normal" image="star"/>
+                        <state key="selected" image="star_selected"/>
+                        <connections>
+                            <action selector="didTapFav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xiu-WF-1E1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="yW1-5r-2os" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5C3-kC-af4"/>
+                    <constraint firstAttribute="bottom" secondItem="1OP-FH-pBZ" secondAttribute="bottom" constant="30" id="AnO-oO-mlV"/>
                     <constraint firstItem="6Bl-0R-WGz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="BLX-Wx-wBn"/>
+                    <constraint firstItem="1OP-FH-pBZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="OlJ-GX-hwj"/>
                     <constraint firstAttribute="bottom" secondItem="6Bl-0R-WGz" secondAttribute="bottom" constant="15.5" id="R7w-Oy-TBA"/>
                     <constraint firstAttribute="bottom" secondItem="yW1-5r-2os" secondAttribute="bottom" constant="8" id="feJ-MW-0Ul"/>
                     <constraint firstItem="yW1-5r-2os" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="gBS-DK-so7"/>
                     <constraint firstItem="6Bl-0R-WGz" firstAttribute="leading" secondItem="yW1-5r-2os" secondAttribute="trailing" constant="15" id="why-al-qWP"/>
+                    <constraint firstAttribute="trailing" secondItem="1OP-FH-pBZ" secondAttribute="trailing" constant="20" id="zCg-SS-kC9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -63,6 +78,7 @@
                 <outlet property="cityName" destination="GBX-DF-AeM" id="Jgy-hZ-Rnb"/>
                 <outlet property="countryName" destination="lYy-AT-BOT" id="u9c-G4-Kof"/>
                 <outlet property="flag" destination="yW1-5r-2os" id="qas-nq-2At"/>
+                <outlet property="star" destination="1OP-FH-pBZ" id="PiO-Hd-Pg1"/>
                 <outlet property="time" destination="RCG-D9-qy0" id="3Fw-j2-asO"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="143.63839285714286"/>
@@ -70,6 +86,8 @@
     </objects>
     <resources>
         <image name="ad_flag" width="64" height="64"/>
+        <image name="star" width="64" height="64"/>
+        <image name="star_selected" width="64" height="64"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

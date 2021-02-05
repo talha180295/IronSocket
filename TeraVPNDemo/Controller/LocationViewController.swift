@@ -212,7 +212,7 @@ extension LocationViewController {
                 self.serverList[index].ping = ms
                 print("\(item) = \(ms)")
                 if host.last == item{
-                    self.serverList[index].ping = Int.random(in: 1..<200)
+//                    self.serverList[index].ping = Int.random(in: 1..<200)
                     self.self.serverList = self.serverList.sorted { (item1, item2) -> Bool in
                         if item1.ping ?? 0 < item2.ping ?? 0{
                             return true

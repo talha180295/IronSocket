@@ -14,6 +14,7 @@ class MenuCell: UITableViewCell {
     @IBOutlet weak var countryName:UILabel!
     @IBOutlet weak var cityName:UILabel!
     @IBOutlet weak var time:UILabel!
+    @IBOutlet weak var star:UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,15 @@ class MenuCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func didTapFav(_ sender:UIButton){
+        if self.star.isSelected{
+            self.star.isSelected = false
+        }
+        else{
+            self.star.isSelected = true
+        }
     }
     
 }
