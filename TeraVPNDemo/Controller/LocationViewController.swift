@@ -103,22 +103,17 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
             cell.roundedCorners(corners: [.bottomLeft,.bottomRight], radius: 10)
             cell.layer.masksToBounds = false
         }
+            
+        let favServers = UserDefaults.standard.value(forKey: User_Defaults.favServers) as? [String]
+        for item in favServers ?? []{
+            if item == serverList[indexPath.item].country{
+                cell.star.isSelected = true
+            }
+//            else{
+//                cell.star.isSelected = false
+//            }
+        }
         
-//        checkPing(host: serverList[indexPath.item].serverIP ?? ""){
-//            duration in
-//
-//            cell.time.text = "\(duration)ms"
-//
-//            if duration > 150 {
-//                cell.time.textColor = .red
-//            }
-//            else if duration > 100 && duration < 150 {
-//                cell.time.textColor = .yellow
-//            }
-//            else if duration < 100  {
-//                cell.time.textColor = .green
-//            }
-//        }
         
         return cell
     }
@@ -213,12 +208,12 @@ extension LocationViewController {
                 print("\(item) = \(ms)")
                 if host.last == item{
 //                    self.serverList[index].ping = Int.random(in: 1..<200)
-                    self.self.serverList = self.serverList.sorted { (item1, item2) -> Bool in
-                        if item1.ping ?? 0 < item2.ping ?? 0{
-                            return true
-                        }
-                        return false
-                    }
+//                    self.self.serverList = self.serverList.sorted { (item1, item2) -> Bool in
+//                        if item1.ping ?? 0 < item2.ping ?? 0{
+//                            return true
+//                        }
+//                        return false
+//                    }
                     self.serverNameTbl.reloadData()
                 }
             }

@@ -16,6 +16,8 @@ class MenuCell: UITableViewCell {
     @IBOutlet weak var time:UILabel!
     @IBOutlet weak var star:UIButton!
     
+    var index:Int!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,11 +30,21 @@ class MenuCell: UITableViewCell {
     }
     
     @IBAction func didTapFav(_ sender:UIButton){
+        
+        var favList = UserDefaults.standard.value(forKey: User_Defaults.favServers) as? [String]
         if self.star.isSelected{
             self.star.isSelected = false
+            if favList?.contains(countryName.text ?? "") == true{
+                favList = favList?.filter { $0 != countryName.text }
+                UserDefaults.standard.setValue(favList, forKey: User_Defaults.favServers)
+            }
         }
         else{
             self.star.isSelected = true
+
+            var newFavList = favList ?? []
+            newFavList.append(countryName.text ?? "")
+            UserDefaults.standard.setValue(newFavList, forKey: User_Defaults.favServers)
         }
     }
     

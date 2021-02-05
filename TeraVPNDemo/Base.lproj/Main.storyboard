@@ -1992,7 +1992,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-BE-vJD">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-BE-vJD">
                                 <rect key="frame" x="130.5" y="249.5" width="114" height="168"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZ8-92-51s" customClass="CircularProgressView" customModule="TeraVPNDemo" customModuleProvider="target">
@@ -2025,9 +2025,6 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                         <state key="normal" image="Shield"/>
-                                        <connections>
-                                            <action selector="btnclickWith_sender:" destination="tzG-fK-dfd" eventType="touchUpInside" id="WFa-6u-Mh4"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trT-bV-BIb">
                                         <rect key="frame" x="0.0" y="5" width="114" height="63"/>
@@ -2090,14 +2087,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mRQ-ic-9Ti"/>
                         <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="BA7-BE-vJD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="e1v-ft-mOq"/>
-                    <connections>
-                        <outlet property="circularView" destination="VZ8-92-51s" id="FfX-TX-9so"/>
-                        <outlet property="signal1" destination="Rxu-sE-Ruf" id="SMy-Uo-U9y"/>
-                        <outlet property="signal2" destination="mSc-nJ-Sbb" id="B15-Av-nDx"/>
-                        <outlet property="signal3" destination="Vro-GA-JSA" id="47e-HJ-xep"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Eb-TE-8xh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
