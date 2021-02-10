@@ -1318,6 +1318,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egS-4p-S90">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="60"/>
+                                                                <connections>
+                                                                    <action selector="speedOnclick:" destination="go8-E6-Ep0" eventType="touchUpInside" id="4i8-uM-bPr"/>
+                                                                </connections>
                                                             </button>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viC-v4-HqZ" userLabel="line">
                                                                 <rect key="frame" x="60" y="59" width="250" height="1"/>
@@ -2788,19 +2791,36 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-qf-k4h">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="opo-DC-BeF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dxE-qf-k4h" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" id="7ym-jb-jNO"/>
                             <constraint firstItem="iXd-05-opp" firstAttribute="top" secondItem="opo-DC-BeF" secondAttribute="top" constant="20" id="Cbr-oX-vBI"/>
                             <constraint firstItem="iXd-05-opp" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" constant="15" id="IJM-Nb-lzN"/>
                             <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="iXd-05-opp" secondAttribute="trailing" constant="15" id="KAL-am-H5U"/>
                             <constraint firstItem="t2W-7N-jU0" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" constant="15" id="R9f-bO-SUF"/>
                             <constraint firstItem="t2W-7N-jU0" firstAttribute="top" secondItem="iXd-05-opp" secondAttribute="bottom" constant="20" id="Slc-QC-JuU"/>
+                            <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="dxE-qf-k4h" secondAttribute="trailing" id="dcG-yt-o0J"/>
+                            <constraint firstItem="opo-DC-BeF" firstAttribute="bottom" secondItem="dxE-qf-k4h" secondAttribute="bottom" id="gZU-M2-JJJ"/>
+                            <constraint firstItem="dxE-qf-k4h" firstAttribute="top" secondItem="opo-DC-BeF" secondAttribute="top" id="xUI-Ba-2Gf"/>
                             <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="t2W-7N-jU0" secondAttribute="trailing" constant="15" id="xln-Ws-AjN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iXd-05-opp"/>
+                                <exclude reference="t2W-7N-jU0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="HELP" id="wIu-AP-xzh"/>
+                    <connections>
+                        <outlet property="helpTableView" destination="dxE-qf-k4h" id="Ccz-Pg-Txr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEj-1Y-tXq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4274,6 +4294,40 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zqu-5N-mWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2943.1999999999998" y="-723.68815592203907"/>
+        </scene>
+        <!--Speed-->
+        <scene sceneID="dCf-tT-Xal">
+            <objects>
+                <viewController storyboardIdentifier="SpeedTestViewController" id="C3H-C6-9wj" customClass="SpeedTestViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nw1-wp-I5R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xXG-Jy-ntE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Speed" id="lED-LR-18p"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JK2-AT-XH8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="848"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M57-mb-HCA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Onv-qy-CNI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="las-Qd-sMI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C3H-C6-9wj" kind="relationship" relationship="rootViewController" id="Zuv-vV-VyJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6DB-ac-ngL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766" y="847"/>
         </scene>
     </scenes>
     <designables>

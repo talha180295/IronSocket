@@ -62,6 +62,9 @@
 		BC97C545257FD76D00647BA7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C544257FD76D00647BA7 /* AboutViewController.swift */; };
 		BC97C54925802D0000647BA7 /* ProtocolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97C54825802D0000647BA7 /* ProtocolViewController.swift */; };
 		BCB95BC825AFBA9000FCDAD8 /* android-version3.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */; };
+		BCBAF3E625D3E8A90006963A /* HelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAF3E425D3E8A90006963A /* HelpCell.swift */; };
+		BCBAF3E725D3E8A90006963A /* HelpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBAF3E525D3E8A90006963A /* HelpCell.xib */; };
+		BCBAF3EA25D3E8DD0006963A /* SpeedTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBAF3E925D3E8DD0006963A /* SpeedTestViewController.swift */; };
 		BCBED0D1253F1B7300C950AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */; };
 		BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A107257E2D960008ECCD /* AccountViewController.swift */; };
 		BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */; };
@@ -173,6 +176,9 @@
 		BC97C544257FD76D00647BA7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BC97C54825802D0000647BA7 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
 		BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version3.ovpn"; sourceTree = "<group>"; };
+		BCBAF3E425D3E8A90006963A /* HelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCell.swift; sourceTree = "<group>"; };
+		BCBAF3E525D3E8A90006963A /* HelpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpCell.xib; sourceTree = "<group>"; };
+		BCBAF3E925D3E8DD0006963A /* SpeedTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestViewController.swift; sourceTree = "<group>"; };
 		BCBED0D0253F1B7300C950AD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BCC4A107257E2D960008ECCD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 		BC3736192512BE57007A1D13 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				BCBAF3E425D3E8A90006963A /* HelpCell.swift */,
+				BCBAF3E525D3E8A90006963A /* HelpCell.xib */,
 				BC37361A2512BE85007A1D13 /* MenuCell.swift */,
 				BC37361B2512BE85007A1D13 /* MenuCell.xib */,
 			);
@@ -378,6 +386,7 @@
 		BC5A4D79257591010034A4CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BCBAF3E925D3E8DD0006963A /* SpeedTestViewController.swift */,
 				BC3CBAD825CC26FF001B2C4B /* ChangePasswordViewController.swift */,
 				BC4B48652511712200E7CC2F /* LoginViewController.swift */,
 				BCC4A1F2257ED88B0008ECCD /* HelpViewController.swift */,
@@ -491,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCBAF3E725D3E8A90006963A /* HelpCell.xib in Resources */,
 				BCCBC1B425A8F33300A5841B /* android-version2.ovpn in Resources */,
 				BC37364A2512C0D9007A1D13 /* TopBarView.xib in Resources */,
 				BCD9AE1125AFA15A00E41A03 /* proto.json in Resources */,
@@ -587,6 +597,7 @@
 			files = (
 				BC62748C2523C9F400C3E43D /* UserCredentials.swift in Sources */,
 				BC4B48682511726300E7CC2F /* NetworkService.swift in Sources */,
+				BCBAF3E625D3E8A90006963A /* HelpCell.swift in Sources */,
 				BCE87E0425B5F30E00E7FB5D /* SpinnerView.swift in Sources */,
 				BC4B48662511712200E7CC2F /* LoginViewController.swift in Sources */,
 				BC37364D2512C0D9007A1D13 /* BottomBarView.swift in Sources */,
@@ -595,6 +606,7 @@
 				BC4B486C2511737800E7CC2F /* LoginResponse.swift in Sources */,
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
 				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
+				BCBAF3EA25D3E8DD0006963A /* SpeedTestViewController.swift in Sources */,
 				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
 				BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */,
 				BC0782C625B5BFC500DF27D6 /* CircularProgressView.swift in Sources */,

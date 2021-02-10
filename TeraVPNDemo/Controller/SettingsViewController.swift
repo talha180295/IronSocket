@@ -83,6 +83,10 @@ class SettingsViewController: UIViewController {
         openHelpScreen()
     }
     
+    @IBAction func speedOnclick(_ sender:UIButton){
+        openSpeedTestScreen()
+    }
+    
     //For logout
     @IBAction func logoutBtn(_ sender:UIButton){
         
@@ -179,6 +183,19 @@ class SettingsViewController: UIViewController {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func openSpeedTestScreen(){
+        var vc = SpeedTestViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "SpeedTestViewController") as! SpeedTestViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "SpeedTestViewController") as! SpeedTestViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     
     
 }

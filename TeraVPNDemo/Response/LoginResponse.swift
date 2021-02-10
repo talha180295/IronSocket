@@ -12,9 +12,10 @@ struct LoginResponse: Codable {
     var server: [Server]?
     var adblocker, email: String?
     var planID: Int?
+    var help: [Help]?
 
     enum CodingKeys: String, CodingKey {
-        case success, name, username, password, nextdue, curloc, query, package, server, adblocker, email
+        case success, name, username, password, nextdue, curloc, query, package, server, adblocker, email, help
         case planID = "plan_id"
     }
 }
@@ -30,3 +31,9 @@ struct Server: Codable {
         case country, city, flag, type
     }
 }
+
+// MARK: - Help
+struct Help: Codable {
+    var id, title, details, device: String?
+}
+

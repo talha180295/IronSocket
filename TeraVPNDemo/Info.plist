@@ -28,13 +28,13 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Roovpn</string>
+	<string>Iron Socket</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Roovpn</string>
+	<string>Iron Socket</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Roovpn</string>
+	<string>Iron Socket</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Roovpn</string>
+	<string>Iron Socket</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
