@@ -29,7 +29,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
 
     func checkForSpeedTest() {
 
-        testDownloadSpeedWithTimout(timeout: 15.0) { (speed, error) in
+        testDownloadSpeedWithTimout(timeout: 7.0) { (speed, error) in
             print("Download Speed:", speed ?? "NA")
             print("Speed Test Error:", error ?? "NA")
         }
@@ -56,6 +56,12 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         bytesReceived! += data.count
         stopTime = CFAbsoluteTimeGetCurrent()
+        
+        let elapsed = stopTime - startTime
+
+        var downloadSpeed = Double(bytesReceived) / (elapsed)
+        downloadSpeed = (downloadSpeed / (1024 * 1024)) * 8
+        speedListener(speed: downloadSpeed)
     }
 
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -67,9 +73,16 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
             return
         }
 
-        let speed = elapsed != 0 ? Double(bytesReceived) / elapsed / 1024.0 / 1024.0 : -1
-        speedTestCompletionBlock?(speed, nil)
+//        let speed = elapsed != 0 ? Double(bytesReceived) / elapsed / 1024.0 / 1024.0 : -1
+        var downloadSpeed = Double(bytesReceived) / (elapsed)
+        downloadSpeed = (downloadSpeed / (1024 * 1024)) * 8
+        speedTestCompletionBlock?(downloadSpeed, nil)
 
     }
 
+    func speedListener(speed:Double){
+        
+        let formattedSpeed = String(format: "Speed: %.2f  MB/S", speed)
+        print("\(formattedSpeed)")
+    }
 }
