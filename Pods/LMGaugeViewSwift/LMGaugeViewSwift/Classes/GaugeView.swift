@@ -28,7 +28,7 @@ open class GaugeView: UIView {
             value = max(min(value, maxValue), minValue)
             
             // Set text for value label
-            valueLabel.text = String(format: "%.0f", value)
+            valueLabel.text = String(format: "%.1f", value)
             
             // Trigger the stoke animation of ring layer
             strokeGauge()

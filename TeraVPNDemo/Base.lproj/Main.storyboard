@@ -4192,13 +4192,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="69" width="345" height="113.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
                                         <rect key="frame" x="8" y="10" width="329" height="93.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="93.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4302,10 +4302,52 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                     <view key="view" contentMode="scaleToFill" id="nw1-wp-I5R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CF-3B-wXE" customClass="GaugeView" customModule="LMGaugeViewSwift">
+                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="3om-pC-3Qy"/>
+                                    <constraint firstAttribute="height" constant="335" id="N5b-ro-SMc"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ea-i8-aY5">
+                                <rect key="frame" x="48.5" y="561" width="278" height="50"/>
+                                <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Xrt-Hi-swl"/>
+                                    <constraint firstAttribute="width" constant="278" id="bVu-1g-8yo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Start Speed Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IkM-6s-8RB"/>
+                                    <action selector="startTest:" destination="C3H-C6-9wj" eventType="touchUpInside" id="nye-uy-scM"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xXG-Jy-ntE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5CF-3B-wXE" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="LVn-bZ-NDw"/>
+                            <constraint firstItem="4ea-i8-aY5" firstAttribute="top" secondItem="5CF-3B-wXE" secondAttribute="bottom" constant="60" id="ORp-cm-7tk"/>
+                            <constraint firstItem="5CF-3B-wXE" firstAttribute="centerY" secondItem="nw1-wp-I5R" secondAttribute="centerY" id="PpI-eT-kn0"/>
+                            <constraint firstItem="4ea-i8-aY5" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="R9J-zF-Gox"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Speed" id="lED-LR-18p"/>
+                    <connections>
+                        <outlet property="gaugeView" destination="5CF-3B-wXE" id="gSM-GL-t0J"/>
+                        <outlet property="startBtn" destination="4ea-i8-aY5" id="aZU-tQ-zAG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JK2-AT-XH8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4330,6 +4372,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             <point key="canvasLocation" x="4766" y="847"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="AUc-G4-ZFc">
+            <size key="intrinsicContentSize" width="153.5" height="93.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Account" width="26" height="27"/>
         <image name="Shield" width="64" height="67.5"/>
