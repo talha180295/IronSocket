@@ -125,6 +125,25 @@ extension HelpViewController: UITableViewDelegate, UITableViewDataSource{
         
         //        cell.flag.image = UIImage.init(named: serverList[indexPath.item].flag ?? "")
         cell.title.text = content[indexPath.item].title
+       
+        cell.lineSeparator.isHidden = false
+        
+        if content.count == 1{
+            cell.roundedCorners(corners: [.bottomLeft,.bottomRight,.topLeft,.topRight], radius: 10)
+            cell.layer.masksToBounds = false
+            cell.lineSeparator.isHidden = true
+        }
+        else if content.count > 1{
+            if indexPath.item == 0{
+                cell.roundedCorners(corners: [.topLeft,.topRight], radius: 10)
+                cell.layer.masksToBounds = false
+            }
+            if indexPath.item == content.count-1{
+                cell.roundedCorners(corners: [.bottomLeft,.bottomRight], radius: 10)
+                cell.layer.masksToBounds = false
+                cell.lineSeparator.isHidden = true
+            }
+        }
         
         
         return cell
@@ -145,8 +164,19 @@ extension HelpViewController: UITableViewDelegate, UITableViewDataSource{
 //                }
 //            }
         
-        let speedTest = NetworkSpeedProvider()
-        speedTest.test()
+        var vc = HelpDetailViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HelpDetailViewController") as! HelpDetailViewController
+            
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "HelpDetailViewController") as! HelpDetailViewController
+        }
+        vc.details = content[indexPath.item].details
+        vc.titleStr = content[indexPath.item].title
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let speedTest = NetworkSpeedProvider()
+//        speedTest.test()
     }
 }
 

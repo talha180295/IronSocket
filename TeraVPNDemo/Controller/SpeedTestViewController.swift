@@ -37,7 +37,6 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
     
     
     @IBAction func startTest(_ sender:UIButton){
-        startBtn.isEnabled = false
         checkForSpeedTest()
     }
     
@@ -97,9 +96,16 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
 //
     func checkForSpeedTest() {
         
-        testDownloadSpeedWithTimout(timeout: 7.0) { (speed, error) in
+        startBtn.isEnabled = false
+        startBtn.setTitle("Testing....", for: .disabled)
+        testDownloadSpeedWithTimout(timeout: 10.0) { (speed, error) in
             print("Download Speed:", speed ?? "NA")
             print("Speed Test Error:", error ?? "NA")
+            
+            DispatchQueue.main.async {
+                self.startBtn.setTitle("Start Speed Test", for: .normal)
+                self.startBtn.isEnabled = true
+            }
         }
         
     }
@@ -144,7 +150,6 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         //        let speed = elapsed != 0 ? Double(bytesReceived) / elapsed / 1024.0 / 1024.0 : -1
         var downloadSpeed = Double(bytesReceived) / (elapsed)
         downloadSpeed = (downloadSpeed / (1024 * 1024)) * 8
-        startBtn.isEnabled = true
         speedTestCompletionBlock?(downloadSpeed, nil)
         
     }

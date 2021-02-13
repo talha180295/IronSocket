@@ -12,6 +12,7 @@
 		BC01350225A769EA001B5865 /* vpn-01.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BC0134FF25A7684B001B5865 /* vpn-01.ovpn */; };
 		BC0782C625B5BFC500DF27D6 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0782C525B5BFC500DF27D6 /* CircularProgressView.swift */; };
 		BC0782CA25B5BFF600DF27D6 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0782C925B5BFF600DF27D6 /* DemoViewController.swift */; };
+		BC1D127A25D87CE5008BFE5A /* HelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1D127925D87CE5008BFE5A /* HelpDetailViewController.swift */; };
 		BC2DCDB4251AB36F00956916 /* UsageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DCDB3251AB36E00956916 /* UsageResponse.swift */; };
 		BC2DCDB6251AB99700956916 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DCDB5251AB99700956916 /* SplashViewController.swift */; };
 		BC3736152512B051007A1D13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3736142512B051007A1D13 /* HomeViewController.swift */; };
@@ -123,6 +124,7 @@
 		BC0134FF25A7684B001B5865 /* vpn-01.ovpn */ = {isa = PBXFileReference; lastKnownFileType = text; name = "vpn-01.ovpn"; path = "Response/vpn-01.ovpn"; sourceTree = "<group>"; };
 		BC0782C525B5BFC500DF27D6 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		BC0782C925B5BFF600DF27D6 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		BC1D127925D87CE5008BFE5A /* HelpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
 		BC2DCDB3251AB36E00956916 /* UsageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageResponse.swift; sourceTree = "<group>"; };
 		BC2DCDB5251AB99700956916 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BC3736142512B051007A1D13 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				BC97C544257FD76D00647BA7 /* AboutViewController.swift */,
 				BC97C54825802D0000647BA7 /* ProtocolViewController.swift */,
 				BC0782C925B5BFF600DF27D6 /* DemoViewController.swift */,
+				BC1D127925D87CE5008BFE5A /* HelpDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				BCBAF3EA25D3E8DD0006963A /* SpeedTestViewController.swift in Sources */,
 				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
 				BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */,
+				BC1D127A25D87CE5008BFE5A /* HelpDetailViewController.swift in Sources */,
 				BC0782C625B5BFC500DF27D6 /* CircularProgressView.swift in Sources */,
 				BC97C531257FC69D00647BA7 /* GuidelinesViewController.swift in Sources */,
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
@@ -815,7 +819,7 @@
 					"$(PROJECT_DIR)/TeraVPNDemo",
 				);
 				INFOPLIST_FILE = TeraVPNDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -845,7 +849,7 @@
 					"$(PROJECT_DIR)/TeraVPNDemo",
 				);
 				INFOPLIST_FILE = TeraVPNDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

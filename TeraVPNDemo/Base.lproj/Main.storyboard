@@ -2791,23 +2791,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-qf-k4h">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxE-qf-k4h">
+                                <rect key="frame" x="15" y="74" width="345" height="593"/>
+                                <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="opo-DC-BeF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dxE-qf-k4h" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" id="7ym-jb-jNO"/>
+                            <constraint firstItem="dxE-qf-k4h" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" constant="15" id="7ym-jb-jNO"/>
                             <constraint firstItem="iXd-05-opp" firstAttribute="top" secondItem="opo-DC-BeF" secondAttribute="top" constant="20" id="Cbr-oX-vBI"/>
                             <constraint firstItem="iXd-05-opp" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" constant="15" id="IJM-Nb-lzN"/>
                             <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="iXd-05-opp" secondAttribute="trailing" constant="15" id="KAL-am-H5U"/>
                             <constraint firstItem="t2W-7N-jU0" firstAttribute="leading" secondItem="opo-DC-BeF" secondAttribute="leading" constant="15" id="R9f-bO-SUF"/>
                             <constraint firstItem="t2W-7N-jU0" firstAttribute="top" secondItem="iXd-05-opp" secondAttribute="bottom" constant="20" id="Slc-QC-JuU"/>
-                            <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="dxE-qf-k4h" secondAttribute="trailing" id="dcG-yt-o0J"/>
+                            <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="dxE-qf-k4h" secondAttribute="trailing" constant="15" id="dcG-yt-o0J"/>
                             <constraint firstItem="opo-DC-BeF" firstAttribute="bottom" secondItem="dxE-qf-k4h" secondAttribute="bottom" id="gZU-M2-JJJ"/>
-                            <constraint firstItem="dxE-qf-k4h" firstAttribute="top" secondItem="opo-DC-BeF" secondAttribute="top" id="xUI-Ba-2Gf"/>
+                            <constraint firstItem="dxE-qf-k4h" firstAttribute="top" secondItem="opo-DC-BeF" secondAttribute="top" constant="30" id="xUI-Ba-2Gf"/>
                             <constraint firstItem="opo-DC-BeF" firstAttribute="trailing" secondItem="t2W-7N-jU0" secondAttribute="trailing" constant="15" id="xln-Ws-AjN"/>
                         </constraints>
                         <variation key="default">
@@ -4304,15 +4304,15 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5CF-3B-wXE" customClass="GaugeView" customModule="LMGaugeViewSwift">
-                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <rect key="frame" x="37.5" y="54" width="300" height="300"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="335" id="3om-pC-3Qy"/>
-                                    <constraint firstAttribute="height" constant="335" id="N5b-ro-SMc"/>
+                                    <constraint firstAttribute="width" constant="300" id="3om-pC-3Qy"/>
+                                    <constraint firstAttribute="height" constant="300" id="N5b-ro-SMc"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ea-i8-aY5">
-                                <rect key="frame" x="48.5" y="561" width="278" height="50"/>
+                                <rect key="frame" x="48.5" y="414" width="278" height="50"/>
                                 <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Xrt-Hi-swl"/>
@@ -4339,8 +4339,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <constraints>
                             <constraint firstItem="5CF-3B-wXE" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="LVn-bZ-NDw"/>
                             <constraint firstItem="4ea-i8-aY5" firstAttribute="top" secondItem="5CF-3B-wXE" secondAttribute="bottom" constant="60" id="ORp-cm-7tk"/>
-                            <constraint firstItem="5CF-3B-wXE" firstAttribute="centerY" secondItem="nw1-wp-I5R" secondAttribute="centerY" id="PpI-eT-kn0"/>
                             <constraint firstItem="4ea-i8-aY5" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="R9J-zF-Gox"/>
+                            <constraint firstItem="5CF-3B-wXE" firstAttribute="top" secondItem="xXG-Jy-ntE" secondAttribute="top" constant="10" id="fof-Vy-2mm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Speed" id="lED-LR-18p"/>
@@ -4370,6 +4370,101 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6DB-ac-ngL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4766" y="847"/>
+        </scene>
+        <!--HELP Detail View-->
+        <scene sceneID="QDi-qf-4QS">
+            <objects>
+                <viewController storyboardIdentifier="HelpDetailViewController" id="iwJ-fn-KA8" customClass="HelpDetailViewController" customModule="TeraVPNDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YFQ-4z-Zlq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOV-7T-7lw">
+                                <rect key="frame" x="15" y="64" width="345" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFQ-Qr-1zn" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                                <rect key="frame" x="15" y="87" width="345" height="560"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gOH-lj-BYO">
+                                        <rect key="frame" x="15" y="20" width="315" height="520"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+ It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gOH-lj-BYO" firstAttribute="leading" secondItem="dFQ-Qr-1zn" secondAttribute="leading" constant="15" id="0q5-Ii-ZZf"/>
+                                    <constraint firstAttribute="trailing" secondItem="gOH-lj-BYO" secondAttribute="trailing" constant="15" id="4d1-El-jyv"/>
+                                    <constraint firstAttribute="bottom" secondItem="gOH-lj-BYO" secondAttribute="bottom" constant="20" id="6WF-lP-g0S"/>
+                                    <constraint firstItem="gOH-lj-BYO" firstAttribute="top" secondItem="dFQ-Qr-1zn" secondAttribute="top" constant="20" id="Sxw-wn-9Sv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QwJ-E0-eE0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QwJ-E0-eE0" firstAttribute="trailing" secondItem="JOV-7T-7lw" secondAttribute="trailing" constant="15" id="0QP-Bj-EQF"/>
+                            <constraint firstItem="JOV-7T-7lw" firstAttribute="top" secondItem="QwJ-E0-eE0" secondAttribute="top" constant="20" id="Hzp-oW-ndO"/>
+                            <constraint firstItem="QwJ-E0-eE0" firstAttribute="trailing" secondItem="dFQ-Qr-1zn" secondAttribute="trailing" constant="15" id="I13-xZ-boW"/>
+                            <constraint firstItem="dFQ-Qr-1zn" firstAttribute="top" secondItem="JOV-7T-7lw" secondAttribute="bottom" id="PXS-Yt-C8n"/>
+                            <constraint firstItem="dFQ-Qr-1zn" firstAttribute="leading" secondItem="QwJ-E0-eE0" secondAttribute="leading" constant="15" id="RED-J3-FVF"/>
+                            <constraint firstItem="JOV-7T-7lw" firstAttribute="leading" secondItem="QwJ-E0-eE0" secondAttribute="leading" constant="15" id="edA-w6-ABp"/>
+                            <constraint firstItem="QwJ-E0-eE0" firstAttribute="bottom" secondItem="dFQ-Qr-1zn" secondAttribute="bottom" constant="20" id="kiI-1n-dXb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="HELP Detail View" id="xHf-VA-xZo"/>
+                    <connections>
+                        <outlet property="detailView" destination="gOH-lj-BYO" id="UEQ-TH-Nr4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HL6-Ih-I8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7793" y="1562"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BQp-xY-lfV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="60Q-ki-UpP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uHW-bf-lN7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iwJ-fn-KA8" kind="relationship" relationship="rootViewController" id="ljr-kY-l7m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YqT-O3-fEL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6854" y="1561"/>
         </scene>
     </scenes>
     <designables>
