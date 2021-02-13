@@ -570,6 +570,9 @@ extension VPNViewController:SettingServerListProtocol{
     func settingSelectServer(server: Server) {
         if isVPNConnected{
             self.providerManager.connection.stopVPNTunnel()
+            self.stopCircularTimer()
+            self.stopSignalTimer()
+            self.stopTimerLabel()
         }
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
