@@ -328,12 +328,14 @@ extension VPNViewController{
             let connectAction = UIAlertAction(title: "YES", style: UIAlertAction.Style.default) { _ in
                 
                 
-                
-                let password = self.userData?.password ?? ""
-                let username = self.userData?.username ?? ""
+                let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+                let password = userCredentials?.password
+                let username = userCredentials?.username
+//                let password = self.userData?.password ?? ""
+//                let username = self.userData?.username ?? ""
                 self.loadProviderManager {
 
-                    self.configureVPN(serverAddress: "", username: username, password:password)
+                    self.configureVPN(serverAddress: "", username: username!, password:password!)
                     self.connecting()
                     
                 }
