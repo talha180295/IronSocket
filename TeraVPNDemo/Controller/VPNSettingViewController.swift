@@ -33,6 +33,8 @@ class VPNSettingViewController: UIViewController {
             self.vpnType.text = "OpenVPN UDP"
         case Proto_type.tcp.rawValue:
             self.vpnType.text = "OpenVPN TCP"
+        case Proto_type.auto.rawValue:
+            self.vpnType.text = "Automatic"
         default:
             self.vpnType.text = "OpenVPN TCP"
         }

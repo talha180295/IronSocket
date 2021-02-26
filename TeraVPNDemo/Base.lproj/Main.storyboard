@@ -4233,25 +4233,41 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
+                                <rect key="frame" x="87.5" y="234" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KhS-if-op5"/>
+                                    <constraint firstAttribute="width" constant="200" id="Rpb-nC-AF1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnClick:" destination="ISO-a9-ajU" eventType="touchUpInside" id="GMG-1b-FsI"/>
+                                    <action selector="saveBtn:" destination="cHb-2j-C5N" eventType="touchUpInside" id="kv9-rX-s04"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0N4-HO-9tX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0N4-HO-9tX" firstAttribute="trailing" secondItem="rAi-bQ-qyI" secondAttribute="trailing" constant="16" id="Iwg-w6-Jnb"/>
                             <constraint firstItem="rAi-bQ-qyI" firstAttribute="top" secondItem="0N4-HO-9tX" secondAttribute="top" constant="25" id="NKW-Kx-TlG"/>
+                            <constraint firstItem="Frk-Ew-7yZ" firstAttribute="top" secondItem="rAi-bQ-qyI" secondAttribute="bottom" constant="51.5" id="VPF-kQ-pwE"/>
                             <constraint firstItem="rAi-bQ-qyI" firstAttribute="leading" secondItem="0N4-HO-9tX" secondAttribute="leading" constant="14" id="XWu-iy-LK8"/>
+                            <constraint firstItem="Frk-Ew-7yZ" firstAttribute="centerX" secondItem="IIB-gk-FgX" secondAttribute="centerX" id="yQC-hN-qbv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="VPN Settings" id="YdD-Li-y4a">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="dQI-cd-xff">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="applyBtn:" destination="cHb-2j-C5N" id="CN3-y3-nf9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="VPN Settings" id="YdD-Li-y4a"/>
                     <connections>
-                        <outlet property="applyBtn" destination="dQI-cd-xff" id="U6U-6J-CMg"/>
                         <outlet property="radioGroup" destination="AUc-G4-ZFc" id="Dmp-BV-xYD"/>
                     </connections>
                 </viewController>
@@ -4333,19 +4349,28 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     <action selector="startTest:" destination="C3H-C6-9wj" eventType="touchUpInside" id="nye-uy-scM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vQ-Hb-a7j">
+                                <rect key="frame" x="166.5" y="374" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xXG-Jy-ntE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5CF-3B-wXE" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="LVn-bZ-NDw"/>
-                            <constraint firstItem="4ea-i8-aY5" firstAttribute="top" secondItem="5CF-3B-wXE" secondAttribute="bottom" constant="60" id="ORp-cm-7tk"/>
                             <constraint firstItem="4ea-i8-aY5" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="R9J-zF-Gox"/>
+                            <constraint firstItem="5vQ-Hb-a7j" firstAttribute="top" secondItem="5CF-3B-wXE" secondAttribute="bottom" constant="20" id="dgu-A0-R0d"/>
                             <constraint firstItem="5CF-3B-wXE" firstAttribute="top" secondItem="xXG-Jy-ntE" secondAttribute="top" constant="10" id="fof-Vy-2mm"/>
+                            <constraint firstItem="5vQ-Hb-a7j" firstAttribute="centerX" secondItem="nw1-wp-I5R" secondAttribute="centerX" id="h8k-lY-CIx"/>
+                            <constraint firstItem="4ea-i8-aY5" firstAttribute="top" secondItem="5vQ-Hb-a7j" secondAttribute="bottom" constant="19" id="veR-vV-onl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Speed" id="lED-LR-18p"/>
                     <connections>
                         <outlet property="gaugeView" destination="5CF-3B-wXE" id="gSM-GL-t0J"/>
+                        <outlet property="speedLabel" destination="5vQ-Hb-a7j" id="mrV-iO-Kqy"/>
                         <outlet property="startBtn" destination="4ea-i8-aY5" id="aZU-tQ-zAG"/>
                     </connections>
                 </viewController>

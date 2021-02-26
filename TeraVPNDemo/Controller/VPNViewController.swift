@@ -116,6 +116,18 @@ class VPNViewController: UIViewController {
     
     var count = 0
 
+    
+    func startTimerTrafficStats () {
+        guard timer == nil else { return }
+        
+        timer =  Timer.scheduledTimer(
+            timeInterval: TimeInterval(0.3),
+            target      : self,
+            selector    : #selector(getTrafficStats),
+            userInfo    : nil,
+            repeats     : true)
+    }
+    
     func startTimerLabel () {
         guard timer2 == nil else { return }
         
@@ -154,7 +166,7 @@ class VPNViewController: UIViewController {
         self.title = "TeraVPN"
         
         self.selectedIP = "\(serverList.first?.serverIP ?? "0")"//" \(serverList.first?.serverPort ?? "0")"
-        self.serverIP.text = "\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
+        self.serverIP.text = getIPAddress() //"\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
         self.countryName.text = "\(serverList.first?.country ?? "") , \(serverList.first?.city ?? "")"
 //        self.cityName.text = "\(serverList.first?.city ?? "")"
         self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
@@ -170,6 +182,58 @@ class VPNViewController: UIViewController {
         
 
     }
+    
+    func getIPAddress() -> String {
+        var publicIP = ""
+        do {
+            try publicIP = String(contentsOf: URL(string: "https://www.bluewindsolution.com/tools/getpublicip.php")!, encoding: String.Encoding.utf8)
+            publicIP = publicIP.trimmingCharacters(in: CharacterSet.whitespaces)
+        }
+        catch {
+            print("Error: \(error)")
+        }
+        return publicIP
+    }
+    
+    
+    @objc func getTrafficStats() {
+        if let session = self.providerManager.connection as? NETunnelProviderSession {
+            do {
+                try session.sendProviderMessage("SOME_STATIC_KEY".data(using: .utf8)!) { (data) in
+                    // here you can unarchieve your data and get traffic stats as dict
+                    
+                    if let _ = data{
+                        //                        let decodedString = String(data: data!, encoding: .utf8)!
+                        //
+                        //                        print("jsonString=\(decodedString)")
+                        
+                        if let bytesData = String(data: data!, encoding: . utf8){
+                            //                            print("bytesData=\(bytesData)")
+                            
+                            let dict = self.convertToDictionary(text: bytesData)
+                            
+                            let bytesIn = dict?["bytesIn"] as! String
+                            let bytesOut = dict?["bytesOut"] as! String
+                            
+                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB/S"
+                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB/S"
+                            //                            print("\(Int(bytesIn)!/1000000) MBs")
+                            self.usageRemainingInMbs -= Double(bytesOut)!/1000000.00  + Double(bytesIn)!/1000000.00
+//                            self.updateGaugeTimer()
+                            
+                        }
+                    }
+                    
+                    
+                    
+                                        
+                }
+            } catch {
+                // some error
+            }
+        }
+    }
+    
     
     @objc func update() {
         if self.seconds == 59 {
@@ -289,6 +353,17 @@ class VPNViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }
 
 
@@ -303,7 +378,7 @@ extension VPNViewController{
         if isVPNConnected == true {
             
             self.providerManager.connection.stopVPNTunnel()
-            self.disconnected()
+//            self.disconnected()
             
 //            let alert = UIAlertController(title: "Cancel Confirmation", message: "Disconnect the connected VPN cancel the connection attempt?", preferredStyle: UIAlertController.Style.alert)
 //
@@ -437,8 +512,12 @@ extension VPNViewController{
 //        let protoModel = try! JSONDecoder().decode(Proto.self, from: protoJson.data(using: .utf8)!)
 
 
-        let selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String
+        var selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String
         let selectedEncryption = UserDefaults.standard.value(forKey: User_Defaults.encryption) as? String
+        
+        if selectedProto == Proto_type.auto.rawValue{
+            selectedProto = Proto_type.tcp.rawValue
+        }
         
         let data = Data(protoJson.utf8)
         
@@ -529,7 +608,7 @@ extension VPNViewController{
             isVPNConnected = false
             print("Disconnected...")
             self.connectionStatus.text = "Disconnected".uppercased()
-
+            self.disconnected()
             
             
             break
@@ -555,7 +634,7 @@ extension VPNViewController:ServerListProtocol{
         }
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
-        self.serverIP.text = server.serverIP
+//        self.serverIP.text = server.serverIP
         self.countryName.text = "\(server.country ?? "") , \(server.city ?? "")"
 //        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
@@ -576,7 +655,7 @@ extension VPNViewController:SettingServerListProtocol{
         }
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
-        self.serverIP.text = server.serverIP
+//        self.serverIP.text = server.serverIP
         self.countryName.text = "\(server.country ?? "") , \(server.city ?? "")"
 //        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
@@ -688,6 +767,9 @@ extension VPNViewController{
         stopCircularTimer()
         stopSignalTimer()
         startTimerLabel()
+        startTimerTrafficStats()
+        
+        self.serverIP.text = getIPAddress()
     }
     func disconnected(){
         duration = 0
@@ -706,5 +788,7 @@ extension VPNViewController{
         stopSignalTimer()
         
         stopTimerLabel()
+        
+        self.serverIP.text = getIPAddress()
     }
 }

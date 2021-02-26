@@ -27,7 +27,6 @@ class AppConstants {
     
     struct API {
         static let BASE_URL = "https://cloud.teravpn.com/api/app/"
-        static let IMG_URL = "http://app.bidkum.com/uploads/"
         
     }
 
@@ -45,7 +44,7 @@ enum HTTPHeaderField: String {
 
 
 enum Proto_type : String{
-    case auto
+    case auto = "Automatic"
     case tcp
     case udp
 }

@@ -12,7 +12,7 @@ import RadioGroup
 class ProtocolViewController: UIViewController {
 
     
-    @IBOutlet var applyBtn: UIBarButtonItem!
+//    @IBOutlet var saveBtn: UIBarButtonItem!
     @IBOutlet var radioGroup: RadioGroup!
     
     var type:String!
@@ -46,6 +46,8 @@ class ProtocolViewController: UIViewController {
         radioGroup.titles = ["Automatic", "OpenVPN - UDP", "OpenVPN - TCP"]
         radioGroup.addTarget(self, action: #selector(didSelectProtoOption(radioGroup:)), for: .valueChanged)
         switch selectedProto {
+        case Proto_type.auto.rawValue:
+            radioGroup.selectedIndex = 0
         case Proto_type.udp.rawValue:
             radioGroup.selectedIndex = 1
         case Proto_type.tcp.rawValue:
@@ -90,7 +92,7 @@ class ProtocolViewController: UIViewController {
         print(radioGroup.titles[radioGroup.selectedIndex] ?? "")
         switch radioGroup.selectedIndex {
         case 0:
-            selectedProto = Proto_type.tcp.rawValue
+            selectedProto = Proto_type.auto.rawValue
 //            UserDefaults.standard.set("tcp", forKey: User_Defaults.proto)
         case 1:
             selectedProto = Proto_type.udp.rawValue
@@ -125,7 +127,7 @@ class ProtocolViewController: UIViewController {
         }
     }
     
-    @IBAction func applyBtn( _ sender:UIBarButtonItem){
+    @IBAction func saveBtn( _ sender:UIButton){
         
         UserDefaults.standard.set(selectedProto, forKey: User_Defaults.proto)
         UserDefaults.standard.set(selectedEncryption, forKey: User_Defaults.encryption)

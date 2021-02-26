@@ -13,7 +13,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
     
     @IBOutlet weak var gaugeView: GaugeView!
     @IBOutlet weak var startBtn: UIButton!
-    
+    @IBOutlet weak var speedLabel: UILabel!
     typealias speedTestCompletionHandler = (_ megabytesPerSecond: Double? , _ error: Error?) -> Void
     
     var speedTestCompletionBlock : speedTestCompletionHandler?
@@ -33,6 +33,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         
         
         setupGauge()
+        self.speedLabel.text = ""
     }
     
     
@@ -101,10 +102,12 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         testDownloadSpeedWithTimout(timeout: 10.0) { (speed, error) in
             print("Download Speed:", speed ?? "NA")
             print("Speed Test Error:", error ?? "NA")
+            let formattedSpeed = String(format: "Downloading Speed: %.2f  MB/s", speed ?? 0.0)
             
             DispatchQueue.main.async {
                 self.startBtn.setTitle("Start Speed Test", for: .normal)
                 self.startBtn.isEnabled = true
+                self.speedLabel.text = formattedSpeed
             }
         }
         
@@ -122,6 +125,8 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         
         let configuration = URLSessionConfiguration.ephemeral
         configuration.timeoutIntervalForResource = timeout
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        configuration.urlCache = nil
         let session = URLSession.init(configuration: configuration, delegate: self, delegateQueue: nil)
         session.dataTask(with: url).resume()
         
@@ -156,11 +161,12 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
     
     func speedListener(speed:Double){
         
-        let formattedSpeed = String(format: "Speed: %.2f  MB/S", speed)
+        let formattedSpeed = String(format: "Downloading Speed: %.2f  MB/s", speed)
         print("\(formattedSpeed)")
         
         DispatchQueue.main.async {
             self.gaugeView.value = speed
+            self.speedLabel.text = formattedSpeed
         }
        
     }

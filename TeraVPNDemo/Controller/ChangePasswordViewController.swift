@@ -21,8 +21,11 @@ class ChangePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)        
-        self.oldPassTF.text = userData?.password!
+//        userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
+        
+        let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+//        let password = userCredentials?.password
+        self.oldPassTF.text = userCredentials?.password!
         self.oldPassTF.isHidden = true
         
         oldPassTF.isSecureTextEntry = true
