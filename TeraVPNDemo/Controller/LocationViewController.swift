@@ -26,6 +26,8 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Titles.LOCATION.rawValue.localiz()
+        
         serverListUnsorted = serverList
         let ipList = serverList.map{ $0.serverIP ?? "" }
         checkPing(host: ipList)

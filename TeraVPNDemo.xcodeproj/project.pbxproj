@@ -76,6 +76,11 @@
 		BCCBC1B425A8F33300A5841B /* android-version2.ovpn in Resources */ = {isa = PBXBuildFile; fileRef = BCCBC1B325A8F33300A5841B /* android-version2.ovpn */; };
 		BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD9AE0C25AF8CA700E41A03 /* Proto.swift */; };
 		BCD9AE1125AFA15A00E41A03 /* proto.json in Resources */ = {isa = PBXBuildFile; fileRef = BCD9AE1025AFA15A00E41A03 /* proto.json */; };
+		BCE1B6CB25EAE07D0028823A /* LanguageManager-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BCE1B6CA25EAE07D0028823A /* LanguageManager-iOS */; };
+		BCE1B6D325EAE13D0028823A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B6D525EAE13D0028823A /* Localizable.strings */; };
+		BCE1B6DB25EAE62E0028823A /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6DA25EAE62E0028823A /* LanguageViewController.swift */; };
+		BCE1B6ED25EAF5980028823A /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6EC25EAF5980028823A /* String+Localizable.swift */; };
+		BCE1B6FF25EAFB090028823A /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6FE25EAFB090028823A /* Titles.swift */; };
 		BCE2C5872516AF0400CD81FE /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4B485625116B9E00E7CC2F /* PacketTunnelProvider.swift */; };
 		BCE87E0425B5F30E00E7FB5D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE87E0325B5F30D00E7FB5D /* SpinnerView.swift */; };
 /* End PBXBuildFile section */
@@ -177,6 +182,8 @@
 		BC97C540257FD4C000647BA7 /* VPNSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSettingViewController.swift; sourceTree = "<group>"; };
 		BC97C544257FD76D00647BA7 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BC97C54825802D0000647BA7 /* ProtocolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolViewController.swift; sourceTree = "<group>"; };
+		BCB4D00325EBFC2600627956 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		BCB4D00425EBFC2900627956 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		BCB95BC725AFBA9000FCDAD8 /* android-version3.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version3.ovpn"; sourceTree = "<group>"; };
 		BCBAF3E425D3E8A90006963A /* HelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCell.swift; sourceTree = "<group>"; };
 		BCBAF3E525D3E8A90006963A /* HelpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpCell.xib; sourceTree = "<group>"; };
@@ -191,6 +198,12 @@
 		BCCBC1B325A8F33300A5841B /* android-version2.ovpn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "android-version2.ovpn"; sourceTree = "<group>"; };
 		BCD9AE0C25AF8CA700E41A03 /* Proto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proto.swift; sourceTree = "<group>"; };
 		BCD9AE1025AFA15A00E41A03 /* proto.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = proto.json; sourceTree = "<group>"; };
+		BCE1B6D125EAE12B0028823A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BCE1B6D425EAE13D0028823A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCE1B6D725EAE1410028823A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCE1B6DA25EAE62E0028823A /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		BCE1B6EC25EAF5980028823A /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		BCE1B6FE25EAFB090028823A /* Titles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
 		BCE87E0325B5F30D00E7FB5D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +215,7 @@
 				8B08384FE5363CFD8715A322 /* Pods_TeraVPNDemo.framework in Frameworks */,
 				BC4B486325116C8200E7CC2F /* NetworkExtension.framework in Frameworks */,
 				BC3CBB1125CD5A7B001B2C4B /* SwiftyPing in Frameworks */,
+				BCE1B6CB25EAE07D0028823A /* LanguageManager-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +277,7 @@
 		BC37361E2512C0C3007A1D13 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				BCE1B6FE25EAFB090028823A /* Titles.swift */,
 				BC3736202512C0C3007A1D13 /* Popup */,
 				BC3736252512C0C3007A1D13 /* CardView.swift */,
 				BC3736262512C0C3007A1D13 /* KeychainItem.swift */,
@@ -276,6 +291,7 @@
 				BCC4A1EE257ED07E0008ECCD /* CheckboxButton.swift */,
 				BC0782C525B5BFC500DF27D6 /* CircularProgressView.swift */,
 				BCE87E0325B5F30D00E7FB5D /* SpinnerView.swift */,
+				BCE1B6EC25EAF5980028823A /* String+Localizable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -371,6 +387,7 @@
 				BC6274782523C8CA00C3E43D /* UserCredentials.swift */,
 				BC4B486F251177CB00E7CC2F /* APIRouter.swift */,
 				BCD9AE1025AFA15A00E41A03 /* proto.json */,
+				BCE1B6D525EAE13D0028823A /* Localizable.strings */,
 			);
 			path = TeraVPNDemo;
 			sourceTree = "<group>";
@@ -408,6 +425,7 @@
 				BC97C54825802D0000647BA7 /* ProtocolViewController.swift */,
 				BC0782C925B5BFF600DF27D6 /* DemoViewController.swift */,
 				BC1D127925D87CE5008BFE5A /* HelpDetailViewController.swift */,
+				BCE1B6DA25EAE62E0028823A /* LanguageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +454,7 @@
 			name = TeraVPNDemo;
 			packageProductDependencies = (
 				BC3CBB1025CD5A7B001B2C4B /* SwiftyPing */,
+				BCE1B6CA25EAE07D0028823A /* LanguageManager-iOS */,
 			);
 			productName = TeraVPNDemo;
 			productReference = BC4B48392511686A00E7CC2F /* TeraVPNDemo.app */;
@@ -484,10 +503,12 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = BC4B48302511686A00E7CC2F;
 			packageReferences = (
 				BC3CBB0F25CD5A7B001B2C4B /* XCRemoteSwiftPackageReference "SwiftyPing" */,
+				BCE1B6C925EAE07D0028823A /* XCRemoteSwiftPackageReference "LanguageManager-iOS" */,
 			);
 			productRefGroup = BC4B483A2511686A00E7CC2F /* Products */;
 			projectDirPath = "";
@@ -514,6 +535,7 @@
 				BC3736512512D075007A1D13 /* vpn-02.ovpn in Resources */,
 				BC4B48462511686F00E7CC2F /* Assets.xcassets in Resources */,
 				BC37361D2512BE85007A1D13 /* MenuCell.xib in Resources */,
+				BCE1B6D325EAE13D0028823A /* Localizable.strings in Resources */,
 				BC4B48442511686A00E7CC2F /* Main.storyboard in Resources */,
 				BCCBC1AE25A8905B00A5841B /* android-version.ovpn in Resources */,
 				BC37364C2512C0D9007A1D13 /* BottomBarView.xib in Resources */,
@@ -628,6 +650,7 @@
 				BC4B486C2511737800E7CC2F /* LoginResponse.swift in Sources */,
 				BC4B483D2511686A00E7CC2F /* AppDelegate.swift in Sources */,
 				BCC4A1EF257ED07E0008ECCD /* CheckboxButton.swift in Sources */,
+				BCE1B6ED25EAF5980028823A /* String+Localizable.swift in Sources */,
 				BCBAF3EA25D3E8DD0006963A /* SpeedTestViewController.swift in Sources */,
 				BCC4A108257E2D960008ECCD /* AccountViewController.swift in Sources */,
 				BCD9AE0D25AF8CA700E41A03 /* Proto.swift in Sources */,
@@ -637,6 +660,7 @@
 				BC37361C2512BE85007A1D13 /* MenuCell.swift in Sources */,
 				BC97C539257FC73700647BA7 /* FAQViewController.swift in Sources */,
 				BCC4A1F3257ED88B0008ECCD /* HelpViewController.swift in Sources */,
+				BCE1B6DB25EAE62E0028823A /* LanguageViewController.swift in Sources */,
 				BC3736342512C0C3007A1D13 /* KeychainItem.swift in Sources */,
 				BC3736152512B051007A1D13 /* HomeViewController.swift in Sources */,
 				BC4B4870251177CB00E7CC2F /* APIRouter.swift in Sources */,
@@ -648,6 +672,7 @@
 				BCE2C5872516AF0400CD81FE /* PacketTunnelProvider.swift in Sources */,
 				BCCBB99A2513B5A6002FBD6E /* VPNViewController.swift in Sources */,
 				BC3736362512C0C3007A1D13 /* RoundedImageView.swift in Sources */,
+				BCE1B6FF25EAFB090028823A /* Titles.swift in Sources */,
 				BC37363A2512C0C3007A1D13 /* RoundedButton.swift in Sources */,
 				BC97C541257FD4C000647BA7 /* VPNSettingViewController.swift in Sources */,
 				BC3736332512C0C3007A1D13 /* CardView.swift in Sources */,
@@ -693,6 +718,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BC4B48432511686A00E7CC2F /* Base */,
+				BCB4D00325EBFC2600627956 /* en */,
+				BCB4D00425EBFC2900627956 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -701,8 +728,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				BC4B48482511686F00E7CC2F /* Base */,
+				BCE1B6D125EAE12B0028823A /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BCE1B6D525EAE13D0028823A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCE1B6D425EAE13D0028823A /* es */,
+				BCE1B6D725EAE1410028823A /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -712,6 +749,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -772,6 +810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -973,6 +1012,14 @@
 				kind = branch;
 			};
 		};
+		BCE1B6C925EAE07D0028823A /* XCRemoteSwiftPackageReference "LanguageManager-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Abedalkareem/LanguageManager-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -980,6 +1027,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC3CBB0F25CD5A7B001B2C4B /* XCRemoteSwiftPackageReference "SwiftyPing" */;
 			productName = SwiftyPing;
+		};
+		BCE1B6CA25EAE07D0028823A /* LanguageManager-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCE1B6C925EAE07D0028823A /* XCRemoteSwiftPackageReference "LanguageManager-iOS" */;
+			productName = "LanguageManager-iOS";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

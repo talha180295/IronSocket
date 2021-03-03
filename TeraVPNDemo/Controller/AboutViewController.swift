@@ -13,6 +13,8 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = Titles.ABOUT_US.rawValue.localiz()
+        
         // Do any additional setup after loading the view.
     }
     

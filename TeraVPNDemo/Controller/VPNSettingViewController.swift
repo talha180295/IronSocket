@@ -19,7 +19,7 @@ class VPNSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = Titles.VPN_SETTINGS.rawValue.localiz()
         setUpNavBar()
     }
     

@@ -21,6 +21,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Titles.SETTINGS.rawValue.localiz()
+        
         setUpNavBar()
         
         //let userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)

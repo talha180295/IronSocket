@@ -19,6 +19,7 @@ struct User_Defaults {
     static let selectIp = "selectIp"
     static let selectServer = "selectServer"
     static let favServers = "favServers"
+    static let selectedLanguage = "selectedLanguage"
 }
 
 class AppConstants {

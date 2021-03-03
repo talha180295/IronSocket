@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "LanguageManager-iOS",
+        "repositoryURL": "https://github.com/Abedalkareem/LanguageManager-iOS",
+        "state": {
+          "branch": null,
+          "revision": "55c456c6a76bacdf7d806b94d3b1b5afd1083108",
+          "version": "1.2.3"
+        }
+      },
+      {
         "package": "SwiftyPing",
         "repositoryURL": "https://github.com/samiyr/SwiftyPing.git",
         "state": {

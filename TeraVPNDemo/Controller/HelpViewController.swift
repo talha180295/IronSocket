@@ -20,6 +20,8 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Titles.HELP.rawValue.localiz()
+        
         setUpNavBar()
         
         self.content = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)?.help ?? [Help]()

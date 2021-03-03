@@ -17,6 +17,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = Titles.ACCOUNT.rawValue.localiz()
         setUpNavBar()
         
         let userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)

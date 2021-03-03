@@ -90,7 +90,8 @@ class VPNViewController: UIViewController {
     @IBOutlet weak var connectionStatus:UILabel!
     @IBOutlet weak var connectBtn:UIButton!
     @IBOutlet weak var grayView1:UIView!
-
+    @IBOutlet weak var locationBtn:UIButton!
+    
     
     //Intent Variables
     var serverList = [Server]()
@@ -153,17 +154,18 @@ class VPNViewController: UIViewController {
         
         disconnected()
 
+        self.grayView1.backgroundColor = UIColor.themeGray
         self.circularView.alpha = 1
         self.signal1.alpha = 0.8
         self.signal2.alpha = 0.8
         self.signal3.alpha = 0.8
-        
+        self.locationBtn.semanticContentAttribute = .forceRightToLeft
         self.userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
         NotificationCenter.default.addObserver(self, selector: #selector(VPNViewController.VPNStatusDidChange(_:)), name: NSNotification.Name.NEVPNStatusDidChange, object: nil)
         
         
-        self.title = "TeraVPN"
+//        self.title = "TeraVPN"
         
         self.selectedIP = "\(serverList.first?.serverIP ?? "0")"//" \(serverList.first?.serverPort ?? "0")"
         self.serverIP.text = getIPAddress() //"\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
@@ -171,7 +173,8 @@ class VPNViewController: UIViewController {
 //        self.cityName.text = "\(serverList.first?.city ?? "")"
         self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
         
-        self.connectionStatus.text = "Disconnected"
+        self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTED.rawValue.localiz().uppercased()
+       
 //        self.connectionStatus.textColor = .red
 //        self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
         
@@ -182,6 +185,8 @@ class VPNViewController: UIViewController {
         
 
     }
+    
+
     
     func getIPAddress() -> String {
         var publicIP = ""
@@ -276,11 +281,11 @@ class VPNViewController: UIViewController {
     func setupProtocolLabel(){
         guard let selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String else {
             
-            self.protocolNameLabel.setTitle("PROTOCOL: OpenVPN - TCP", for: .normal)
+            self.protocolNameLabel.setTitle("\(Titles.PROTOCOL.rawValue.localiz()): OpenVPN - TCP", for: .normal)
             return
         }
         
-        self.protocolNameLabel.setTitle("PROTOCOL: OpenVPN - \(selectedProto.uppercased())", for: .normal)
+        self.protocolNameLabel.setTitle("\(Titles.PROTOCOL.rawValue.localiz()): OpenVPN - \(selectedProto.uppercased())", for: .normal)
     }
     
     
@@ -398,9 +403,9 @@ extension VPNViewController{
         }
         else{
             
-            let otherAlert = UIAlertController(title: "IronSocket VPN", message: "Are you sure access VPN Connection", preferredStyle: UIAlertController.Style.alert)
+            let otherAlert = UIAlertController(title: "IronSocket VPN", message: Titles.ARE_YOU_SURE_TO_ACCESS_VPN_CONNECTION.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
             
-            let connectAction = UIAlertAction(title: "YES", style: UIAlertAction.Style.default) { _ in
+            let connectAction = UIAlertAction(title: Titles.YES.rawValue.localiz(), style: UIAlertAction.Style.default) { _ in
                 
                 
                 let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
@@ -417,7 +422,7 @@ extension VPNViewController{
                 
             }
             
-            let dismiss = UIAlertAction(title: "NO", style: UIAlertAction.Style.cancel, handler: nil)
+            let dismiss = UIAlertAction(title: Titles.NO.rawValue.localiz(), style: UIAlertAction.Style.cancel, handler: nil)
             
             // relate actions to controllers
             otherAlert.addAction(connectAction)
@@ -584,7 +589,7 @@ extension VPNViewController{
         case .connecting:
             isVPNConnected = true
             print("Connecting...")
-            self.connectionStatus.text = "Connecting...".uppercased()
+            self.connectionStatus.text = Titles.VPN_STATE_CONNECTING.rawValue.localiz().uppercased()
 
             
             
@@ -592,7 +597,7 @@ extension VPNViewController{
         case .connected:
             isVPNConnected = true
             print("Connected...")
-            self.connectionStatus.text = "Connected".uppercased()
+            self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
 
             self.connected()
 
@@ -602,12 +607,12 @@ extension VPNViewController{
             break
         case .disconnecting:
             print("Disconnecting...")
-            self.connectionStatus.text = "Disconnecting...".uppercased()
+            self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTING.rawValue.localiz().uppercased()
             break
         case .disconnected:
             isVPNConnected = false
             print("Disconnected...")
-            self.connectionStatus.text = "Disconnected".uppercased()
+            self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTED.rawValue.localiz().uppercased()
             self.disconnected()
             
             
