@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - LoginResponse
 struct LoginResponse: Codable {
-    var success, name, username, password: String?
+    var success, message, name, username, password: String?
     var nextdue, curloc, query, package: String?
     var server: [Server]?
     var adblocker, email: String?
@@ -15,7 +15,7 @@ struct LoginResponse: Codable {
     var help: [Help]?
 
     enum CodingKeys: String, CodingKey {
-        case success, name, username, password, nextdue, curloc, query, package, server, adblocker, email, help
+        case success, message, name, username, password, nextdue, curloc, query, package, server, adblocker, email, help
         case planID = "plan_id"
     }
 }

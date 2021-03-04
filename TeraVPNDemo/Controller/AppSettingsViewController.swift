@@ -19,7 +19,7 @@ class AppSettingsViewController: UIViewController {
         
         self.title = Titles.APPLICATION.rawValue.localiz()
         setUpNavBar()
-        
+        setLangugeField()
         //let userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
         
@@ -34,6 +34,9 @@ class AppSettingsViewController: UIViewController {
         }
         else if selectedLanguage == Languages.es.rawValue{
             languageLabel.text = "Spanish"
+        }
+        else if selectedLanguage == Languages.de.rawValue{
+            languageLabel.text = "German"
         }
     }
     

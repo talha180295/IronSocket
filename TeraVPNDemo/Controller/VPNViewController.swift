@@ -281,7 +281,7 @@ class VPNViewController: UIViewController {
     func setupProtocolLabel(){
         guard let selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String else {
             
-            self.protocolNameLabel.setTitle("\(Titles.PROTOCOL.rawValue.localiz()): OpenVPN - TCP", for: .normal)
+            self.protocolNameLabel.setTitle("\(Titles.PROTOCOL.rawValue.localiz()): \(Titles.AUTOMATIC.rawValue.localiz())", for: .normal)
             return
         }
         
@@ -522,6 +522,10 @@ extension VPNViewController{
         
         if selectedProto == Proto_type.auto.rawValue{
             selectedProto = Proto_type.tcp.rawValue
+        }
+        
+        if selectedEncryption == Encryption_type.auto.rawValue{
+            selectedProto = Encryption_type.strong.rawValue
         }
         
         let data = Data(protoJson.utf8)

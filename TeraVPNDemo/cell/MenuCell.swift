@@ -13,7 +13,7 @@ class MenuCell: UITableViewCell {
     @IBOutlet weak var flag:UIImageView!
     @IBOutlet weak var countryName:UILabel!
     @IBOutlet weak var cityName:UILabel!
-    @IBOutlet weak var time:UILabel!
+    @IBOutlet weak var ping:UILabel!
     @IBOutlet weak var star:UIButton!
     
     var index:Int!

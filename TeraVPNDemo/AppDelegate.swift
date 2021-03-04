@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else if selectedLanguage == Languages.es.rawValue{
             LanguageManager.shared.setLanguage(language: .es)
         }
+        else if selectedLanguage == Languages.de.rawValue{
+            LanguageManager.shared.setLanguage(language: .de)
+        }
         
         
         IQKeyboardManager.shared.enable = true

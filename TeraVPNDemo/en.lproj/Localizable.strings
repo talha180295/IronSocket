@@ -1,5 +1,6 @@
 
 "LANGUAGES" = "Languages";
+"LANGUAGE" = "Language";
 "VPN_STATE_DISCONNECTED" = "Disconnected";
 "VPN_STATE_CONNECTED" = "Connected";
 "VPN_STATE_DISCONNECTING" = "Disconnecting...";
@@ -46,3 +47,4 @@
 "ENTER_PASSWORD" = "Enter Password";
 "VIEW_ONLINE_GUIDE" = "View Online Guide";
 "DONT_HAVE_ACCOUNT" = "Don't have an account?";
+"AUTOMATIC" = "Automatic";

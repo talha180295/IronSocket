@@ -78,8 +78,8 @@
                 <outlet property="cityName" destination="GBX-DF-AeM" id="Jgy-hZ-Rnb"/>
                 <outlet property="countryName" destination="lYy-AT-BOT" id="u9c-G4-Kof"/>
                 <outlet property="flag" destination="yW1-5r-2os" id="qas-nq-2At"/>
+                <outlet property="ping" destination="RCG-D9-qy0" id="3Fw-j2-asO"/>
                 <outlet property="star" destination="1OP-FH-pBZ" id="PiO-Hd-Pg1"/>
-                <outlet property="time" destination="RCG-D9-qy0" id="3Fw-j2-asO"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="143.63839285714286"/>
         </tableViewCell>

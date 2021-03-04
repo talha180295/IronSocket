@@ -17,7 +17,8 @@ class LanguageViewController: UIViewController {
     
     let languagesArray =  [
         (name:"English", code:0),
-        (name:"Spanish", code:1)
+        (name:"Spanish", code:1),
+        (name:"German", code:2)
     ]
     
     
@@ -31,6 +32,7 @@ class LanguageViewController: UIViewController {
         languageTableView.register(UITableViewCell.self, forCellReuseIdentifier: "LanguageCell")
         languageTableView.delegate = self
         languageTableView.dataSource = self
+        languageTableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
     
@@ -53,7 +55,7 @@ class LanguageViewController: UIViewController {
 extension LanguageViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return languagesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +96,18 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource{
             }
             UserDefaults.standard.setValue(Languages.es.rawValue, forKey: User_Defaults.selectedLanguage)
 //            self.navigationController?.popViewController(animated: true)
+        case 2:
+            LanguageManager.shared.setLanguage(language: .de)
+            { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            } animation: { view in
+                // do custom animation
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            UserDefaults.standard.setValue(Languages.de.rawValue, forKey: User_Defaults.selectedLanguage)
 
         default:
             break

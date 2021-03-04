@@ -132,6 +132,9 @@
 		BC1D127925D87CE5008BFE5A /* HelpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
 		BC2DCDB3251AB36E00956916 /* UsageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageResponse.swift; sourceTree = "<group>"; };
 		BC2DCDB5251AB99700956916 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BC343CCD25F05C5E00B5FEA1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		BC343CCE25F05C5F00B5FEA1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BC343CCF25F05C5F00B5FEA1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BC3736142512B051007A1D13 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC3736172512B8AE007A1D13 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		BC37361A2512BE85007A1D13 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -504,6 +507,7 @@
 				en,
 				Base,
 				es,
+				de,
 			);
 			mainGroup = BC4B48302511686A00E7CC2F;
 			packageReferences = (
@@ -720,6 +724,7 @@
 				BC4B48432511686A00E7CC2F /* Base */,
 				BCB4D00325EBFC2600627956 /* en */,
 				BCB4D00425EBFC2900627956 /* es */,
+				BC343CCD25F05C5E00B5FEA1 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 			children = (
 				BC4B48482511686F00E7CC2F /* Base */,
 				BCE1B6D125EAE12B0028823A /* es */,
+				BC343CCE25F05C5F00B5FEA1 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 			children = (
 				BCE1B6D425EAE13D0028823A /* es */,
 				BCE1B6D725EAE1410028823A /* en */,
+				BC343CCF25F05C5F00B5FEA1 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -870,7 +877,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.6;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -900,7 +907,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.6;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

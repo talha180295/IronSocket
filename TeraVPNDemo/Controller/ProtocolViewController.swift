@@ -18,18 +18,22 @@ class ProtocolViewController: UIViewController {
     var type:String!
     var selectedProto = UserDefaults.standard.value(forKey: User_Defaults.proto) as? String
     var selectedEncryption = UserDefaults.standard.value(forKey: User_Defaults.encryption) as? String
+    var selectedLogging = UserDefaults.standard.value(forKey: User_Defaults.logging) as? String
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpNavBar()
         if type == "p"{
+            self.title = Titles.VPN_PROTOCOL.rawValue.localiz()
             setupProtoRadioGroup()
         }
         else if type == "e"{
+            self.title = Titles.ENCRYPTION_LEVEL.rawValue.localiz()
             setupEncryptionRadioGroup()
         }
         else if type == "l"{
+            self.title = Titles.LOGGING_LEVEL.rawValue.localiz()
             setupLogingRadioGroup()
         }
     }
@@ -43,7 +47,7 @@ class ProtocolViewController: UIViewController {
     }
     
     func setupProtoRadioGroup(){
-        radioGroup.titles = ["Automatic", "OpenVPN - UDP", "OpenVPN - TCP"]
+        radioGroup.titles = ["\(Titles.AUTOMATIC.rawValue.localiz())", "OpenVPN - UDP", "OpenVPN - TCP"]
         radioGroup.addTarget(self, action: #selector(didSelectProtoOption(radioGroup:)), for: .valueChanged)
         switch selectedProto {
         case Proto_type.auto.rawValue:
@@ -59,9 +63,11 @@ class ProtocolViewController: UIViewController {
     }
     
     func setupEncryptionRadioGroup(){
-        radioGroup.titles = ["Automatic", "Strong", "Low", "None"]
+        radioGroup.titles = ["\(Titles.AUTOMATIC.rawValue.localiz())", "Strong", "Low", "None"]
         radioGroup.addTarget(self, action: #selector(didSelectEncryptionOption(radioGroup:)), for: .valueChanged)
         switch selectedEncryption {
+        case Encryption_type.auto.rawValue:
+            radioGroup.selectedIndex = 0
         case Encryption_type.strong.rawValue:
             radioGroup.selectedIndex = 1
         case Encryption_type.low.rawValue:
@@ -75,14 +81,14 @@ class ProtocolViewController: UIViewController {
     
     func setupLogingRadioGroup(){
         radioGroup.titles = ["None", "Normal", "High"]
-//        radioGroup.addTarget(self, action: nil, for: .valueChanged)
-        switch selectedEncryption {
-        case Encryption_type.strong.rawValue:
+        radioGroup.addTarget(self, action: #selector(didSelectLoggingOption(radioGroup:)), for: .valueChanged)
+        switch selectedLogging {
+        case Logging_type.none.rawValue:
+            radioGroup.selectedIndex = 0
+        case Logging_type.normal.rawValue:
             radioGroup.selectedIndex = 1
-        case Encryption_type.low.rawValue:
+        case Logging_type.high.rawValue:
             radioGroup.selectedIndex = 2
-        case Encryption_type.none.rawValue:
-            radioGroup.selectedIndex = 3
         default:
             radioGroup.selectedIndex = 0
         }
@@ -110,7 +116,7 @@ class ProtocolViewController: UIViewController {
         print(radioGroup.titles[radioGroup.selectedIndex] ?? "")
         switch radioGroup.selectedIndex {
         case 0:
-            selectedEncryption = Encryption_type.strong.rawValue
+            selectedEncryption = Encryption_type.auto.rawValue
 //            UserDefaults.standard.set("strong", forKey: User_Defaults.encryption)
         case 1:
             selectedEncryption = Encryption_type.strong.rawValue
@@ -127,10 +133,26 @@ class ProtocolViewController: UIViewController {
         }
     }
     
+    
+    @objc func didSelectLoggingOption(radioGroup: RadioGroup) {
+        print(radioGroup.titles[radioGroup.selectedIndex] ?? "")
+        switch radioGroup.selectedIndex {
+        case 0:
+            selectedLogging = Logging_type.none.rawValue
+        case 1:
+            selectedLogging = Logging_type.normal.rawValue
+        case 2:
+            selectedLogging = Logging_type.high.rawValue
+        default:
+            selectedLogging = Logging_type.none.rawValue
+        }
+    }
+    
     @IBAction func saveBtn( _ sender:UIButton){
         
         UserDefaults.standard.set(selectedProto, forKey: User_Defaults.proto)
         UserDefaults.standard.set(selectedEncryption, forKey: User_Defaults.encryption)
+        UserDefaults.standard.set(selectedEncryption, forKey: User_Defaults.logging)
         
         self.navigationController?.popViewController(animated: true)
         

@@ -1,5 +1,6 @@
 enum Titles: String{
     case LANGUAGES
+    case LANGUAGE
     case VPN_STATE_DISCONNECTED
     case VPN_STATE_CONNECTED
     case VPN_STATE_DISCONNECTING
@@ -46,7 +47,7 @@ enum Titles: String{
     case ENTER_PASSWORD
     case VIEW_ONLINE_GUIDE
     case DONT_HAVE_ACCOUNT
-
+    case AUTOMATIC
 }
 
 

@@ -16,10 +16,14 @@ struct User_Defaults {
     static let adBlocker = "adBlocker"
     static let proto = "proto"
     static let encryption = "encryption"
+    static let logging = "logging"
     static let selectIp = "selectIp"
     static let selectServer = "selectServer"
     static let favServers = "favServers"
     static let selectedLanguage = "selectedLanguage"
+    static let startupSwitch = "startupSwitch"
+    static let dropSwitch = "dropSwitch"
+    static let killSwitch = "killSwitch"
 }
 
 class AppConstants {
@@ -55,4 +59,10 @@ enum Encryption_type : String{
     case strong
     case low
     case none
+}
+
+enum Logging_type : String{
+    case none
+    case normal
+    case high
 }

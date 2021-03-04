@@ -140,8 +140,8 @@
 /* Class = "UILabel"; text = "STATUS:"; ObjectID = "Kf5-eu-qIg"; */
 "Kf5-eu-qIg.text" = "STATUS:";
 
-/* Class = "UILabel"; text = "APPLICATION"; ObjectID = "LMc-gh-wVF"; */
-"LMc-gh-wVF.text" = "APPLICATION";
+/* Class = "UILabel"; text = "SPEED_TEST"; ObjectID = "LMc-gh-wVF"; */
+"LMc-gh-wVF.text" = "SPEED_TEST";
 
 /* Class = "UITextField"; placeholder = "Enter Username"; ObjectID = "LN8-Ms-lky"; */
 "LN8-Ms-lky.placeholder" = "Enter Username";
@@ -281,11 +281,11 @@
 /* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "jds-Js-VpI"; */
 "jds-Js-VpI.text" = "Privacy Policy";
 
-/* Class = "UILabel"; text = "ABOUT"; ObjectID = "kH4-5T-bn6"; */
-"kH4-5T-bn6.text" = "ABOUT";
+/* Class = "UILabel"; text = "ABOUT_US"; ObjectID = "kH4-5T-bn6"; */
+"kH4-5T-bn6.text" = "ABOUT_US";
 
-/* Class = "UILabel"; text = "ONLINE_GUIDE"; ObjectID = "kZf-HF-v7E"; */
-"kZf-HF-v7E.text" = "ONLINE_GUIDE";
+/* Class = "UILabel"; text = "ONLINE_GUIDES"; ObjectID = "kZf-HF-v7E"; */
+"kZf-HF-v7E.text" = "ONLINE_GUIDES";
 
 /* Class = "UINavigationItem"; title = "Change Password"; ObjectID = "kj2-ri-Nev"; */
 "kj2-ri-Nev.title" = "Change Password";

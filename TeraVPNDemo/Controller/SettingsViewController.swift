@@ -92,13 +92,13 @@ class SettingsViewController: UIViewController {
     //For logout
     @IBAction func logoutBtn(_ sender:UIButton){
         
-        let alert = UIAlertController(title: "LOGOUT", message: "Are you sure to logout?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: Titles.LOGOUT.rawValue.localiz(), message: Titles.ARE_YOU_SURE_TO_LOGOUT.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
         
-        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) { _ in
+        let yesAction = UIAlertAction(title: Titles.YES.rawValue.localiz(), style: UIAlertAction.Style.destructive) { _ in
             self.logout()
         }
         
-        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+        let noAction = UIAlertAction(title: Titles.NO.rawValue.localiz(), style: UIAlertAction.Style.cancel, handler: nil)
         
         // relate actions to controllers
         alert.addAction(yesAction)

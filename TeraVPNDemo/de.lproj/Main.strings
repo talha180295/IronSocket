@@ -5,14 +5,14 @@
 /* Class = "UITextView"; text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n"; ObjectID = "1a0-zQ-CHl"; */
 "1a0-zQ-CHl.text" = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n";
 
-/* Class = "UILabel"; text = "Subscription Status"; ObjectID = "1wF-ZX-a1E"; */
-"1wF-ZX-a1E.text" = "Subscription Status";
+/* Class = "UILabel"; text = "SUBSCRIPTION_STATUS"; ObjectID = "1wF-ZX-a1E"; */
+"1wF-ZX-a1E.text" = "SUBSCRIPTION_STATUS";
 
 /* Class = "UINavigationItem"; title = "ACCOUNT"; ObjectID = "20p-Ev-Qx6"; */
 "20p-Ev-Qx6.title" = "ACCOUNT";
 
-/* Class = "UILabel"; text = "Location"; ObjectID = "24c-uk-7bg"; */
-"24c-uk-7bg.text" = "Location";
+/* Class = "UILabel"; text = "LOCATION"; ObjectID = "24c-uk-7bg"; */
+"24c-uk-7bg.text" = "LOCATION";
 
 /* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "2TB-ue-bs2"; */
 "2TB-ue-bs2.normalTitle" = "LOGIN";
@@ -20,8 +20,8 @@
 /* Class = "UIButton"; normalTitle = "Reset To Default"; ObjectID = "3kE-9H-ONR"; */
 "3kE-9H-ONR.normalTitle" = "Reset To Default";
 
-/* Class = "UIButton"; normalTitle = "Location "; ObjectID = "46r-gv-gNP"; */
-"46r-gv-gNP.normalTitle" = "Location ";
+/* Class = "UIButton"; normalTitle = "LOCATION"; ObjectID = "46r-gv-gNP"; */
+"46r-gv-gNP.normalTitle" = "LOCATION";
 
 /* Class = "UINavigationItem"; title = "ABOUT"; ObjectID = "4A3-CQ-qtE"; */
 "4A3-CQ-qtE.title" = "ABOUT";
@@ -41,20 +41,20 @@
 /* Class = "UILabel"; text = "Normal"; ObjectID = "6CF-KU-hjc"; */
 "6CF-KU-hjc.text" = "Normal";
 
-/* Class = "UILabel"; text = "VPN Password"; ObjectID = "73V-DN-JtK"; */
-"73V-DN-JtK.text" = "VPN Password";
+/* Class = "UILabel"; text = "VPN_PASSWORD"; ObjectID = "73V-DN-JtK"; */
+"73V-DN-JtK.text" = "VPN_PASSWORD";
 
-/* Class = "UILabel"; text = "Your IP address:"; ObjectID = "7Rm-NX-VJd"; */
-"7Rm-NX-VJd.text" = "Your IP address:";
+/* Class = "UILabel"; text = "YOUR_IP_ADDRESS"; ObjectID = "7Rm-NX-VJd"; */
+"7Rm-NX-VJd.text" = "YOUR_IP_ADDRESS";
 
-/* Class = "UILabel"; text = "VPN Protocol"; ObjectID = "83S-O6-HdI"; */
-"83S-O6-HdI.text" = "VPN Protocol";
+/* Class = "UILabel"; text = "VPN_PROTOCOL"; ObjectID = "83S-O6-HdI"; */
+"83S-O6-HdI.text" = "VPN_PROTOCOL";
 
 /* Class = "UILabel"; text = "PAKISTAN"; ObjectID = "8er-cl-mSc"; */
 "8er-cl-mSc.text" = "PAKISTAN";
 
-/* Class = "UILabel"; text = "Renews on:"; ObjectID = "8l6-Mk-m93"; */
-"8l6-Mk-m93.text" = "Renews on:";
+/* Class = "UILabel"; text = "RENEWS_ON"; ObjectID = "8l6-Mk-m93"; */
+"8l6-Mk-m93.text" = "RENEWS_ON";
 
 /* Class = "UILabel"; text = "172.28.90"; ObjectID = "8re-fO-sve"; */
 "8re-fO-sve.text" = "172.28.90";
@@ -68,17 +68,20 @@
 /* Class = "UIButton"; normalTitle = "PROTOCOL: Open VPN- TCP"; ObjectID = "Bdg-9G-GzN"; */
 "Bdg-9G-GzN.normalTitle" = "PROTOCOL: Open VPN- TCP";
 
-/* Class = "UILabel"; text = "VPN Username"; ObjectID = "BnU-vS-nTu"; */
-"BnU-vS-nTu.text" = "VPN Username";
+/* Class = "UILabel"; text = "VPN_USERNAME"; ObjectID = "BnU-vS-nTu"; */
+"BnU-vS-nTu.text" = "VPN_USERNAME";
 
-/* Class = "UILabel"; text = "Status:"; ObjectID = "Cob-cq-yhd"; */
-"Cob-cq-yhd.text" = "Status:";
+/* Class = "UILabel"; text = "STATUS"; ObjectID = "Cob-cq-yhd"; */
+"Cob-cq-yhd.text" = "STATUS";
 
 /* Class = "UILabel"; text = "Contact Us"; ObjectID = "D4L-NJ-Rg1"; */
 "D4L-NJ-Rg1.text" = "Contact Us";
 
 /* Class = "UILabel"; text = "Enable DNS Leak Protection"; ObjectID = "D5r-JA-2j8"; */
 "D5r-JA-2j8.text" = "Enable DNS Leak Protection";
+
+/* Class = "UIButton"; normalTitle = "Spanish"; ObjectID = "DaD-Df-hOl"; */
+"DaD-Df-hOl.normalTitle" = "Spanish";
 
 /* Class = "UIButton"; normalTitle = "Customize"; ObjectID = "DfC-Nv-nPT"; */
 "DfC-Nv-nPT.normalTitle" = "Customize";
@@ -98,20 +101,20 @@
 /* Class = "UIButton"; normalTitle = "Start Connection"; ObjectID = "GUE-RV-lpk"; */
 "GUE-RV-lpk.normalTitle" = "Start Connection";
 
-/* Class = "UILabel"; text = "Logging Level"; ObjectID = "GYn-eJ-SC7"; */
-"GYn-eJ-SC7.text" = "Logging Level";
+/* Class = "UILabel"; text = "LOGGING_LEVEL"; ObjectID = "GYn-eJ-SC7"; */
+"GYn-eJ-SC7.text" = "LOGGING_LEVEL";
 
 /* Class = "UINavigationItem"; title = "Locations"; ObjectID = "GmL-dv-ZVr"; */
 "GmL-dv-ZVr.title" = "Locations";
 
-/* Class = "UILabel"; text = "Download"; ObjectID = "HVi-tE-VGP"; */
-"HVi-tE-VGP.text" = "Download";
+/* Class = "UILabel"; text = "DOWNLOAD"; ObjectID = "HVi-tE-VGP"; */
+"HVi-tE-VGP.text" = "DOWNLOAD";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "ID4-ae-zS6"; */
 "ID4-ae-zS6.normalTitle" = "Save";
 
-/* Class = "UITextField"; placeholder = "Enter Password"; ObjectID = "It2-tX-fP4"; */
-"It2-tX-fP4.placeholder" = "Enter Password";
+/* Class = "UITextField"; placeholder = "ENTER_PASSWORD"; ObjectID = "It2-tX-fP4"; */
+"It2-tX-fP4.placeholder" = "ENTER_PASSWORD";
 
 /* Class = "UILabel"; text = "Send Diagonistic"; ObjectID = "IyD-DP-oBW"; */
 "IyD-DP-oBW.text" = "Send Diagonistic";
@@ -125,8 +128,8 @@
 /* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "JOV-7T-7lw"; */
 "JOV-7T-7lw.text" = "Privacy Policy";
 
-/* Class = "UILabel"; text = "Upload"; ObjectID = "Jc7-K4-aXD"; */
-"Jc7-K4-aXD.text" = "Upload";
+/* Class = "UILabel"; text = "UPLOAD"; ObjectID = "Jc7-K4-aXD"; */
+"Jc7-K4-aXD.text" = "UPLOAD";
 
 /* Class = "UILabel"; text = "APPLICATION"; ObjectID = "Jsn-NI-2tB"; */
 "Jsn-NI-2tB.text" = "APPLICATION";
@@ -140,20 +143,20 @@
 /* Class = "UILabel"; text = "SPEED_TEST"; ObjectID = "LMc-gh-wVF"; */
 "LMc-gh-wVF.text" = "SPEED_TEST";
 
-/* Class = "UITextField"; placeholder = "Enter Username"; ObjectID = "LN8-Ms-lky"; */
-"LN8-Ms-lky.placeholder" = "Enter Username";
+/* Class = "UITextField"; placeholder = "ENTER_USERNAME"; ObjectID = "LN8-Ms-lky"; */
+"LN8-Ms-lky.placeholder" = "ENTER_USERNAME";
 
 /* Class = "UILabel"; text = "Run EasyVPNConnect on Startup"; ObjectID = "M3N-Jd-czj"; */
 "M3N-Jd-czj.text" = "Run EasyVPNConnect on Startup";
 
-/* Class = "UIButton"; normalTitle = "VIEW LOGS"; ObjectID = "N6r-7R-EF4"; */
-"N6r-7R-EF4.normalTitle" = "VIEW LOGS";
+/* Class = "UIButton"; normalTitle = "VIEW_LOGS"; ObjectID = "N6r-7R-EF4"; */
+"N6r-7R-EF4.normalTitle" = "VIEW_LOGS";
 
 /* Class = "UILabel"; text = "UPLOAD"; ObjectID = "N8P-rA-R4O"; */
 "N8P-rA-R4O.text" = "UPLOAD";
 
-/* Class = "UIButton"; normalTitle = "View Online Guide"; ObjectID = "NkF-9A-okf"; */
-"NkF-9A-okf.normalTitle" = "View Online Guide";
+/* Class = "UIButton"; normalTitle = "VIEW_ONLINE_GUIDE"; ObjectID = "NkF-9A-okf"; */
+"NkF-9A-okf.normalTitle" = "VIEW_ONLINE_GUIDE";
 
 /* Class = "UILabel"; text = "PAKISTAN"; ObjectID = "O2J-sN-YNJ"; */
 "O2J-sN-YNJ.text" = "PAKISTAN";
@@ -170,14 +173,17 @@
 /* Class = "UITextView"; text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n"; ObjectID = "R0R-3u-g6T"; */
 "R0R-3u-g6T.text" = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n";
 
-/* Class = "UILabel"; text = "Connect on Startup"; ObjectID = "RVB-Gn-Bwn"; */
-"RVB-Gn-Bwn.text" = "Connect on Startup";
+/* Class = "UINavigationItem"; title = "Laanguages"; ObjectID = "RS8-QN-DRg"; */
+"RS8-QN-DRg.title" = "Laanguages";
+
+/* Class = "UILabel"; text = "CONNECT_ON_STARTUP"; ObjectID = "RVB-Gn-Bwn"; */
+"RVB-Gn-Bwn.text" = "CONNECT_ON_STARTUP";
 
 /* Class = "UITextField"; placeholder = "New Password"; ObjectID = "Rbu-oh-uMp"; */
 "Rbu-oh-uMp.placeholder" = "New Password";
 
-/* Class = "UILabel"; text = "VPN SETTINGS"; ObjectID = "Rrf-0r-DXi"; */
-"Rrf-0r-DXi.text" = "VPN SETTINGS";
+/* Class = "UILabel"; text = "VPN_SETTINGS"; ObjectID = "Rrf-0r-DXi"; */
+"Rrf-0r-DXi.text" = "VPN_SETTINGS";
 
 /* Class = "UILabel"; text = "Enable Beta updates"; ObjectID = "UCd-fr-0UQ"; */
 "UCd-fr-0UQ.text" = "Enable Beta updates";
@@ -224,20 +230,23 @@
 /* Class = "UILabel"; text = "STATUS VALUE"; ObjectID = "cmd-Pk-ZGU"; */
 "cmd-Pk-ZGU.text" = "STATUS VALUE";
 
-/* Class = "UILabel"; text = "Encryption Level"; ObjectID = "d3c-Hg-oyO"; */
-"d3c-Hg-oyO.text" = "Encryption Level";
+/* Class = "UILabel"; text = "ENCRYPTION_LEVEL"; ObjectID = "d3c-Hg-oyO"; */
+"d3c-Hg-oyO.text" = "ENCRYPTION_LEVEL";
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "dyW-hX-a1M"; */
+"dyW-hX-a1M.normalTitle" = "English";
 
 /* Class = "UILabel"; text = "Always"; ObjectID = "eFh-HX-Y9v"; */
 "eFh-HX-Y9v.text" = "Always";
 
-/* Class = "UIButton"; normalTitle = "Renew Subscription"; ObjectID = "fxf-3f-4JZ"; */
-"fxf-3f-4JZ.normalTitle" = "Renew Subscription";
+/* Class = "UIButton"; normalTitle = "RENEW_SUBSCRIPTION"; ObjectID = "fxf-3f-4JZ"; */
+"fxf-3f-4JZ.normalTitle" = "RENEW_SUBSCRIPTION";
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "g7a-5e-nIM"; */
 "g7a-5e-nIM.text" = "Active";
 
-/* Class = "UILabel"; text = "Update Prompt"; ObjectID = "g89-xs-HmE"; */
-"g89-xs-HmE.text" = "Update Prompt";
+/* Class = "UILabel"; text = "UPDATE_PROMT"; ObjectID = "g89-xs-HmE"; */
+"g89-xs-HmE.text" = "UPDATE_PROMT";
 
 /* Class = "UILabel"; text = "Update Available! Download now."; ObjectID = "gF8-oc-tRd"; */
 "gF8-oc-tRd.text" = "Update Available! Download now.";
@@ -251,11 +260,11 @@
 /* Class = "UILabel"; text = "LOCATION"; ObjectID = "gYc-Fs-Z3p"; */
 "gYc-Fs-Z3p.text" = "LOCATION";
 
-/* Class = "UILabel"; text = "Plan:"; ObjectID = "gpn-Ma-5Vn"; */
-"gpn-Ma-5Vn.text" = "Plan:";
+/* Class = "UILabel"; text = "PLAN"; ObjectID = "gpn-Ma-5Vn"; */
+"gpn-Ma-5Vn.text" = "PLAN";
 
-/* Class = "UILabel"; text = "Kill App on drop connection"; ObjectID = "hLh-NA-whB"; */
-"hLh-NA-whB.text" = "Kill App on drop connection";
+/* Class = "UILabel"; text = "KILL_APP_ON_CONNECTION_DROP"; ObjectID = "hLh-NA-whB"; */
+"hLh-NA-whB.text" = "KILL_APP_ON_CONNECTION_DROP";
 
 /* Class = "UILabel"; text = "HELP"; ObjectID = "iH0-Sy-NIC"; */
 "iH0-Sy-NIC.text" = "HELP";
@@ -281,8 +290,11 @@
 /* Class = "UINavigationItem"; title = "Change Password"; ObjectID = "kj2-ri-Nev"; */
 "kj2-ri-Nev.title" = "Change Password";
 
-/* Class = "UINavigationItem"; title = "Speed"; ObjectID = "lED-LR-18p"; */
-"lED-LR-18p.title" = "Speed";
+/* Class = "UIButton"; normalTitle = "Sort By Ping"; ObjectID = "kj8-Br-rBj"; */
+"kj8-Br-rBj.normalTitle" = "Sort By Ping";
+
+/* Class = "UINavigationItem"; title = "SPEED_TEST"; ObjectID = "lED-LR-18p"; */
+"lED-LR-18p.title" = "SPEED_TEST";
 
 /* Class = "UILabel"; text = "DATA SENT"; ObjectID = "lHs-Nn-M2X"; */
 "lHs-Nn-M2X.text" = "DATA SENT";
@@ -305,14 +317,17 @@
 /* Class = "UILabel"; text = "Enable IPv6 Leak Protection"; ObjectID = "o4f-Va-l5s"; */
 "o4f-Va-l5s.text" = "Enable IPv6 Leak Protection";
 
-/* Class = "UILabel"; text = "Remember Password?"; ObjectID = "oAS-Xe-SPC"; */
-"oAS-Xe-SPC.text" = "Remember Password?";
+/* Class = "UILabel"; text = "REMEMBER_PASSWORD"; ObjectID = "oAS-Xe-SPC"; */
+"oAS-Xe-SPC.text" = "REMEMBER_PASSWORD";
 
 /* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "ofB-ks-5bY"; */
 "ofB-ks-5bY.text" = "Don't have an account?";
 
 /* Class = "UILabel"; text = "http://ironsocket.com/"; ObjectID = "oxG-CL-SaV"; */
 "oxG-CL-SaV.text" = "http://ironsocket.com/";
+
+/* Class = "UIButton"; normalTitle = "Clear Favorites"; ObjectID = "pQG-Ab-llK"; */
+"pQG-Ab-llK.normalTitle" = "Clear Favorites";
 
 /* Class = "UITextView"; text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n"; ObjectID = "pud-7h-iJr"; */
 "pud-7h-iJr.text" = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n";
@@ -323,8 +338,8 @@
 /* Class = "UILabel"; text = "FAQs"; ObjectID = "qEf-nE-8sg"; */
 "qEf-nE-8sg.text" = "FAQs";
 
-/* Class = "UILabel"; text = "STATUS:"; ObjectID = "r6f-ak-URh"; */
-"r6f-ak-URh.text" = "STATUS:";
+/* Class = "UILabel"; text = "STATUS"; ObjectID = "r6f-ak-URh"; */
+"r6f-ak-URh.text" = "STATUS";
 
 /* Class = "UILabel"; text = "Lorem ipsum dolor sit ame"; ObjectID = "ri9-5t-38W"; */
 "ri9-5t-38W.text" = "Lorem ipsum dolor sit ame";

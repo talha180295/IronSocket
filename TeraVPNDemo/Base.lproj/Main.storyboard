@@ -18,16 +18,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMD-vi-ymp">
-                                <rect key="frame" x="16" y="123" width="358" height="701"/>
+                                <rect key="frame" x="16" y="123" width="358" height="617"/>
                                 <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-UB-iJA">
+                                <rect key="frame" x="16" y="750" width="358" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQG-Ab-llK">
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="50"/>
+                                        <color key="backgroundColor" red="0.67084579480331441" green="0.24864168064928949" blue="0.0040097186804680498" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Clear Favorites">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clearFavBtn:" destination="JA9-Jb-JV5" eventType="touchUpInside" id="xCy-gi-AxG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj8-Br-rBj">
+                                        <rect key="frame" x="199" y="0.0" width="159" height="50"/>
+                                        <color key="backgroundColor" red="0.59126435191279181" green="0.76212557397707548" blue="0.34310596134738558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Sort By Ping">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sortByPingBtn:" destination="JA9-Jb-JV5" eventType="touchUpInside" id="8TG-Gf-gcB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Kr6-eJ-eUs"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="O6M-7Q-4an"/>
                         <color key="backgroundColor" red="0.83505427837371826" green="0.85929423570632935" blue="0.8849065899848938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="SMD-vi-ymp" secondAttribute="bottom" constant="20" id="J3C-nZ-F3b"/>
+                            <constraint firstItem="F0C-UB-iJA" firstAttribute="leading" secondItem="O6M-7Q-4an" secondAttribute="leading" constant="16" id="9sT-LT-sMr"/>
+                            <constraint firstItem="O6M-7Q-4an" firstAttribute="bottom" secondItem="F0C-UB-iJA" secondAttribute="bottom" constant="10" id="bHQ-gW-MeT"/>
                             <constraint firstItem="O6M-7Q-4an" firstAttribute="trailing" secondItem="SMD-vi-ymp" secondAttribute="trailing" constant="16" id="hSM-Pa-ymu"/>
+                            <constraint firstItem="F0C-UB-iJA" firstAttribute="top" secondItem="SMD-vi-ymp" secondAttribute="bottom" constant="10" id="hTD-nc-ufw"/>
                             <constraint firstItem="SMD-vi-ymp" firstAttribute="leading" secondItem="O6M-7Q-4an" secondAttribute="leading" constant="16" id="hu3-OF-Upa"/>
+                            <constraint firstItem="O6M-7Q-4an" firstAttribute="trailing" secondItem="F0C-UB-iJA" secondAttribute="trailing" constant="16" id="iUd-Wi-QLC"/>
                             <constraint firstItem="SMD-vi-ymp" firstAttribute="top" secondItem="O6M-7Q-4an" secondAttribute="top" constant="35" id="lYt-RK-AEL"/>
                         </constraints>
                     </view>
@@ -38,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBC-3n-28D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="-601.34932533733138"/>
+            <point key="canvasLocation" x="1073.8461538461538" y="-601.42180094786727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tYR-qK-hRZ">
@@ -276,7 +321,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" red="0.83921568629999999" green="0.85882352939999995" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Y9C-qj-mHB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="4SM-ly-0hs"/>
                             <constraint firstItem="56K-rI-eof" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="5u2-df-vGZ"/>
@@ -634,12 +679,12 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vRJ-5v-QcF">
-                                                <rect key="frame" x="146.33333333333334" y="70" width="97.666666666666657" height="21"/>
+                                                <rect key="frame" x="144.33333333333334" y="70" width="101.66666666666666" height="21"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-gv-gNP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <state key="normal" title="LOCATION" image="edit">
+                                                        <state key="normal" title="LOCATION " image="edit">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -1066,8 +1111,8 @@
                                                                     <constraint firstAttribute="height" constant="60" id="rXO-Bk-45k"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-86-lxH">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-86-lxH">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="IZZ-V7-oTL"/>
@@ -1150,15 +1195,15 @@
                                                                     <constraint firstAttribute="height" constant="1" id="zec-0P-8ZJ"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="ZxD-RB-sGB">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="application" translatesAutoresizingMaskIntoConstraints="NO" id="ZxD-RB-sGB">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="dcH-lm-ZBw"/>
                                                                     <constraint firstAttribute="width" constant="35" id="i1L-2j-2Uv"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="geE-cg-Vob">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="geE-cg-Vob">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="9k1-tN-But"/>
@@ -1210,15 +1255,15 @@
                                                                     <constraint firstAttribute="height" constant="1" id="ONZ-Oa-SP0"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="uEf-WC-OfC">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wi-fi" translatesAutoresizingMaskIntoConstraints="NO" id="uEf-WC-OfC">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="0wr-2q-JC4"/>
                                                                     <constraint firstAttribute="height" constant="60" id="8h7-Zd-h6U"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="muo-B7-qcG">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="muo-B7-qcG">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="0fN-1m-IXv"/>
@@ -1270,15 +1315,15 @@
                                                                     <constraint firstAttribute="height" constant="1" id="UcA-4z-trd"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="bcN-1E-FLO">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="bcN-1E-FLO">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="giB-KP-3Os"/>
                                                                     <constraint firstAttribute="width" constant="35" id="ncb-DU-yYu"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7OS-7G-3JQ">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="7OS-7G-3JQ">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="olP-Nu-5Xa"/>
@@ -1330,15 +1375,15 @@
                                                                     <constraint firstAttribute="height" constant="1" id="kMl-1K-xGC"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="MFr-Gg-42n">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speed-test" translatesAutoresizingMaskIntoConstraints="NO" id="MFr-Gg-42n">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="Bsr-iR-eHj"/>
                                                                     <constraint firstAttribute="height" constant="60" id="zyE-ll-T17"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-mX-FeV">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-mX-FeV">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="bhC-wK-n6k"/>
@@ -1421,15 +1466,15 @@
                                                                     <constraint firstAttribute="height" constant="1" id="cx4-Cj-adz"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="JkS-t4-TQs">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="JkS-t4-TQs">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="BLF-pp-DGw"/>
                                                                     <constraint firstAttribute="width" constant="35" id="gOp-iz-U1h"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Vn-6Ds">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="If9-Vn-6Ds">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="YDa-Oa-llQ"/>
@@ -1478,7 +1523,7 @@
                                                                     <constraint firstAttribute="height" constant="1" id="KVN-tZ-Z4g"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-fv-fe2">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guide" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-fv-fe2">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="pkg-ui-CNr"/>
@@ -1491,8 +1536,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JuV-z2-Lhw">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="JuV-z2-Lhw">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="33.5" id="Act-jU-6Db"/>
@@ -1538,7 +1583,7 @@
                                                                     <constraint firstAttribute="height" constant="1" id="GUD-W9-GID"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-Hu-wJ7">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-Hu-wJ7">
                                                                 <rect key="frame" x="5" y="0.0" width="35" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="SYJ-qe-mJg"/>
@@ -1551,8 +1596,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-r6-9AO">
-                                                                <rect key="frame" x="295" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="7cM-r6-9AO">
+                                                                <rect key="frame" x="295" y="12" width="30" height="33.666666666666664"/>
                                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="RMB-Qt-5fJ"/>
@@ -1760,8 +1805,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="ixz-8x-8nf"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JLY-Fz-2vd">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="JLY-Fz-2vd">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="33.5" id="YFD-Pv-3FI"/>
@@ -1823,8 +1868,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IZw-eB-wbs">
-                                                        <rect key="frame" x="315" y="25" width="30" height="30"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="IZw-eB-wbs">
+                                                        <rect key="frame" x="315" y="22.999999999999996" width="30" height="33.666666666666657"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="33.5" id="VtN-Mf-vou"/>
@@ -3157,8 +3202,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="voE-p4-ocF"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-Re-cd7">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-Re-cd7">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="HQd-9h-o8P"/>
@@ -3207,8 +3252,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="Q8t-27-39g"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IP1-k7-jI9">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="IP1-k7-jI9">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="33.5" id="TvV-BO-dOc"/>
@@ -3257,8 +3302,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="7gc-yA-sf4"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cop-CJ-Bn0">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="cop-CJ-Bn0">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="W0h-fb-T4p"/>
@@ -3307,8 +3352,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="Cjp-5M-jfT"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kwl-fR-YhL">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Kwl-fR-YhL">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="33.5" id="RjG-TH-IIc"/>
@@ -3432,8 +3477,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="cd5-bv-d2S"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-aY-GSo">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-aY-GSo">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="Dnj-z7-SPJ"/>
@@ -3446,8 +3491,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English (United States)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imO-90-2yb">
-                                                        <rect key="frame" x="8" y="45.666666666666657" width="184" height="21.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imO-90-2yb">
+                                                        <rect key="frame" x="8" y="45.666666666666657" width="58" height="21.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3486,8 +3531,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="Zim-h3-gDD"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="o2K-Th-Ar4">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="o2K-Th-Ar4">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="LKE-wX-ruU"/>
@@ -3749,8 +3794,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="9v5-f9-XPK"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-G8-jJ7">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-G8-jJ7">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="C69-dD-GxD"/>
@@ -3806,8 +3851,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="ppn-hY-c8D"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xM4-c7-x4W">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="xM4-c7-x4W">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="0Nf-By-Fe0"/>
@@ -3863,8 +3908,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                             <constraint firstAttribute="height" constant="1" id="Mga-9a-VQJ"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H8c-wr-soc">
-                                                        <rect key="frame" x="315" y="14.000000000000005" width="30" height="29.999999999999972"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="H8c-wr-soc">
+                                                        <rect key="frame" x="315" y="12" width="30" height="33.666666666666664"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="S9S-6f-nlh"/>
@@ -3916,6 +3961,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                         <rect key="frame" x="10" y="2" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="thumbTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="startupSwitchChanged:" destination="OCk-ad-ruw" eventType="touchUpInside" id="efe-hL-jq4"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECT_ON_STARTUP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVB-Gn-Bwn">
                                                         <rect key="frame" x="66.999999999999986" y="2" width="252.66666666666663" height="31"/>
@@ -3943,6 +3991,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                         <rect key="frame" x="10" y="2" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="thumbTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="dropSwitchChanged:" destination="OCk-ad-ruw" eventType="touchUpInside" id="gfC-EQ-fqE"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENABLE_DROP_PROTECTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZB-c1-lH6">
                                                         <rect key="frame" x="66.999999999999986" y="2" width="252.66666666666663" height="31"/>
@@ -3970,6 +4021,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                         <rect key="frame" x="10" y="2" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="thumbTintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="killSwitchChanged:" destination="OCk-ad-ruw" eventType="touchUpInside" id="M8O-KJ-bsW"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="KILL_APP_ON_CONNECTION_DROP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLh-NA-whB">
                                                         <rect key="frame" x="67" y="2" width="257" height="31"/>
@@ -4044,7 +4098,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7em-VK-KKt" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7em-VK-KKt" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="511" width="360" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-VE-ua2">
@@ -4130,10 +4184,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-9H-ONR">
-                                <rect key="frame" x="95" y="633" width="200" height="33"/>
+                                <rect key="frame" x="95" y="633" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="Jay-Wt-pXO"/>
+                                    <constraint firstAttribute="height" constant="40" id="Jay-Wt-pXO"/>
                                     <constraint firstAttribute="width" constant="200" id="sWv-T6-beu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -4146,6 +4200,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="resetBtn" destination="OCk-ad-ruw" eventType="touchUpInside" id="uAl-K6-QWD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WKU-Lh-Fo9"/>
@@ -4164,8 +4221,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                     </view>
                     <navigationItem key="navigationItem" title=" VPN Settings" id="uKB-Z6-pNM"/>
                     <connections>
+                        <outlet property="dropSwitch" destination="Ga6-ka-djA" id="yEu-IP-01S"/>
                         <outlet property="encryptionLevel" destination="xDR-55-5Qi" id="u2z-wU-vuN"/>
+                        <outlet property="killSwitch" destination="Ckc-LL-5z4" id="uws-ls-1is"/>
                         <outlet property="loggingLevel" destination="6CF-KU-hjc" id="FWs-5K-31b"/>
+                        <outlet property="startupSwitch" destination="aFA-UM-MR8" id="ZE7-SN-325"/>
                         <outlet property="vpnType" destination="mpx-EZ-ZWo" id="e6j-Xc-wiY"/>
                     </connections>
                 </viewController>
@@ -4200,13 +4260,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="14" y="113" width="360" height="122"/>
+                                <rect key="frame" x="14" y="113" width="360" height="113"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
-                                        <rect key="frame" x="8" y="10" width="344" height="102"/>
+                                        <rect key="frame" x="8" y="10" width="344" height="93"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="102"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="93"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
@@ -4241,7 +4301,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
-                                <rect key="frame" x="95" y="286.66666666666669" width="200" height="40"/>
+                                <rect key="frame" x="95" y="277.66666666666669" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KhS-if-op5"/>
@@ -4575,6 +4635,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         </scene>
     </scenes>
     <designables>
+        <designable name="2TB-ue-bs2">
+            <size key="intrinsicContentSize" width="55" height="34"/>
+        </designable>
         <designable name="AUc-G4-ZFc">
             <size key="intrinsicContentSize" width="153.66666666666666" height="93"/>
         </designable>
@@ -4582,17 +4645,23 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     <resources>
         <image name="Account" width="25.666666030883789" height="27"/>
         <image name="Shield" width="64" height="67"/>
+        <image name="about" width="64" height="64"/>
+        <image name="application" width="64" height="64"/>
         <image name="bg3" width="560" height="600"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="connect3" width="138.33332824707031" height="138.33332824707031"/>
         <image name="download" width="24" height="24"/>
         <image name="edit" width="12.666666984558105" height="12.666666984558105"/>
+        <image name="guide" width="64" height="64"/>
+        <image name="help" width="64" height="64"/>
+        <image name="location" width="64" height="64"/>
         <image name="logo" width="121.33333587646484" height="30"/>
         <image name="logo1" width="679" height="168"/>
         <image name="logout" width="18.333333969116211" height="18.333333969116211"/>
         <image name="menu1" width="16" height="16"/>
         <image name="password" width="26.666666030883789" height="26"/>
         <image name="pk_flag" width="64" height="64"/>
+        <image name="right-arrow" width="64" height="64"/>
         <image name="s1blue" width="810" height="143"/>
         <image name="s2blue" width="810" height="191"/>
         <image name="s3blue" width="810" height="237"/>
@@ -4602,8 +4671,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="signal2" width="170.33332824707031" height="58"/>
         <image name="signal3" width="234" height="70.333335876464844"/>
         <image name="signals" width="234" height="141.66667175292969"/>
+        <image name="speed-test" width="64" height="64"/>
         <image name="upload" width="24" height="24"/>
         <image name="username" width="22.666666030883789" height="24"/>
+        <image name="wi-fi" width="64" height="64"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -4615,9 +4686,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

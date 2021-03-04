@@ -55,6 +55,17 @@ class LocationViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
+    @IBAction func sortByPingBtn(_ sender:UIButton){
+        let ipList = serverList.map{ $0.serverIP ?? "" }
+        checkPing(host: ipList)
+    }
+    
+    @IBAction func clearFavBtn(_ sender:UIButton){
+        UserDefaults.standard.removeObject(forKey: User_Defaults.favServers)
+        self.serverNameTbl.reloadData()
+//        UserDefaults.standard.value(forKey: User_Defaults.favServers)
+    }
+    
 }
 
 extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
@@ -70,17 +81,17 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
         cell.cityName.text = serverList[indexPath.item].city
 //        cell.time.text = "\(serverList[indexPath.item].ping)ms"
         
-        let duration = serverList[indexPath.item].ping ?? 0
-        cell.time.text = "\(duration)ms"
+        let duration = serverList[indexPath.item].ping ?? 500
+        cell.ping.text = "\(duration)ms"
         
         if duration > 150 {
-            cell.time.textColor = .red
+            cell.ping.textColor = UIColor.pingRed//.red
         }
         else if duration > 100 && duration < 150 {
-            cell.time.textColor = .yellow
+            cell.ping.textColor = UIColor.pingYellow //.yellow
         }
         else if duration < 100  {
-            cell.time.textColor = .green
+            cell.ping.textColor = UIColor.pingGreen //.green
         }
 //        if self.pingList.count > 0{
 //            let duration = serverList[indexPath.item].ping
@@ -107,6 +118,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource{
         }
             
         let favServers = UserDefaults.standard.value(forKey: User_Defaults.favServers) as? [String]
+        cell.star.isSelected = false
         for item in favServers ?? []{
             if item == serverList[indexPath.item].country{
                 cell.star.isSelected = true
@@ -210,12 +222,12 @@ extension LocationViewController {
                 print("\(item) = \(ms)")
                 if host.last == item{
 //                    self.serverList[index].ping = Int.random(in: 1..<200)
-//                    self.self.serverList = self.serverList.sorted { (item1, item2) -> Bool in
-//                        if item1.ping ?? 0 < item2.ping ?? 0{
-//                            return true
-//                        }
-//                        return false
-//                    }
+                    self.serverList = self.serverList.sorted { (item1, item2) -> Bool in
+                        if item1.ping ?? 0 < item2.ping ?? 0{
+                            return true
+                        }
+                        return false
+                    }
                     self.serverNameTbl.reloadData()
                 }
             }

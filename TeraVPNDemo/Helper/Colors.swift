@@ -37,4 +37,10 @@ extension UIColor{
     static var ButtonConnectionFailed = UIColor.init(hexString: "#FFDE6F6F")
     
     
+    static var pingYellow = UIColor.init(hexString: "#fccf03")
+    static var pingRed = UIColor.init(hexString: "#469915")
+    static var pingGreen = UIColor.init(hexString: "#9e3011")
+    
+    
+    
 }
