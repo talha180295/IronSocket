@@ -18,7 +18,11 @@ class LanguageViewController: UIViewController {
     let languagesArray =  [
         (name:"English", code:0),
         (name:"Spanish", code:1),
-        (name:"German", code:2)
+        (name:"German", code:2),
+        (name:"French", code:3)
+//        (name:"Arabic", code:4),
+//        (name:"Japanese", code:5),
+//        (name:"Chinese", code:6)
     ]
     
     
@@ -35,19 +39,6 @@ class LanguageViewController: UIViewController {
         languageTableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
-    
-    
-    //    @IBAction func enOnclick(_ sender:UIButton){
-    //        LanguageManager.shared.setLanguage(language: .en)
-    //        UserDefaults.standard.setValue(Languages.en.rawValue, forKey: User_Defaults.selectedLanguage)
-    //        self.navigationController?.popViewController(animated: true)
-    //    }
-    //
-    //    @IBAction func esOnclick(_ sender:UIButton){
-    //        LanguageManager.shared.setLanguage(language: .es)
-    //        UserDefaults.standard.setValue(Languages.es.rawValue, forKey: User_Defaults.selectedLanguage)
-    //        self.navigationController?.popViewController(animated: true)
-    //    }
     
 }
 
@@ -108,6 +99,57 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource{
                 view.alpha = 0
             }
             UserDefaults.standard.setValue(Languages.de.rawValue, forKey: User_Defaults.selectedLanguage)
+        case 3:
+            LanguageManager.shared.setLanguage(language: .fr)
+            { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            } animation: { view in
+                // do custom animation
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            UserDefaults.standard.setValue(Languages.fr.rawValue, forKey: User_Defaults.selectedLanguage)
+
+        case 4:
+            LanguageManager.shared.setLanguage(language: .ar)
+            { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            } animation: { view in
+                // do custom animation
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            UserDefaults.standard.setValue(Languages.ar.rawValue, forKey: User_Defaults.selectedLanguage)
+
+        case 5:
+            LanguageManager.shared.setLanguage(language: .ja)
+            { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            } animation: { view in
+                // do custom animation
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            UserDefaults.standard.setValue(Languages.ja.rawValue, forKey: User_Defaults.selectedLanguage)
+
+        case 6:
+            LanguageManager.shared.setLanguage(language: .zhHans)
+            { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            } animation: { view in
+                // do custom animation
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            UserDefaults.standard.setValue(Languages.zhHans.rawValue, forKey: User_Defaults.selectedLanguage)
 
         default:
             break

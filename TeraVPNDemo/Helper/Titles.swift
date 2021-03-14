@@ -48,6 +48,7 @@ enum Titles: String{
     case VIEW_ONLINE_GUIDE
     case DONT_HAVE_ACCOUNT
     case AUTOMATIC
+    case DO_YOU_WANT_TO_CONNECT_TO_VPN
 }
 
 

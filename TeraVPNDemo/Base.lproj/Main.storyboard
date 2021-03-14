@@ -4259,13 +4259,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="113" width="360" height="113"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
                                         <rect key="frame" x="8" y="10" width="344" height="93"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="93"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4300,7 +4300,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
                                 <rect key="frame" x="95" y="277.66666666666669" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4637,9 +4637,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     <designables>
         <designable name="2TB-ue-bs2">
             <size key="intrinsicContentSize" width="55" height="34"/>
-        </designable>
-        <designable name="AUc-G4-ZFc">
-            <size key="intrinsicContentSize" width="153.66666666666666" height="93"/>
         </designable>
     </designables>
     <resources>

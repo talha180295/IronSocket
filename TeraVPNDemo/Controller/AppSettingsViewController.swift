@@ -38,6 +38,18 @@ class AppSettingsViewController: UIViewController {
         else if selectedLanguage == Languages.de.rawValue{
             languageLabel.text = "German"
         }
+        else if selectedLanguage == Languages.fr.rawValue{
+            languageLabel.text = "French"
+        }
+        else if selectedLanguage == Languages.ar.rawValue{
+            languageLabel.text = "Arabic"
+        }
+        else if selectedLanguage == Languages.ja.rawValue{
+            languageLabel.text = "Japanese"
+        }
+        else if selectedLanguage == Languages.zhHans.rawValue{
+            languageLabel.text = "Chinese"
+        }
     }
     
     

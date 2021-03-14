@@ -220,8 +220,8 @@ class VPNViewController: UIViewController {
                             let bytesIn = dict?["bytesIn"] as! String
                             let bytesOut = dict?["bytesOut"] as! String
                             
-                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB/S"
-                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB/S"
+                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB"
+                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB"
                             //                            print("\(Int(bytesIn)!/1000000) MBs")
                             self.usageRemainingInMbs -= Double(bytesOut)!/1000000.00  + Double(bytesIn)!/1000000.00
 //                            self.updateGaugeTimer()
@@ -403,9 +403,10 @@ extension VPNViewController{
         }
         else{
             
-            let otherAlert = UIAlertController(title: "IronSocket VPN", message: Titles.ARE_YOU_SURE_TO_ACCESS_VPN_CONNECTION.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
+            let otherAlert = UIAlertController(title: "IronSocket VPN", message: Titles.DO_YOU_WANT_TO_CONNECT_TO_VPN.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
             
             let connectAction = UIAlertAction(title: Titles.YES.rawValue.localiz(), style: UIAlertAction.Style.default) { _ in
+                
                 
                 
                 let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
@@ -415,6 +416,7 @@ extension VPNViewController{
 //                let username = self.userData?.username ?? ""
                 self.loadProviderManager {
 
+                    self.connectBtn.isEnabled = false
                     self.configureVPN(serverAddress: "", username: username!, password:password!)
                     self.connecting()
                     
@@ -599,6 +601,7 @@ extension VPNViewController{
             
             break
         case .connected:
+            self.connectBtn.isEnabled = true
             isVPNConnected = true
             print("Connected...")
             self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
@@ -610,10 +613,12 @@ extension VPNViewController{
             
             break
         case .disconnecting:
+            self.connectBtn.isEnabled = false
             print("Disconnecting...")
             self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTING.rawValue.localiz().uppercased()
             break
         case .disconnected:
+            self.connectBtn.isEnabled = true
             isVPNConnected = false
             print("Disconnected...")
             self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTED.rawValue.localiz().uppercased()
@@ -751,6 +756,9 @@ extension VPNViewController{
 
     
     func connecting(){
+        stopCircularTimer()
+        stopSignalTimer()
+        
         circularView.progressLayer.isHidden = false
         circularView.progressLayer.strokeColor = UIColor.AntennaConnecting.cgColor
         self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
