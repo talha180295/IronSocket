@@ -671,28 +671,6 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-97-VVL" customClass="GaugeView" customModule="LMGaugeViewSwift">
-                                                <rect key="frame" x="37.5" y="149.5" width="300" height="221.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="uQS-xv-uuH"/>
-                                                </constraints>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vRJ-5v-QcF">
-                                                <rect key="frame" x="144.33333333333334" y="70" width="101.66666666666666" height="21"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-gv-gNP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <state key="normal" title="LOCATION " image="edit">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="sideMenuBtn:" destination="sIc-Cl-F90" eventType="touchUpInside" id="Wht-62-9o4"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0HL-qp-ehW">
                                                 <rect key="frame" x="115.33333333333333" y="141" width="159.33333333333337" height="50.666666666666657"/>
                                                 <subviews>
@@ -710,23 +688,44 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46r-gv-gNP">
+                                                <rect key="frame" x="45" y="69" width="300" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="cOh-v1-zBy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="LOCATION" image="edit">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sideMenuBtn:" destination="sIc-Cl-F90" eventType="touchUpInside" id="Wht-62-9o4"/>
+                                                </connections>
+                                            </button>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-97-VVL" customClass="GaugeView" customModule="LMGaugeViewSwift">
+                                                <rect key="frame" x="37.5" y="149.5" width="300" height="221.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="uQS-xv-uuH"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.83921568627450982" green="0.85882352941176465" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="8TK-W6-A2w" firstAttribute="top" secondItem="KgY-cr-wPc" secondAttribute="top" constant="15" id="4ri-n5-TkR"/>
+                                            <constraint firstItem="46r-gv-gNP" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="EjN-X1-4EJ"/>
                                             <constraint firstItem="0HL-qp-ehW" firstAttribute="top" secondItem="CGP-NI-aqk" secondAttribute="bottom" constant="15" id="Lbd-18-Ing"/>
                                             <constraint firstAttribute="trailing" secondItem="8TK-W6-A2w" secondAttribute="trailing" constant="15" id="OPk-5e-Gqv"/>
                                             <constraint firstItem="Ujc-97-VVL" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="awr-GA-7i4"/>
-                                            <constraint firstItem="vRJ-5v-QcF" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="bOV-dq-41t"/>
+                                            <constraint firstItem="46r-gv-gNP" firstAttribute="top" secondItem="45o-qB-RHr" secondAttribute="bottom" constant="14" id="dQC-8r-ZB4"/>
                                             <constraint firstItem="GUE-RV-lpk" firstAttribute="top" secondItem="Ujc-97-VVL" secondAttribute="bottom" constant="5" id="eLg-Kd-Zx6"/>
-                                            <constraint firstItem="vRJ-5v-QcF" firstAttribute="top" secondItem="45o-qB-RHr" secondAttribute="bottom" constant="15" id="gQg-4v-JaJ"/>
                                             <constraint firstItem="45o-qB-RHr" firstAttribute="top" secondItem="KgY-cr-wPc" secondAttribute="top" constant="15" id="gnC-no-LUe"/>
                                             <constraint firstItem="GUE-RV-lpk" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="k1B-8A-l58"/>
                                             <constraint firstAttribute="bottom" secondItem="GUE-RV-lpk" secondAttribute="bottom" constant="11" id="lMV-cg-3OG"/>
+                                            <constraint firstItem="CGP-NI-aqk" firstAttribute="top" secondItem="46r-gv-gNP" secondAttribute="bottom" constant="11" id="mIc-nn-Jes"/>
                                             <constraint firstItem="CGP-NI-aqk" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="pwh-8j-bRs"/>
                                             <constraint firstItem="45o-qB-RHr" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="uAb-B0-5bS"/>
                                             <constraint firstItem="0HL-qp-ehW" firstAttribute="centerX" secondItem="KgY-cr-wPc" secondAttribute="centerX" id="w9g-wV-fJm"/>
-                                            <constraint firstItem="CGP-NI-aqk" firstAttribute="top" secondItem="vRJ-5v-QcF" secondAttribute="bottom" constant="10" id="zGV-hf-Cg4"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -4259,13 +4258,13 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-bQ-qyI" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
                                 <rect key="frame" x="14" y="113" width="360" height="113"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-WZ-5Cd">
                                         <rect key="frame" x="8" y="10" width="344" height="93"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-G4-ZFc" customClass="RadioGroup" customModule="RadioGroup">
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="93"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="tintColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4300,7 +4299,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-Ew-7yZ">
                                 <rect key="frame" x="95" y="277.66666666666669" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.2085375786" green="0.58209711310000001" blue="0.71566373110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4637,6 +4636,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     <designables>
         <designable name="2TB-ue-bs2">
             <size key="intrinsicContentSize" width="55" height="34"/>
+        </designable>
+        <designable name="AUc-G4-ZFc">
+            <size key="intrinsicContentSize" width="153.66666666666666" height="93"/>
         </designable>
     </designables>
     <resources>
