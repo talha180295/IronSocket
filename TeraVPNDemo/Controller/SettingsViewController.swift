@@ -55,6 +55,12 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func LocationOnclick(_ sender:UIButton){
+        
+        if let _ = getConnectedVpnData(){
+            HelperFunc().showToast(message: "Disconnect VPN to change the Location", controller: self)
+            return
+        }
+        
         var vc = LocationViewController()
         if #available(iOSApplicationExtension 13.0, *) {
             vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LocationViewController") as! LocationViewController
@@ -221,5 +227,8 @@ extension SettingsViewController:ServerListProtocol{
         
     }
     
-    
+    func getConnectedVpnData() -> Server?{
+        let connectedServer = HelperFunc().getUserDefaultData(dec: Server.self, title: User_Defaults.connectedServer)
+        return connectedServer
+    }
 }

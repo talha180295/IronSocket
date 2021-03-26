@@ -2298,13 +2298,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmd-9y-lBw" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="15" y="113" width="360" height="140"/>
+                                <rect key="frame" x="15" y="113" width="360" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Syg-Sn-xZh">
-                                        <rect key="frame" x="5" y="10" width="350" height="120"/>
+                                        <rect key="frame" x="5" y="10" width="350" height="180"/>
                                         <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwX-zf-9sb">
-                                                <rect key="frame" x="0.0" y="-60" width="350" height="60"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NwX-zf-9sb">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-oV-olg" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="335" height="1"/>
@@ -2332,7 +2332,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH5-zy-H16">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
+                                                <rect key="frame" x="0.0" y="60" width="350" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbO-Rd-QrU" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="335" height="1"/>
@@ -2360,7 +2360,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-g8-zko">
-                                                <rect key="frame" x="0.0" y="60" width="350" height="60"/>
+                                                <rect key="frame" x="0.0" y="120" width="350" height="60"/>
                                                 <subviews>
                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgk-Qp-PEz" userLabel="line">
                                                         <rect key="frame" x="10" y="59" width="335" height="1"/>
@@ -2413,7 +2413,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID4-ae-zS6">
-                                <rect key="frame" x="95" y="283" width="200" height="40"/>
+                                <rect key="frame" x="95" y="343" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="sAY-Ho-bsa"/>
@@ -3772,7 +3772,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-1l-yM9" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="15" y="108" width="360" height="385"/>
+                                <rect key="frame" x="15" y="108" width="360" height="345"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qh6-4K-Pb7">
                                         <rect key="frame" x="5" y="5" width="350" height="240"/>
@@ -3951,7 +3951,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zRU-Vq-vUe">
-                                        <rect key="frame" x="8" y="260" width="344" height="115"/>
+                                        <rect key="frame" x="8" y="260" width="344" height="75"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-7x-cO2">
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="35"/>
@@ -4013,8 +4013,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     <constraint firstAttribute="height" constant="35" id="vWM-EN-vw8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnE-dO-dmr">
-                                                <rect key="frame" x="0.0" y="80" width="344" height="35"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnE-dO-dmr">
+                                                <rect key="frame" x="0.0" y="75" width="344" height="35"/>
                                                 <subviews>
                                                     <switch opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ckc-LL-5z4">
                                                         <rect key="frame" x="10" y="2" width="51" height="31"/>
@@ -4098,7 +4098,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7em-VK-KKt" customClass="CardView" customModule="TeraVPNDemo" customModuleProvider="target">
-                                <rect key="frame" x="14" y="511" width="360" height="95"/>
+                                <rect key="frame" x="14" y="471" width="360" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-VE-ua2">
                                         <rect key="frame" x="8" y="10" width="344" height="75"/>
@@ -4183,7 +4183,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-9H-ONR">
-                                <rect key="frame" x="95" y="633" width="200" height="40"/>
+                                <rect key="frame" x="95" y="593" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.20853757858276367" green="0.58209711313247681" blue="0.71566373109817505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jay-Wt-pXO"/>

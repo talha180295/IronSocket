@@ -24,6 +24,7 @@ struct User_Defaults {
     static let startupSwitch = "startupSwitch"
     static let dropSwitch = "dropSwitch"
     static let killSwitch = "killSwitch"
+    static let connectedServer = "connectedServer"
 }
 
 class AppConstants {

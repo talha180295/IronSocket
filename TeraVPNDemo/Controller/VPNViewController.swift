@@ -18,6 +18,7 @@ import MMWormhole
 class VPNViewController: UIViewController {
     
     var userData: LoginResponse!
+    var selectedServer:Server!
     
     var timer : Timer?
     var timer2 : Timer?
@@ -182,7 +183,39 @@ class VPNViewController: UIViewController {
         self.dataSent.text = "\(self.dataSentInMbs) MB"
         self.dataRecieved.text = "\(self.dataRecievedInMbs) MB"
 
+        self.selectedServer = serverList.first
         
+//        self.loadProviderManager {
+//            self.providerManager.connection.status.rawValue
+////            self.connected()
+////            self.selectedIP = "\(connectedServer.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
+////            self.serverIP.text = connectedServer.serverIP
+////            self.countryName.text = "\(connectedServer.country ?? "") , \(connectedServer.city ?? "")"
+////            self.flag.image = UIImage.init(named: connectedServer.flag ?? "")
+////
+////            self.selectedServer = connectedServer
+////            self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
+////            self.isVPNConnected = true
+//
+//        }
+        
+        self.loadProviderManager {
+            if self.providerManager.connection.status == .connected {
+                if let connectedServer = self.getConnectedVpnData(){
+                    
+                    self.connected()
+                    self.selectedIP = "\(connectedServer.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
+                    self.serverIP.text = connectedServer.serverIP
+                    self.countryName.text = "\(connectedServer.country ?? "") , \(connectedServer.city ?? "")"
+                    self.flag.image = UIImage.init(named: connectedServer.flag ?? "")
+                    
+                    self.selectedServer = connectedServer
+                    self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
+                    self.isVPNConnected = true
+                    
+                }
+            }
+        }
 
     }
     
@@ -316,6 +349,13 @@ class VPNViewController: UIViewController {
     
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
+        
+        
+        if let _ = getConnectedVpnData(){
+            HelperFunc().showToast(message: "Disconnect VPN to change the Location", controller: self)
+            return
+        }
+        
         
         var vc = LocationViewController()
         if #available(iOSApplicationExtension 13.0, *) {
@@ -607,9 +647,7 @@ extension VPNViewController{
             self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
 
             self.connected()
-
-            
-
+            self.saveConnectedVpnData(connectedServer: self.selectedServer)
             
             break
         case .disconnecting:
@@ -623,7 +661,7 @@ extension VPNViewController{
             print("Disconnected...")
             self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTED.rawValue.localiz().uppercased()
             self.disconnected()
-            
+            self.deleteConnectedVpnData()
             
             break
         case .invalid:
@@ -652,6 +690,8 @@ extension VPNViewController:ServerListProtocol{
         self.countryName.text = "\(server.country ?? "") , \(server.city ?? "")"
 //        self.cityName.text = "\(server.city ?? "")"
         self.flag.image = UIImage.init(named: server.flag ?? "")
+        
+        self.selectedServer = server
         
     }
     
@@ -787,6 +827,8 @@ extension VPNViewController{
         startTimerTrafficStats()
         
         self.serverIP.text = getIPAddress()
+        
+//        self.saveConnectedVpnData(connectedServer: self.selectedServer)
     }
     func disconnected(){
         duration = 0
@@ -807,5 +849,23 @@ extension VPNViewController{
         stopTimerLabel()
         
         self.serverIP.text = getIPAddress()
+        
+//        self.deleteConnectedVpnData()
+    }
+    
+    
+    func saveConnectedVpnData(connectedServer:Server){
+
+        HelperFunc().saveUserDefaultData(data: connectedServer, title: User_Defaults.connectedServer)
+    }
+    
+    func deleteConnectedVpnData(){
+
+        HelperFunc().deleteUserDefaultData(title: User_Defaults.connectedServer)
+    }
+    
+    func getConnectedVpnData() -> Server?{
+        let connectedServer = HelperFunc().getUserDefaultData(dec: Server.self, title: User_Defaults.connectedServer)
+        return connectedServer
     }
 }

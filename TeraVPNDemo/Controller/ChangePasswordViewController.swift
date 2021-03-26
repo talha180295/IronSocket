@@ -21,12 +21,12 @@ class ChangePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
+        userData = HelperFunc().getUserDefaultData(dec: LoginResponse.self, title: User_Defaults.user)
         
-        let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+//        let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
 //        let password = userCredentials?.password
-        self.oldPassTF.text = userCredentials?.password!
-        self.oldPassTF.isHidden = true
+//        self.oldPassTF.text = userCredentials?.password!
+//        self.oldPassTF.isHidden = true
         
         oldPassTF.isSecureTextEntry = true
         newPassTF.isSecureTextEntry = true
@@ -50,6 +50,20 @@ class ChangePasswordViewController: UIViewController {
     }
     
     func validation() -> Bool{
+        
+        if !oldPassTF.hasText{
+            HelperFunc().showAlert(title: "Alert", message: "Please Enter Old Password!", controller: self)
+            return false
+        }
+        
+        if !newPassTF.hasText{
+            HelperFunc().showAlert(title: "Alert", message: "Please Enter New Password!", controller: self)
+            return false
+        }
+        if !confNewPassTF.hasText{
+            HelperFunc().showAlert(title: "Alert", message: "Please Enter Confirm New Password!", controller: self)
+            return false
+        }
         
         if newPassTF.text != confNewPassTF.text{
             HelperFunc().showAlert(title: "Alert", message: "Passwords does not matched!", controller: self)
@@ -92,7 +106,9 @@ class ChangePasswordViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
 
             }
-
+            else{
+                HelperFunc().showAlert(title: "Alert!", message: changePassResponse?.message ?? "Something went wrong!", controller: self)
+            }
         }
         
     }

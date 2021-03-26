@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         
 
 //        usernameTF.text  = "vpn_izy70k8b"
-//        passwordTF.text  = "abc"
+//        passwordTF.text  = "qwerty123"
         
 //        loginBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
     }
