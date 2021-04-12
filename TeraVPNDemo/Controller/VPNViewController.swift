@@ -166,8 +166,6 @@ class VPNViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(VPNViewController.VPNStatusDidChange(_:)), name: NSNotification.Name.NEVPNStatusDidChange, object: nil)
         
         
-//        self.title = "TeraVPN"
-        
         self.selectedIP = "\(serverList.first?.serverIP ?? "0")"//" \(serverList.first?.serverPort ?? "0")"
         self.serverIP.text = getIPAddress() //"\(serverList.first?.serverIP ?? "0")"//" \(serverList[0].serverPort ?? "0")"
         self.countryName.text = "\(serverList.first?.country ?? "") , \(serverList.first?.city ?? "")"
@@ -175,31 +173,19 @@ class VPNViewController: UIViewController {
         self.flag.image = UIImage.init(named: serverList.first?.flag ?? "")
         
         self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTED.rawValue.localiz().uppercased()
-       
-//        self.connectionStatus.textColor = .red
-//        self.connectionBtn.backgroundColor = UIColor(hexString: "3CB371")
-        
+
         
         self.dataSent.text = "\(self.dataSentInMbs) MB"
         self.dataRecieved.text = "\(self.dataRecievedInMbs) MB"
 
         self.selectedServer = serverList.first
         
-//        self.loadProviderManager {
-//            self.providerManager.connection.status.rawValue
-////            self.connected()
-////            self.selectedIP = "\(connectedServer.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
-////            self.serverIP.text = connectedServer.serverIP
-////            self.countryName.text = "\(connectedServer.country ?? "") , \(connectedServer.city ?? "")"
-////            self.flag.image = UIImage.init(named: connectedServer.flag ?? "")
-////
-////            self.selectedServer = connectedServer
-////            self.connectionStatus.text = Titles.VPN_STATE_CONNECTED.rawValue.localiz().uppercased()
-////            self.isVPNConnected = true
-//
-//        }
-        
         self.loadProviderManager {
+            if self.checkConnectionOnstartup(){
+                if self.providerManager.connection.status == .disconnected || self.providerManager.connection.status == .invalid {
+                    self.connectVpn()
+                }
+            }
             if self.providerManager.connection.status == .connected {
                 if let connectedServer = self.getConnectedVpnData(){
                     
@@ -216,9 +202,13 @@ class VPNViewController: UIViewController {
                 }
             }
         }
-
     }
     
+    func checkConnectionOnstartup() -> Bool{
+        let startupSwitch = UserDefaults.standard.value(forKey: User_Defaults.startupSwitch) as? Bool
+        
+        return startupSwitch ?? false
+    }
 
     
     func getIPAddress() -> String {
@@ -352,7 +342,7 @@ class VPNViewController: UIViewController {
         
         
         if let _ = getConnectedVpnData(){
-            HelperFunc().showToast(message: "Disconnect VPN to change the Location", controller: self)
+            HelperFunc().showToast(message: Titles.DISCONNECT_VPN_TO_CHANGE_THE_LOCATION.rawValue.localiz(), controller: self)
             return
         }
         
@@ -422,6 +412,8 @@ extension VPNViewController{
 //        self.stopTimer4()
         if isVPNConnected == true {
             
+            self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTING.rawValue.localiz().uppercased()
+            self.connectBtn.isEnabled = false
             self.providerManager.connection.stopVPNTunnel()
 //            self.disconnected()
             
@@ -443,11 +435,11 @@ extension VPNViewController{
         }
         else{
             
-            let otherAlert = UIAlertController(title: "IronSocket VPN", message: Titles.DO_YOU_WANT_TO_CONNECT_TO_VPN.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
-            
-            let connectAction = UIAlertAction(title: Titles.YES.rawValue.localiz(), style: UIAlertAction.Style.default) { _ in
-                
-                
+//            let otherAlert = UIAlertController(title: "IronSocket VPN", message: Titles.DO_YOU_WANT_TO_CONNECT_TO_VPN.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
+//
+//            let connectAction = UIAlertAction(title: Titles.YES.rawValue.localiz(), style: UIAlertAction.Style.default) { _ in
+//
+//
                 
                 let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
                 let password = userCredentials?.password
@@ -461,17 +453,17 @@ extension VPNViewController{
                     self.connecting()
                     
                 }
-                
-            }
-            
-            let dismiss = UIAlertAction(title: Titles.NO.rawValue.localiz(), style: UIAlertAction.Style.cancel, handler: nil)
-            
-            // relate actions to controllers
-            otherAlert.addAction(connectAction)
-            
-            otherAlert.addAction(dismiss)
-            
-            present(otherAlert, animated: true, completion: nil)
+//
+//            }
+//
+//            let dismiss = UIAlertAction(title: Titles.NO.rawValue.localiz(), style: UIAlertAction.Style.cancel, handler: nil)
+//
+//            // relate actions to controllers
+//            otherAlert.addAction(connectAction)
+//
+//            otherAlert.addAction(dismiss)
+//
+//            present(otherAlert, animated: true, completion: nil)
             
             
         }

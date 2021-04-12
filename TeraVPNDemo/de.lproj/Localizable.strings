@@ -49,3 +49,4 @@
 "DONT_HAVE_ACCOUNT" = "Sie haben noch kein Konto?";
 "AUTOMATIC" = "Automatisch";
 "DO_YOU_WANT_TO_CONNECT_TO_VPN" = "Möchten Sie eine Verbindung zum VPN herstellen?";
+"DISCONNECT_VPN_TO_CHANGE_THE_LOCATION" = "VPN trennen, um den Standort zu ändern";

@@ -49,6 +49,7 @@ enum Titles: String{
     case DONT_HAVE_ACCOUNT
     case AUTOMATIC
     case DO_YOU_WANT_TO_CONNECT_TO_VPN
+    case DISCONNECT_VPN_TO_CHANGE_THE_LOCATION
 }
 
 

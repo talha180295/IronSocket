@@ -49,3 +49,4 @@
 "DONT_HAVE_ACCOUNT" = "Vous n'avez pas de compte?";
 "AUTOMATIC" = "Automatique";
 "DO_YOU_WANT_TO_CONNECT_TO_VPN" = "Voulez-vous vous connecter au VPN?";
+"DISCONNECT_VPN_TO_CHANGE_THE_LOCATION" = "Déconnectez le VPN pour changer l'emplacement";

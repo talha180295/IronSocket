@@ -55,7 +55,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         gaugeView.valueFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(80 * ratio))!
         gaugeView.unitOfMeasurementFont = UIFont(name: GaugeView.defaultFontName, size: CGFloat(16 * ratio))!
         gaugeView.minMaxValueFont = UIFont(name: GaugeView.defaultMinMaxValueFont, size: CGFloat(12 * ratio))!
-        gaugeView.unitOfMeasurement = "MB/S"
+        gaugeView.unitOfMeasurement = "Mb/s"
         // Update gauge view
         gaugeView.minValue = 0
         gaugeView.maxValue = 100
@@ -105,7 +105,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
         testDownloadSpeedWithTimout(timeout: 10.0) { (speed, error) in
             print("Download Speed:", speed ?? "NA")
             print("Speed Test Error:", error ?? "NA")
-            let formattedSpeed = String(format: "\(Titles.DOWNLOADING_SPEED.rawValue.localiz()): %.2f  MB/s", speed ?? 0.0)
+            let formattedSpeed = String(format: "\(Titles.DOWNLOADING_SPEED.rawValue.localiz()): %.2f  Mb/s", speed ?? 0.0)
             
             DispatchQueue.main.async {
                 self.startBtn.setTitle(Titles.START_SPEED_TEST.rawValue.localiz(), for: .normal)
@@ -164,7 +164,7 @@ class SpeedTestViewController: UIViewController, URLSessionDelegate, URLSessionD
     
     func speedListener(speed:Double){
         
-        let formattedSpeed = String(format: "\(Titles.DOWNLOADING_SPEED.rawValue.localiz()): %.2f  MB/s", speed)
+        let formattedSpeed = String(format: "\(Titles.DOWNLOADING_SPEED.rawValue.localiz()): %.2f  Mb/s", speed)
         print("\(formattedSpeed)")
         
         DispatchQueue.main.async {

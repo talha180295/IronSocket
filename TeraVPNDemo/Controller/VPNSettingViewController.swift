@@ -74,9 +74,9 @@ class VPNSettingViewController: UIViewController {
         }
 
         
-        self.startupSwitch.isOn = selectedStartupSwitch ?? true
-        self.dropSwitch.isOn = selectedDropSwitch ?? true
-        self.killSwitch.isOn = selectedKillSwitch ?? true
+        self.startupSwitch.isOn = selectedStartupSwitch ?? false
+        self.dropSwitch.isOn = selectedDropSwitch ?? false
+        self.killSwitch.isOn = selectedKillSwitch ?? false
     
 //        switch selectedStartupSwitch {
 //        case true:
