@@ -496,7 +496,7 @@ extension VPNViewController{
                 
                 tunnelProtocol.disconnectOnSleep = false
                 self.providerManager.protocolConfiguration = tunnelProtocol
-                self.providerManager.localizedDescription = "TeraVPN" // the title of the VPN profile which will appear on Settings
+                self.providerManager.localizedDescription = "IronSocket VPN" // the title of the VPN profile which will appear on Settings
                 self.providerManager.isEnabled = true
                 self.providerManager.saveToPreferences(completionHandler: { (error) in
                     if error == nil  {

