@@ -152,6 +152,10 @@ class VPNViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         disconnected()
 
@@ -204,6 +208,49 @@ class VPNViewController: UIViewController {
         }
     }
     
+//    @objc func appMovedToBackground() {
+//        let date = Date()
+//        let format = DateFormatter()
+//        format.dateFormat = "HH:mm:ss"
+//        timestamp = format.string(from: date)//.split(separator: ":")
+//
+//    }
+//
+//    @objc func appMovedToForeground() {
+//        let date = Date()
+//        let format = DateFormatter()
+//        format.dateFormat = "HH:mm:ss"
+//        let currentTimestamp = format.string(from: date)//.split(separator: ":")
+//
+//
+//        print("timestamp=\(timestamp)")
+//        print("currentTimestamp=\(currentTimestamp)")
+//
+//        let dif = findDateDiff(time1Str: timestamp, time2Str: currentTimestamp)
+//        print("Difference = \(dif)")
+//
+//        print("HH = \(dif.h)")
+//
+//    }
+    
+//    func findDateDiff(time1Str: String, time2Str: String) -> (h:Int,m:Int) {
+//        let timeformatter = DateFormatter()
+//        timeformatter.dateFormat = "HH:mm:ss"
+//
+//        guard let time1 = timeformatter.date(from: time1Str),
+//              let time2 = timeformatter.date(from: time2Str) else { return (h:0,m:0) }
+//
+//        //You can directly use from here if you have two dates
+//
+//        let interval = time2.timeIntervalSince(time1)
+//        let hour = interval / 3600;
+//        let minute = interval.truncatingRemainder(dividingBy: 3600) / 60
+//        let second = interval.truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60)
+////        let intervalInt = Int(interval)
+////        return "\(intervalInt < 0 ? "-" : "+") \(Int(hour)) Hours \(Int(minute)) Minutes"
+//        return (h:Int(hour),m:Int(minute))
+//    }
+    
     func checkConnectionOnstartup() -> Bool{
         let startupSwitch = UserDefaults.standard.value(forKey: User_Defaults.startupSwitch) as? Bool
         
@@ -243,8 +290,12 @@ class VPNViewController: UIViewController {
                             let bytesIn = dict?["bytesIn"] as! String
                             let bytesOut = dict?["bytesOut"] as! String
                             
-                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB"
-                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB"
+                            self.dataRecieved.text = self.getFormatedbytes(bytes: Double(bytesIn) ?? 0.0)
+                            self.dataSent.text = self.getFormatedbytes(bytes: Double(bytesOut) ?? 0.0)
+                            
+//                            self.dataRecieved.text = "\(Int(bytesIn)!/1000) KB"
+//                            self.dataSent.text = "\(Int(bytesOut)!/1000) KB"
+
                             //                            print("\(Int(bytesIn)!/1000000) MBs")
                             self.usageRemainingInMbs -= Double(bytesOut)!/1000000.00  + Double(bytesIn)!/1000000.00
 //                            self.updateGaugeTimer()
@@ -264,33 +315,33 @@ class VPNViewController: UIViewController {
     
     
     @objc func update() {
-        if self.seconds == 59 {
-            self.seconds = 0
-            if self.minutes == 59 {
-                self.minutes = 0
-                self.hours = self.hours + 1
-            } else {
-                self.minutes = self.minutes + 1
-            }
-        } else {
-            self.seconds = self.seconds + 1
-        }
-      
+        
+        let conTime = self.providerManager.connection.connectedDate ?? Date()
+        let nowT = Date()
+        
+        let dif = nowT - conTime
+        
+        let hour = dif / 3600;
+        let minute = dif.truncatingRemainder(dividingBy: 3600) / 60
+        let second = dif.truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60)
+        
+        
         var h = ""
         var m = ""
         var s = ""
         
-        if self.hours < 10{
+        if hour < 10{
             h = "0"
         }
-        if self.minutes < 10{
+        if minute < 10{
             m = "0"
         }
-        if self.seconds < 10{
+        if second < 10{
             s = "0"
         }
-        self.timmer.text = "\(h)\(self.hours):\(m)\(self.minutes):\(s)\(self.seconds)"
         
+        print("HH:MM:SS = \(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))")
+        self.timmer.text = "\(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))"
     }
     
     
@@ -860,4 +911,31 @@ extension VPNViewController{
         let connectedServer = HelperFunc().getUserDefaultData(dec: Server.self, title: User_Defaults.connectedServer)
         return connectedServer
     }
+}
+
+extension VPNViewController{
+    func getFormatedbytes(bytes:Double) -> String{
+
+        if(bytes < 1024){
+            return  "\(floor(bytes)) B";
+        }
+        else if ((bytes >= 1024) && (bytes < 1048_576)) {
+            return  "\(floor( bytes / 1024)) KB"
+        }
+        else if (bytes < (pow(1024,3)) ) {
+            return "\(floor(bytes / 1048_576)) MB"
+        }
+        else{
+            return "\(floor(bytes / (pow(1024,3)))) GB"
+        }
+    }
+}
+
+
+extension Date {
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
 }

@@ -120,6 +120,12 @@ class SplashViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
  
             }
+            else {
+                HelperFunc().showToast(message: "Authentication failure!", controller: self)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.openLoginScreen()
+                }
+            }
             
         }
         
