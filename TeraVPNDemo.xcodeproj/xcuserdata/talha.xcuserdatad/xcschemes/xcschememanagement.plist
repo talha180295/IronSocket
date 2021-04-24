@@ -21,7 +21,12 @@
 		<key>PacketTunnel 3.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>4</integer>
+		</dict>
+		<key>PacketTunnel 4.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
 		<key>PacketTunnel.xcscheme_^#shared#^_</key>
 		<dict>
@@ -33,7 +38,7 @@
 		<key>PacketTunneltest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>5</integer>
 		</dict>
 		<key>TeraVPNDemo.xcscheme_^#shared#^_</key>
 		<dict>

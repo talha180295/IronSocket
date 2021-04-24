@@ -383,11 +383,53 @@ class VPNViewController: UIViewController {
 //            self.state = 0
 //        }
         self.connectVpn()
-
-       
-        
+    
+    
+    
     }
     
+    
+    func openLoginScreen(){
+        var vc = LoginViewController()
+        if #available(iOSApplicationExtension 13.0, *) {
+            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+
+        } else {
+            vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func userLoginSuccessful(completion:@escaping (Bool)->Void){
+      
+ 
+        let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+        
+        let params = ["username":userCredentials!.username!,"password":userCredentials!.password!]
+
+        let request = APIRouter.login(params)
+        NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
+
+
+            if loginResponse != nil{
+                print("**********loginResponse**********")
+                print(loginResponse!)
+                print("**********loginResponse**********")
+            }
+            else if error != nil{
+                print("**********loginResponse**********")
+                print(error!)
+                print("**********loginResponse**********")
+            }
+            
+            if loginResponse?.success == "true"{
+                completion(true)
+            }
+            else{
+                completion(false)
+            }
+        }
+    }
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
         
@@ -492,18 +534,39 @@ extension VPNViewController{
 //
 //
                 
-                let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
-                let password = userCredentials?.password
-                let username = userCredentials?.username
-//                let password = self.userData?.password ?? ""
-//                let username = self.userData?.username ?? ""
-                self.loadProviderManager {
+            userLoginSuccessful(completion: { (isUserLogin) in
+                if(isUserLogin){
+                    let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+                    let password = userCredentials?.password
+                    let username = userCredentials?.username
+    //                let password = self.userData?.password ?? ""
+    //                let username = self.userData?.username ?? ""
+                    self.loadProviderManager {
 
-                    self.connectBtn.isEnabled = false
-                    self.configureVPN(serverAddress: "", username: username!, password:password!)
-                    self.connecting()
-                    
+                        self.connectBtn.isEnabled = false
+                        self.configureVPN(serverAddress: "", username: username!, password:password!)
+                        self.connecting()
+                        
+                    }
                 }
+                else{
+                    let alert = UIAlertController(title: "Alert!", message: "User Authentication Failed!", preferredStyle: UIAlertController.Style.alert)
+      
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                        UIAlertAction in
+                        print("OK Pressed")
+                        self.openLoginScreen()
+                    }
+                    alert.addAction(okAction)
+                    
+    //                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (ok) in
+    //
+    //                }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+            
+
 //
 //            }
 //

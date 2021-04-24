@@ -47,19 +47,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtn(_ sender:UIButton){
         
+        userLogin()
+    }
+    
+    func userLogin(){
+      
         if checkbox.on {
           print("Remember pass Checkbox is checked")
         }
-        
-//        var vc = VPNViewController()
-//        if #available(iOSApplicationExtension 13.0, *) {
-//            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
-//
-//        } else {
-//            vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
-//        }
-        
-//        self.navigationController?.pushViewController(vc, animated: true)
         
         let params = ["username":usernameTF.text!,"password":passwordTF.text!]
 
@@ -105,11 +100,8 @@ class LoginViewController: UIViewController {
             else{
                 HelperFunc().showAlert(title: "Alert!", message: loginResponse?.message ?? "Something went wrong!", controller: self)
             }
-
         }
-        
     }
-    
 }
 
 
