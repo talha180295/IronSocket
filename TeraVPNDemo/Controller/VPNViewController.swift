@@ -12,7 +12,7 @@ import CoreLocation
 import NetworkExtension
 import SDWebImage
 import LMGaugeViewSwift
-import MMWormhole
+//import MMWormhole
 
 
 class VPNViewController: UIViewController {
@@ -33,7 +33,7 @@ class VPNViewController: UIViewController {
     
     var usagelimitInMbs:Double = 0.0// =      32210912720
     var usageRemainingInMbs: Double = 0.0// = 30210912720
-    let wormhole = MMWormhole(applicationGroupIdentifier: "group.abc.org.IronSocket", optionalDirectory: "wormhole")
+//    let wormhole = MMWormhole(applicationGroupIdentifier: "group.abc.org.IronSocket", optionalDirectory: "wormhole")
     
     let protoJson = """
                         {
