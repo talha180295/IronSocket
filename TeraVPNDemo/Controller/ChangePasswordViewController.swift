@@ -52,21 +52,21 @@ class ChangePasswordViewController: UIViewController {
     func validation() -> Bool{
         
         if !oldPassTF.hasText{
-            HelperFunc().showAlert(title: "Alert", message: "Please Enter Old Password!", controller: self)
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PLEASE_ENTER_OLD_PASSWORD.rawValue.localiz(), controller: self)
             return false
         }
         
         if !newPassTF.hasText{
-            HelperFunc().showAlert(title: "Alert", message: "Please Enter New Password!", controller: self)
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PLEASE_ENTER_NEW_PASSWORD.rawValue.localiz(), controller: self)
             return false
         }
         if !confNewPassTF.hasText{
-            HelperFunc().showAlert(title: "Alert", message: "Please Enter Confirm New Password!", controller: self)
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PLEASE_ENTER_CONFIRM_NEW_PASSWORD.rawValue.localiz(), controller: self)
             return false
         }
         
         if newPassTF.text != confNewPassTF.text{
-            HelperFunc().showAlert(title: "Alert", message: "Passwords does not matched!", controller: self)
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PASSWORD_DOES_NOT_MATCHED.rawValue.localiz(), controller: self)
             return false
         }
         return true
@@ -81,33 +81,42 @@ class ChangePasswordViewController: UIViewController {
         let request = APIRouter.changePass(params)
         NetworkService.serverRequest(url: request, dec: ChangePassResponse.self, view: self.view) { (changePassResponse, error) in
 
-            if changePassResponse != nil{
-                print("**********loginResponse**********")
-                print(changePassResponse!)
-                print("**********loginResponse**********")
-            }
-            else if error != nil{
-                print("**********loginResponse**********")
-                print(error!)
-                print("**********loginResponse**********")
-            }
-
-            if changePassResponse?.success == "true"{
-
-                let userCredentials = UserCredentials.init(username: self.userData?.username ?? "", password: self.newPassTF.text!)
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
-                HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
-
-                self.userData?.password = self.newPassTF.text!
-                
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
-                HelperFunc().saveUserDefaultData(data: self.userData, title: User_Defaults.user)
-                self.passChangeedSuccsesfull(true, changePassResponse?.message ?? "")
-                self.navigationController?.popViewController(animated: true)
-
+            if let error = error{
+                HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: error.localizedDescription, controller: self)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    exit(1)
+                }
             }
             else{
-                HelperFunc().showAlert(title: "Alert!", message: changePassResponse?.message ?? "Something went wrong!", controller: self)
+                
+                if changePassResponse != nil{
+                    print("**********loginResponse**********")
+                    print(changePassResponse!)
+                    print("**********loginResponse**********")
+                }
+                else if error != nil{
+                    print("**********loginResponse**********")
+                    print(error!)
+                    print("**********loginResponse**********")
+                }
+
+                if changePassResponse?.success == "true"{
+
+                    let userCredentials = UserCredentials.init(username: self.userData?.username ?? "", password: self.newPassTF.text!)
+                    HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
+                    HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
+
+                    self.userData?.password = self.newPassTF.text!
+                    
+                    HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
+                    HelperFunc().saveUserDefaultData(data: self.userData, title: User_Defaults.user)
+                    self.passChangeedSuccsesfull(true, changePassResponse?.message ?? "")
+                    self.navigationController?.popViewController(animated: true)
+
+                }
+                else{
+                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: changePassResponse?.message ?? Titles.SOMETHING_WENT_WRONG.rawValue.localiz(), controller: self)
+                }
             }
         }
         

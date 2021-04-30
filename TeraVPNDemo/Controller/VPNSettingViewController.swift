@@ -144,7 +144,7 @@ class VPNSettingViewController: UIViewController {
         
         prepareView()
         
-        HelperFunc().showAlert(title: "Alert!", message: "Reset To Defaults", controller: self)
+        HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.RESET_TO_DEFAULTS.rawValue.localiz(), controller: self)
     }
 
 

@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         
 
 //        usernameTF.text  = "vpn_izy70k8b"
-//        passwordTF.text  = "qwerty123"
+//        passwordTF.text  = "abc123"
         
 //        loginBtn.setGradiantColors(colours: [UIColor(hexString: "#2B1468").cgColor, UIColor(hexString: "#70476F").cgColor])
     }
@@ -53,54 +53,79 @@ class LoginViewController: UIViewController {
     func userLogin(){
       
         if checkbox.on {
-          print("Remember pass Checkbox is checked")
+//          print("Remember pass Checkbox is checked")
         }
         
-        let params = ["username":usernameTF.text!,"password":passwordTF.text!]
+        if validation(){
+            
+            let params = ["username":usernameTF.text!,"password":passwordTF.text!]
 
-        let request = APIRouter.login(params)
-        NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
+            let request = APIRouter.login(params)
+            NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
 
-            if loginResponse != nil{
-                print("**********loginResponse**********")
-                print(loginResponse!)
-                print("**********loginResponse**********")
-            }
-            else if error != nil{
-                print("**********loginResponse**********")
-                print(error!)
-                print("**********loginResponse**********")
-            }
-
-            if loginResponse?.success == "true"{
-
-                var vc = VPNViewController()
-                if #available(iOSApplicationExtension 13.0, *) {
-                    vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
-
-                } else {
-                    vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
+                if let error = error{
+                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: error.localizedDescription, controller: self)
+                    return
                 }
+                else{
+                    if loginResponse != nil{
+                        print("**********loginResponse**********")
+                        print(loginResponse!)
+                        print("**********loginResponse**********")
+                    }
+                    else if error != nil{
+                        print("**********loginResponse**********")
+                        print(error!)
+                        print("**********loginResponse**********")
+                    }
 
-                vc.serverList = loginResponse?.server ?? [Server]()
-                vc.username = loginResponse?.username
-                vc.password = loginResponse?.password
-//                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
-//                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
+                    if loginResponse?.success == "true"{
 
-                let userCredentials = UserCredentials.init(username: self.usernameTF.text!, password: self.passwordTF.text!)
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
-                HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
+                        var vc = VPNViewController()
+                        if #available(iOSApplicationExtension 13.0, *) {
+                            vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
 
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
-                HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
-                self.navigationController?.pushViewController(vc, animated: true)
+                        } else {
+                            vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
+                        }
 
-            }
-            else{
-                HelperFunc().showAlert(title: "Alert!", message: loginResponse?.message ?? "Something went wrong!", controller: self)
+                        vc.serverList = loginResponse?.server ?? [Server]()
+                        vc.username = loginResponse?.username
+                        vc.password = loginResponse?.password
+        //                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
+        //                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
+
+                        let userCredentials = UserCredentials.init(username: self.usernameTF.text!, password: self.passwordTF.text!)
+                        HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
+                        HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
+
+                        HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
+                        HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
+                        self.navigationController?.pushViewController(vc, animated: true)
+
+                    }
+                    else{
+                        HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: loginResponse?.message ?? Titles.SOMETHING_WENT_WRONG.rawValue.localiz(), controller: self)
+                    }
+                }
+               
             }
         }
+   
+    }
+    
+    func validation() -> Bool{
+        
+        if !usernameTF.hasText{
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PLEASE_ENTER_PASSWORD.rawValue.localiz(), controller: self)
+            return false
+        }
+        
+        if !passwordTF.hasText{
+            HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.PLEASE_ENTER_USERNAME.rawValue.localiz(), controller: self)
+            return false
+        }
+        return true
     }
 }
 

@@ -83,49 +83,63 @@ class SplashViewController: UIViewController {
         let request = APIRouter.login(params)
         NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
            
-            if loginResponse != nil{
-                print("**********loginResponse**********")
-                print(loginResponse!)
-                print("**********loginResponse**********")
+            if let error = error{
+                let alert = UIAlertController(title: Titles.ALERT.rawValue.localiz(), message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: Titles.CLOSE_APPLICATION.rawValue.localiz(), style: UIAlertAction.Style.default) {
+                    UIAlertAction in
+                    print("Close Application")
+                    exit(1)
+                })
+                
+                self.present(alert, animated: true, completion: nil)
             }
-            else if error != nil{
-                print("**********loginResponse**********")
-                print(error!)
-                print("**********loginResponse**********")
+            else{
+                if loginResponse != nil{
+                    print("**********loginResponse**********")
+                    print(loginResponse!)
+                    print("**********loginResponse**********")
+                }
+                else if error != nil{
+                    print("**********loginResponse**********")
+                    print(error!)
+                    print("**********loginResponse**********")
+                }
+                
+                if loginResponse?.success == "true"{
+                   
+                   
+                    var vc = VPNViewController()
+                    if #available(iOSApplicationExtension 13.0, *) {
+                        vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
+                        
+                    } else {
+                        vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
+                    }
+                    
+                    vc.serverList = loginResponse?.server ?? [Server]()
+                    vc.username = loginResponse?.username
+                    vc.password = loginResponse?.password
+    //                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
+    //                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
+                    
+                    let userCredentials = UserCredentials.init(username: username, password: password)
+                    HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
+                    HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
+                    
+                    HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
+                    HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
+                    self.navigationController?.pushViewController(vc, animated: true)
+     
+                }
+                else {
+                    HelperFunc().showToast(message: Titles.USER_AUTHENTICATION_FAILED.rawValue.localiz(), controller: self)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.openLoginScreen()
+                    }
+                }
             }
             
-            if loginResponse?.success == "true"{
-               
-               
-                var vc = VPNViewController()
-                if #available(iOSApplicationExtension 13.0, *) {
-                    vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "VPNViewController") as! VPNViewController
-                    
-                } else {
-                    vc = self.storyboard?.instantiateViewController(withIdentifier: "VPNViewController") as! VPNViewController
-                }
-                
-                vc.serverList = loginResponse?.server ?? [Server]()
-                vc.username = loginResponse?.username
-                vc.password = loginResponse?.password
-//                vc.usagelimit = Double(loginResponse?.usage?.usagelimit ?? "0")
-//                vc.usageRemaining = Double(loginResponse?.usage?.remaining ?? 0)
-                
-                let userCredentials = UserCredentials.init(username: username, password: password)
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.userCredentials)
-                HelperFunc().saveUserDefaultData(data: userCredentials, title: User_Defaults.userCredentials)
-                
-                HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
-                HelperFunc().saveUserDefaultData(data: loginResponse, title: User_Defaults.user)
-                self.navigationController?.pushViewController(vc, animated: true)
- 
-            }
-            else {
-                HelperFunc().showToast(message: "Authentication failure!", controller: self)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.openLoginScreen()
-                }
-            }
             
         }
         
