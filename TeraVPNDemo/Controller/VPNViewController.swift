@@ -149,7 +149,14 @@ class VPNViewController: UIViewController {
         
         self.timmer.text = "00:00:00"
     }
-    
+    func pauseTimerLabel() {
+        timer2?.invalidate()
+        timer2 = nil
+        print("Timer pause")
+    }
+    func resumeTimerLabel() {
+        timer2?.fire()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //
@@ -340,7 +347,7 @@ class VPNViewController: UIViewController {
             s = "0"
         }
         
-//        print("HH:MM:SS = \(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))")
+        print("HH:MM:SS = \(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))")
         self.timmer.text = "\(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))"
     }
     
@@ -789,7 +796,8 @@ extension VPNViewController{
         case .reasserting:
             print("Reasserting...")
             self.connectionStatus.text = Titles.VPN_STATE_RECONNECTING.rawValue.localiz().uppercased()
-//            self.reconnecting()
+            self.connectBtn.isEnabled = false
+            self.reconnecting()
             break
         @unknown default:
             print("Fatel Error...")
@@ -916,16 +924,21 @@ extension VPNViewController{
     
 
     func reconnecting(){
-        stopCircularTimer()
-        stopSignalTimer()
+//        stopCircularTimer()
+//        stopSignalTimer()
 
-        circularView.progressLayer.isHidden = false
-        circularView.progressLayer.strokeColor = UIColor.AntennaConnecting.cgColor
-        self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
-        circularProgrress()
-        startCircularTimer()
-        startSignalTimer()
-//        stopTimerLabel()
+//        circularView.progressLayer.isHidden = false
+//        circularView.progressLayer.strokeColor = UIColor.AntennaConnecting.cgColor
+//        self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
+//        circularProgrress()
+//        startCircularTimer()
+//        startSignalTimer()
+        circularView.progressLayer.strokeColor = UIColor.ButtonDisconnected.cgColor
+        signal1.setImageTintColor(UIColor.AntennaDisconnected)
+        signal2.setImageTintColor(UIColor.AntennaDisconnected)
+        signal3.setImageTintColor(UIColor.AntennaDisconnected)
+        connectBtn.setImageTintColor(UIColor.ButtonDisconnected)
+        pauseTimerLabel()
         
     }
     
