@@ -340,7 +340,7 @@ class VPNViewController: UIViewController {
             s = "0"
         }
         
-        print("HH:MM:SS = \(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))")
+//        print("HH:MM:SS = \(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))")
         self.timmer.text = "\(h)\(Int(hour)):\(m)\(Int(minute)):\(s)\(Int(second))"
     }
     
@@ -400,7 +400,7 @@ class VPNViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func userLoginSuccessful(completion:@escaping (Bool)->Void){
+    func userLoginSuccessful(completion:@escaping (Bool?,Error?)->Void){
       
  
         let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
@@ -411,6 +411,11 @@ class VPNViewController: UIViewController {
         NetworkService.serverRequest(url: request, dec: LoginResponse.self, view: self.view) { (loginResponse, error) in
 
 
+            if let error = error{
+//                HelperFunc().showAlert(title: "Alert!", message: error.localizedDescription, controller: self)
+                completion(nil,error)
+            }
+            
             if loginResponse != nil{
                 print("**********loginResponse**********")
                 print(loginResponse!)
@@ -423,10 +428,10 @@ class VPNViewController: UIViewController {
             }
             
             if loginResponse?.success == "true"{
-                completion(true)
+                completion(true,nil)
             }
             else{
-                completion(false)
+                completion(false,nil)
             }
         }
     }
@@ -534,36 +539,44 @@ extension VPNViewController{
 //
 //
                 
-            userLoginSuccessful(completion: { (isUserLogin) in
-                if(isUserLogin){
-                    let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
-                    let password = userCredentials?.password
-                    let username = userCredentials?.username
-    //                let password = self.userData?.password ?? ""
-    //                let username = self.userData?.username ?? ""
-                    self.loadProviderManager {
-
-                        self.connectBtn.isEnabled = false
-                        self.configureVPN(serverAddress: "", username: username!, password:password!)
-                        self.connecting()
-                        
-                    }
+            userLoginSuccessful(completion: { (isUserLogin,error) in
+                
+                if let error = error{
+                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: error.localizedDescription, controller: self)
+                    return
                 }
                 else{
-                    let alert = UIAlertController(title: "Alert!", message: "User Authentication Failed!", preferredStyle: UIAlertController.Style.alert)
-      
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
-                        UIAlertAction in
-                        print("OK Pressed")
-                        self.openLoginScreen()
+                    if let isUserLogin = isUserLogin{
+                        
+                        if(isUserLogin){
+                            let userCredentials = HelperFunc().getUserDefaultData(dec: UserCredentials.self, title: User_Defaults.userCredentials)
+                            let password = userCredentials?.password
+                            let username = userCredentials?.username
+                            //                let password = self.userData?.password ?? ""
+                            //                let username = self.userData?.username ?? ""
+                            self.loadProviderManager {
+                                
+                                self.connectBtn.isEnabled = false
+                                self.configureVPN(serverAddress: "", username: username!, password:password!)
+                                self.connecting()
+                                
+                            }
+                        }
+                        else{
+                            let alert = UIAlertController(title: Titles.ALERT.rawValue.localiz(), message: Titles.USER_AUTHENTICATION_FAILED.rawValue.localiz(), preferredStyle: UIAlertController.Style.alert)
+                            
+                            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                                UIAlertAction in
+                                print("OK Pressed")
+                                self.openLoginScreen()
+                            }
+                            alert.addAction(okAction)
+                            
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
-                    alert.addAction(okAction)
-                    
-    //                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (ok) in
-    //
-    //                }))
-                    self.present(alert, animated: true, completion: nil)
                 }
+               
             })
             
 
@@ -775,6 +788,8 @@ extension VPNViewController{
             break
         case .reasserting:
             print("Reasserting...")
+            self.connectionStatus.text = Titles.VPN_STATE_RECONNECTING.rawValue.localiz().uppercased()
+//            self.reconnecting()
             break
         @unknown default:
             print("Fatel Error...")
@@ -900,6 +915,19 @@ extension VPNViewController{
 extension VPNViewController{
     
 
+    func reconnecting(){
+        stopCircularTimer()
+        stopSignalTimer()
+
+        circularView.progressLayer.isHidden = false
+        circularView.progressLayer.strokeColor = UIColor.AntennaConnecting.cgColor
+        self.connectBtn.setImageTintColor(UIColor.ButtonConnecting)
+        circularProgrress()
+        startCircularTimer()
+        startSignalTimer()
+//        stopTimerLabel()
+        
+    }
     
     func connecting(){
         stopCircularTimer()
