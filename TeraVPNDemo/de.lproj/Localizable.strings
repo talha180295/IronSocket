@@ -4,6 +4,7 @@
 "VPN_STATE_DISCONNECTED" = "Verbindung getrennt";
 "VPN_STATE_CONNECTED" = "Verbunden";
 "VPN_STATE_DISCONNECTING" = "Verbindung trennen ...";
+"VPN_STATE_RECONNECTING" = "Wiederverbindung ...";
 "VPN_STATE_CONNECTING" = "Verbinden ...";
 "LOCATION" = "Ort";
 "YOUR_IP_ADDRESS" = "Ihre IP-Adresse";
@@ -50,3 +51,14 @@
 "AUTOMATIC" = "Automatisch";
 "DO_YOU_WANT_TO_CONNECT_TO_VPN" = "Möchten Sie eine Verbindung zum VPN herstellen?";
 "DISCONNECT_VPN_TO_CHANGE_THE_LOCATION" = "VPN trennen, um den Standort zu ändern";
+"ALERT" = "Alert!";
+"SOMETHING_WENT_WRONG" = "Es ist ein Fehler aufgetreten!";
+"USER_AUTHENTICATION_FAILED" = "Benutzerauthentifizierung fehlgeschlagen!";
+"PLEASE_ENTER_OLD_PASSWORD" = "Bitte altes Passwort eingeben!";
+"PLEASE_ENTER_NEW_PASSWORD" = "Bitte neues Passwort eingeben!";
+"PLEASE_ENTER_CONFIRM_NEW_PASSWORD" = "Bitte eingeben, neues Passwort bestätigen!";
+"PASSWORD_DOES_NOT_MATCHED" = "Passwörter stimmen nicht überein!";
+"RESET_TO_DEFAULTS" = "Auf Standardeinstellungen zurücksetzen";
+"PLEASE_ENTER_PASSWORD" = "Bitte Passwort eingeben!";
+"PLEASE_ENTER_USERNAME" = "Bitte neuen Benutzernamen eingeben!";
+"CLOSE_APPLICATION" = "Anwendung schließen";

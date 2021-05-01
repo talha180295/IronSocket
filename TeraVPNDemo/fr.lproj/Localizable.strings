@@ -4,6 +4,7 @@
 "VPN_STATE_DISCONNECTED" = "Déconnecté";
 "VPN_STATE_CONNECTED" = "Connecté";
 "VPN_STATE_DISCONNECTING" = "Déconnexion en cours ...";
+"VPN_STATE_RECONNECTING" = "Reconnexion en cours ...";
 "VPN_STATE_CONNECTING" = "Connexion en cours ...";
 "LOCATION" = "Lieu";
 "YOUR_IP_ADDRESS" = "Votre adresse IP";
@@ -50,3 +51,14 @@
 "AUTOMATIC" = "Automatique";
 "DO_YOU_WANT_TO_CONNECT_TO_VPN" = "Voulez-vous vous connecter au VPN?";
 "DISCONNECT_VPN_TO_CHANGE_THE_LOCATION" = "Déconnectez le VPN pour changer l'emplacement";
+"ALERT" = "Alerte!";
+"SOMETHING_WENT_WRONG" = "Une erreur s'est produite!";
+"USER_AUTHENTICATION_FAILED" = "L'authentification de l'utilisateur a échoué!";
+"PLEASE_ENTER_OLD_PASSWORD" = "Veuillez saisir l'ancien mot de passe!";
+"PLEASE_ENTER_NEW_PASSWORD" = "Veuillez saisir un nouveau mot de passe!";
+"PLEASE_ENTER_CONFIRM_NEW_PASSWORD" = "Veuillez saisir le nouveau mot de passe!";
+"PASSWORD_DOES_NOT_MATCHED" = "Les mots de passe ne correspondent pas!";
+"RESET_TO_DEFAULTS" = "Rétablir les valeurs par défaut";
+"PLEASE_ENTER_PASSWORD" = "Veuillez saisir le mot de passe!";
+"PLEASE_ENTER_USERNAME" = "Veuillez saisir un nouveau nom d'utilisateur!";
+"CLOSE_APPLICATION" = "Fermer l'application";
