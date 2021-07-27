@@ -445,8 +445,8 @@ class VPNViewController: UIViewController {
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
         
-        
-        if let _ = getConnectedVpnData(){
+//        if let _ = getConnectedVpnData(){
+        if self.providerManager.connection.status == .connected {
             HelperFunc().showToast(message: Titles.DISCONNECT_VPN_TO_CHANGE_THE_LOCATION.rawValue.localiz(), controller: self)
             return
         }
