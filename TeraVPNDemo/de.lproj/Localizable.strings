@@ -62,3 +62,5 @@
 "PLEASE_ENTER_PASSWORD" = "Bitte Passwort eingeben!";
 "PLEASE_ENTER_USERNAME" = "Bitte neuen Benutzernamen eingeben!";
 "CLOSE_APPLICATION" = "Anwendung schließen";
+"PASS_UPDATED" = "Passwort erfolgreich geändert";
+"CHANGE_PASS_FAILED" = "Passwort ändern fehlgeschlagen";

@@ -62,3 +62,5 @@
 "PLEASE_ENTER_PASSWORD" = "Veuillez saisir le mot de passe!";
 "PLEASE_ENTER_USERNAME" = "Veuillez saisir un nouveau nom d'utilisateur!";
 "CLOSE_APPLICATION" = "Fermer l'application";
+"PASS_UPDATED" = "Mot de passe modifié avec succès";
+"CHANGE_PASS_FAILED" = "Échec de la modification du mot de passe";

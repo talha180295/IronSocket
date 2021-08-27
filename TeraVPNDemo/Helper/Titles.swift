@@ -62,6 +62,8 @@ enum Titles: String{
     case PLEASE_ENTER_PASSWORD
     case PLEASE_ENTER_USERNAME
     case CLOSE_APPLICATION
+    case PASS_UPDATED
+    case CHANGE_PASS_FAILED
 }
 
 

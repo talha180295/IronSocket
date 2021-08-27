@@ -56,8 +56,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func LocationOnclick(_ sender:UIButton){
         
-        if let _ = getConnectedVpnData(){
-            HelperFunc().showToast(message: "Disconnect VPN to change the Location", controller: self)
+        print("abcx= \(providerManager.connection.status.rawValue)")
+//        if let _ = getConnectedVpnData(){
+        if providerManager.connection.status == .connected {
+            HelperFunc().showToast(message: Titles.DISCONNECT_VPN_TO_CHANGE_THE_LOCATION.rawValue.localiz(), controller: self)
             return
         }
         

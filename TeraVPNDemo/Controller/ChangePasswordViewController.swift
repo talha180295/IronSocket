@@ -110,13 +110,16 @@ class ChangePasswordViewController: UIViewController {
                     
                     HelperFunc().deleteUserDefaultData(title: User_Defaults.user)
                     HelperFunc().saveUserDefaultData(data: self.userData, title: User_Defaults.user)
-                    self.passChangeedSuccsesfull(true, changePassResponse?.message ?? "")
+                    self.passChangeedSuccsesfull(true, Titles.PASS_UPDATED.rawValue.localiz())
                     self.navigationController?.popViewController(animated: true)
 
                 }
-                else{
-                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: changePassResponse?.message ?? Titles.SOMETHING_WENT_WRONG.rawValue.localiz(), controller: self)
+                else if changePassResponse?.success == "false"{
+                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: Titles.CHANGE_PASS_FAILED.rawValue.localiz(), controller: self)
                 }
+//                else{
+//                    HelperFunc().showAlert(title: Titles.ALERT.rawValue.localiz(), message: changePassResponse?.message ?? Titles.SOMETHING_WENT_WRONG.rawValue.localiz(), controller: self)
+//                }
             }
         }
         

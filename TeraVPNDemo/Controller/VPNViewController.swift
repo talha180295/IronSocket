@@ -14,6 +14,7 @@ import SDWebImage
 import LMGaugeViewSwift
 //import MMWormhole
 
+var providerManager = NETunnelProviderManager()
 
 class VPNViewController: UIViewController {
     
@@ -107,7 +108,7 @@ class VPNViewController: UIViewController {
     
     //VPN Var
     let tunnelBundleId = "\(Bundle.main.bundleIdentifier!).PacketTunnel"
-    var providerManager = NETunnelProviderManager()
+    
     var selectedIP : String!
     var isVPNConnected : Bool = false
     var duration: TimeInterval!
@@ -193,11 +194,11 @@ class VPNViewController: UIViewController {
         
         self.loadProviderManager {
             if self.checkConnectionOnstartup(){
-                if self.providerManager.connection.status == .disconnected || self.providerManager.connection.status == .invalid {
+                if providerManager.connection.status == .disconnected || providerManager.connection.status == .invalid {
                     self.connectVpn()
                 }
             }
-            if self.providerManager.connection.status == .connected {
+            if providerManager.connection.status == .connected {
                 if let connectedServer = self.getConnectedVpnData(){
                     
                     self.connected()
@@ -279,7 +280,7 @@ class VPNViewController: UIViewController {
     
     
     @objc func getTrafficStats() {
-        if let session = self.providerManager.connection as? NETunnelProviderSession {
+        if let session = providerManager.connection as? NETunnelProviderSession {
             do {
                 try session.sendProviderMessage("SOME_STATIC_KEY".data(using: .utf8)!) { (data) in
                     // here you can unarchieve your data and get traffic stats as dict
@@ -323,7 +324,7 @@ class VPNViewController: UIViewController {
     
     @objc func update() {
         
-        let conTime = self.providerManager.connection.connectedDate ?? Date()
+        let conTime = providerManager.connection.connectedDate ?? Date()
         let nowT = Date()
         
         let dif = nowT - conTime
@@ -445,8 +446,9 @@ class VPNViewController: UIViewController {
     
     @IBAction func sideMenuBtn(_ sender:UIBarButtonItem){
         
+        print("abcx= \(providerManager.connection.status.rawValue)")
 //        if let _ = getConnectedVpnData(){
-        if self.providerManager.connection.status == .connected {
+        if providerManager.connection.status == .connected {
             HelperFunc().showToast(message: Titles.DISCONNECT_VPN_TO_CHANGE_THE_LOCATION.rawValue.localiz(), controller: self)
             return
         }
@@ -519,13 +521,13 @@ extension VPNViewController{
             
             self.connectionStatus.text = Titles.VPN_STATE_DISCONNECTING.rawValue.localiz().uppercased()
             self.connectBtn.isEnabled = false
-            self.providerManager.connection.stopVPNTunnel()
+            providerManager.connection.stopVPNTunnel()
 //            self.disconnected()
             
 //            let alert = UIAlertController(title: "Cancel Confirmation", message: "Disconnect the connected VPN cancel the connection attempt?", preferredStyle: UIAlertController.Style.alert)
 //
 //            let disconnectAction = UIAlertAction(title: "DISCONNECT", style: UIAlertAction.Style.destructive) { _ in
-//                self.providerManager.connection.stopVPNTunnel()
+//                providerManager.connection.stopVPNTunnel()
 //                self.disconnected()
 //            }
 //
@@ -607,7 +609,7 @@ extension VPNViewController{
     func loadProviderManager(completion:@escaping () -> Void) {
         NETunnelProviderManager.loadAllFromPreferences { (managers, error) in
             if error == nil {
-                self.providerManager = managers?.first ?? NETunnelProviderManager()
+                providerManager = managers?.first ?? NETunnelProviderManager()
                 completion()
             }
         }
@@ -618,7 +620,7 @@ extension VPNViewController{
         
         guard let configurationFileContent = self.getFileData(path: "android-version3") else { return }
         
-        self.providerManager.loadFromPreferences { error in
+        providerManager.loadFromPreferences { error in
             if error == nil {
                 let tunnelProtocol = NETunnelProviderProtocol()
 //                tunnelProtocol.username = username
@@ -629,14 +631,14 @@ extension VPNViewController{
                 tunnelProtocol.providerConfiguration = ["ovpn": configurationFileContent, "username": username, "password": password]
                 
                 tunnelProtocol.disconnectOnSleep = false
-                self.providerManager.protocolConfiguration = tunnelProtocol
-                self.providerManager.localizedDescription = "IronSocket VPN" // the title of the VPN profile which will appear on Settings
-                self.providerManager.isEnabled = true
-                self.providerManager.saveToPreferences(completionHandler: { (error) in
+                providerManager.protocolConfiguration = tunnelProtocol
+                providerManager.localizedDescription = "IronSocket VPN" // the title of the VPN profile which will appear on Settings
+                providerManager.isEnabled = true
+                providerManager.saveToPreferences(completionHandler: { (error) in
                     if error == nil  {
-                        self.providerManager.loadFromPreferences(completionHandler: { (error) in
+                        providerManager.loadFromPreferences(completionHandler: { (error) in
                             do {
-                                try self.providerManager.connection.startVPNTunnel() // starts the VPN tunnel.
+                                try providerManager.connection.startVPNTunnel() // starts the VPN tunnel.
                             } catch let error {
                                 print(error.localizedDescription)
                             }
@@ -756,7 +758,7 @@ extension VPNViewController{
     @objc func VPNStatusDidChange(_ notification: Notification?) {
         print("VPN Status changed:")
         
-        let status = self.providerManager.connection.status
+        let status = providerManager.connection.status
         switch status {
         case .connecting:
             isVPNConnected = true
@@ -811,7 +813,7 @@ extension VPNViewController:ServerListProtocol{
     
     func selectServer(server: Server) {
         if isVPNConnected{
-            self.providerManager.connection.stopVPNTunnel()
+            providerManager.connection.stopVPNTunnel()
         }
         
         self.selectedIP = "\(server.serverIP ?? "0")"//" \(server.serverPort ?? "0")"
@@ -831,7 +833,7 @@ extension VPNViewController:SettingServerListProtocol{
     
     func settingSelectServer(server: Server) {
         if isVPNConnected{
-            self.providerManager.connection.stopVPNTunnel()
+            providerManager.connection.stopVPNTunnel()
             self.stopCircularTimer()
             self.stopSignalTimer()
             self.stopTimerLabel()
